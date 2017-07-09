@@ -42,7 +42,7 @@ module.exports = {
         include: helpers.root('./src/assets'),
         loader: ExtractTextPlugin.extract({ 
           fallbackLoader: 'style-loader', 
-          loader: 'css-loader?sourceMap!resolve-url-loader!sass-loader?sourceMap' })
+          loader: 'css-loader!resolve-url-loader!sass-loader?sourceMap' })
       },
       {
         test: /\.(png|jpe?g|gif|svg)$/,        

@@ -20,19 +20,19 @@ namespace LegalAssistance
                 .IncludeDirectory("~/Scripts/vendor/document", "*.js", true)
                 .IncludeDirectory("~/Scripts/app", "*.js", true));
 
-            bundles.Add(new StyleBundle("~/bundles/css").Include(
-                      "~/Content/Styles/bootstrap.css",
-                      "~/Content/Styles/style.css",
-                      "~/Content/Styles/swiper.css",
-                      "~/Content/Styles/dark.css",
-                      "~/Content/Styles/font-icons.css",
-                      "~/Content/Styles/animate.css",
-                      "~/Content/Styles/magnific-popup.css",
-                      "~/Content/Styles/responsive.css",
-                      "~/Content/Styles/site.css"));
+            //bundles.Add(new StyleBundle("~/bundles/css").Include(
+            //          "~/Content/Styles/bootstrap.css",
+            //          "~/Content/Styles/style.css",
+            //          "~/Content/Styles/swiper.css",
+            //          "~/Content/Styles/dark.css",
+            //          "~/Content/Styles/font-icons.css",
+            //          "~/Content/Styles/animate.css",
+            //          "~/Content/Styles/magnific-popup.css",
+            //          "~/Content/Styles/responsive.css",
+            //          "~/Content/Styles/site.css"));
 
-            //bundles.Add(new StyleBundle("~/bundles/css")
-            //    .Include(string.Format(distFolder, "*.css")));
+            bundles.Add(new StyleBundle("~/bundles/css")
+                .Include(string.Format(distFolder, "*.css")));
 
             RegisterDocsBundles(bundles);
 

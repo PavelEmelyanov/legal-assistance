@@ -1,11 +1,5 @@
 // Import External Css
-@import "css/animate";
 @import "css/bootstrap";
-@import "css/dark";
-@import "css/font-icons";
-@import "css/magnific-popup";
-@import "css/responsive";
-@import "css/swiper";
 
 // Initialize
 @import "sass/variables.scss";
@@ -29,17 +23,22 @@
 @import "sass/shop.scss";
 @import "sass/events.scss";
 
-
 // Shortcodes
 @import "sass/shortcodes.scss";
 
-
 // Footer
 @import "sass/footer.scss";
-
 
 // Widgets
 @import "sass/widgets.scss";
 
 // Extras
 @import "sass/extras.scss";
+
+//Addition
+@import "css/animate";
+@import "css/dark";
+@import "css/font-icons";
+@import "css/magnific-popup";
+@import "css/responsive";
+@import "css/swiper";
