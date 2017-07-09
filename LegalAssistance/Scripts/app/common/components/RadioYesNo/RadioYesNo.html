@@ -1,0 +1,16 @@
+﻿<div>
+    <label class="radio-inline">
+        <input type="radio"
+               ng-model="flag"
+               ng-value="false"
+               ng-change="onChange()">
+        {{noText || 'Нет'}}
+    </label>
+    <label class="radio-inline">
+        <input type="radio"
+               ng-model="flag"
+               ng-value="true"
+               ng-change="onChange()">
+        {{yesText || 'Да'}}
+    </label>
+</div>

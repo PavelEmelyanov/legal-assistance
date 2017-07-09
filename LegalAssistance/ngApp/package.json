@@ -1,0 +1,41 @@
+{
+  "name": "legal-assistance",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "rimraf dist && SET NODE_ENV=dev&& webpack",
+    "prod": "rimraf dist && SET NODE_ENV=prod&& webpack"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@angular/common": "~4.2.0",
+    "@angular/compiler": "~4.2.0",
+    "@angular/core": "~4.2.0",
+    "@angular/forms": "~4.2.0",
+    "@angular/http": "~4.2.0",
+    "@angular/platform-browser": "~4.2.0",
+    "@angular/platform-browser-dynamic": "~4.2.0",
+    "@angular/router": "~4.2.0",
+    "core-js": "^2.4.1",
+    "rxjs": "5.0.1",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
+    "@types/node": "^6.0.45",
+    "angular2-template-loader": "^0.6.0",
+    "awesome-typescript-loader": "^3.0.4",
+    "css-loader": "^0.26.1",
+    "extract-text-webpack-plugin": "2.0.0-beta.5",
+    "file-loader": "^0.9.0",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.16.1",
+    "node-sass": "^4.5.3",
+    "resolve-url-loader": "^2.1.0",
+    "rimraf": "^2.5.2",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.13.1",
+    "typescript": "~2.3.1",
+    "url-loader": "^0.5.9",
+    "webpack": "2.2.1",
+    "webpack-merge": "^3.0.0"
+  }
+}

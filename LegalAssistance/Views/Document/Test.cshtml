@@ -1,0 +1,18 @@
+﻿@model LA.BusinessLogic.Models.Document
+
+<span id="doc-data-json"
+      class="hidden">
+    @Html.Raw(Json.Encode(Model))
+</span>
+
+<div class="container">
+    <h1>@Model.Name</h1>
+
+    <my-app></my-app>    
+</div>
+
+
+@section scripts{    
+    @Scripts.Render("~/bundles/documents/common") 
+    @Scripts.Render(string.Format("~/bundles/documents/{0}", Model.FileName));
+}

@@ -1,0 +1,62 @@
+﻿<div class="form-group">
+    <label>Я хочу потребовать аналогичный товар на период замены:</label>
+    <la-radio-yes-no ng-model="document.hochuAnalogichniyTovar.flag"
+                     ng-change="document.hochuAnalogichniyTovar.zamenyamiyTovarFlag = undefined; document.hochuAnalogichniyTovar.obladaetSvoystvami = undefined;">
+    </la-radio-yes-no>
+</div>
+<div class="well"
+     ng-if="document.hochuAnalogichniyTovar.flag">
+    <div class="form-group">
+        <label>Включён ли некачественный заменяемый товар в ПЕРЕЧЕНЬ 
+        <a href="http://www.consultant.ru/document/cons_doc_LAW_17579/c8b966271331ed0f59b793d7144df9b88335c640/"
+           target="_blank">
+            (ссылка) 
+        </a> 
+        :  
+        </label>
+        <la-radio-yes-no ng-model="document.hochuAnalogichniyTovar.zamenyamiyTovarFlag"
+                         ng-change="document.hochuAnalogichniyTovar.obladaetSvoystvami = undefined;">
+        </la-radio-yes-no>
+    </div>
+    <div class="alert alert-danger"
+         ng-if="document.hochuAnalogichniyTovar.zamenyamiyTovarFlag === true">
+        {{relatedData.alertNaZamenuTechSlozhniy}}
+    </div>
+    <div class="form-group"
+         ng-if="document.hochuAnalogichniyTovar.zamenyamiyTovarFlag === false">
+        <label>Обладает ли аналогичный товар теми же потребительскими свойствами, что и заменяемый: </label>        
+        
+        <la-radio-yes-no ng-model="document.hochuAnalogichniyTovar.obladaetSvoystvami">
+        </la-radio-yes-no>    
+            
+        <div class="text-center">
+            <a la-tooltip="{{relatedData.svoistvaTooltip}}">
+                Определение потребительские свойства
+            </a>            
+        </div>
+    </div>
+    <div class="alert alert-danger"
+         ng-if="document.hochuAnalogichniyTovar.obladaetSvoystvami === false">
+        {{relatedData.alertNaZamenuSvoistva}}
+    </div>
+    <div class="form-group"
+         ng-if="document.hochuAnalogichniyTovar.obladaetSvoystvami === true">
+        <label>Укажите, какой товар вы хотите получить на ПЕРИОД процесса замены вашего некачетсвенного товара</label>
+        <div class="row">
+            <div class="col-xs-4">
+                <input type="text"
+                       class="form-control"
+                       ng-model="document.hochuAnalogichniyTovar.naimenovanieTovara"
+                       required
+                       placeholder="Микроволновая печь Samsung F43">
+            </div>
+            <div class="col-xs-8">
+                <la-checkbox-with-input ng-model="document.hochuAnalogichniyTovar.articul"
+                                        flag="document.hochuAnalogichniyTovar.articulIsSelected"
+                                        placeholder="12312311">
+                    Артикул
+                </la-checkbox-with-input>
+            </div>
+        </div>
+    </div>
+</div>

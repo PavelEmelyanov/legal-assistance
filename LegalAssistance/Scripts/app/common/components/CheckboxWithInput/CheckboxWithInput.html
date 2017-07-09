@@ -1,0 +1,20 @@
+﻿<div>
+    <div class="form-inline">
+        <div class="form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox"
+                       ng-model="flag"
+                       ng-change="onChange()">
+                <ng-transclude></ng-transclude>
+            </label>
+        </div>
+        <div class="form-group">
+            <input type="text"
+                   class="form-control"
+                   ng-model="text"
+                   ng-disabled="!flag"
+                   ng-required="flag"
+                   placeholder="{{placeholder}}" />
+        </div>
+    </div>
+</div>

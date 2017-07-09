@@ -1,0 +1,441 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.Default.props')" />
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{6C3E5B73-CD9B-4249-B00A-C0550D126361}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LegalAssistance</RootNamespace>
+    <AssemblyName>LegalAssistance</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <TypeScriptToolsVersion>1.7</TypeScriptToolsVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocX, Version=1.0.0.22, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocX.1.0.0.22\lib\net40\DocX.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.0.1011, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.1.2.3\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.1.2.3\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.1.2.3\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.1.2.3\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=1.2.3.246, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.1.2.3\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=1.2.3.490, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.1.2.3\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\DocumentApiController.cs" />
+    <Compile Include="Controllers\DocumentController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\FormInfoViewModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\Styles\animate.css" />
+    <Content Include="Content\Styles\bootstrap-rtl.css" />
+    <Content Include="Content\Styles\bootstrap.css" />
+    <Content Include="Content\Styles\calendar.css" />
+    <Content Include="Content\Styles\camera-rtl.css" />
+    <Content Include="Content\Styles\camera.css" />
+    <Content Include="Content\Styles\colors-rtl.css" />
+    <Content Include="Content\Styles\colors.css" />
+    <Content Include="Content\Styles\components\bs-datatable.css" />
+    <Content Include="Content\Styles\components\bs-editable.css" />
+    <Content Include="Content\Styles\components\bs-filestyle.css" />
+    <Content Include="Content\Styles\components\bs-rating.css" />
+    <Content Include="Content\Styles\components\bs-select.css" />
+    <Content Include="Content\Styles\components\bs-switches.css" />
+    <Content Include="Content\Styles\components\dark-components.css" />
+    <Content Include="Content\Styles\components\daterangepicker.css" />
+    <Content Include="Content\Styles\components\ion.rangeslider.css" />
+    <Content Include="Content\Styles\components\pricing-table.css" />
+    <Content Include="Content\Styles\components\radio-checkbox.css" />
+    <Content Include="Content\Styles\components\rangeslider\sprite-skin-nice.png" />
+    <Content Include="Content\Styles\components\select-boxes.css" />
+    <Content Include="Content\Styles\components\timepicker.css" />
+    <Content Include="Content\Styles\custom.css" />
+    <Content Include="Content\Styles\dark-rtl.css" />
+    <Content Include="Content\Styles\dark.css" />
+    <Content Include="Content\Styles\elastic.css" />
+    <Content Include="Content\Styles\font-icons-rtl.css" />
+    <Content Include="Content\Styles\font-icons-snapchat.css" />
+    <Content Include="Content\Styles\font-icons.css" />
+    <Content Include="Content\Styles\fonts.css" />
+    <Content Include="Content\Styles\fonts\font-icons-snapchat.svg" />
+    <Content Include="Content\Styles\fonts\font-icons.svg" />
+    <Content Include="Content\Styles\fonts\lined-icons.svg" />
+    <Content Include="Content\Styles\fonts\Simple-Line-Icons.dev.svg" />
+    <Content Include="Content\Styles\fonts\Simple-Line-Icons.svg" />
+    <Content Include="Content\Styles\imports\blog.css" />
+    <Content Include="Content\Styles\imports\content.css" />
+    <Content Include="Content\Styles\imports\events.css" />
+    <Content Include="Content\Styles\imports\extras.css" />
+    <Content Include="Content\Styles\imports\footer.css" />
+    <Content Include="Content\Styles\imports\header.css" />
+    <Content Include="Content\Styles\imports\helpers.css" />
+    <Content Include="Content\Styles\imports\layouts.css" />
+    <Content Include="Content\Styles\imports\pagetitle.css" />
+    <Content Include="Content\Styles\imports\portfolio.css" />
+    <Content Include="Content\Styles\imports\shop.css" />
+    <Content Include="Content\Styles\imports\shortcodes.css" />
+    <Content Include="Content\Styles\imports\shortcodes\alerts.css" />
+    <Content Include="Content\Styles\imports\shortcodes\buttons.css" />
+    <Content Include="Content\Styles\imports\shortcodes\carousel.css" />
+    <Content Include="Content\Styles\imports\shortcodes\clients.css" />
+    <Content Include="Content\Styles\imports\shortcodes\countdown.css" />
+    <Content Include="Content\Styles\imports\shortcodes\counter-skills.css" />
+    <Content Include="Content\Styles\imports\shortcodes\dividers.css" />
+    <Content Include="Content\Styles\imports\shortcodes\faqs.css" />
+    <Content Include="Content\Styles\imports\shortcodes\feature-box.css" />
+    <Content Include="Content\Styles\imports\shortcodes\headings.css" />
+    <Content Include="Content\Styles\imports\shortcodes\misc.css" />
+    <Content Include="Content\Styles\imports\shortcodes\overlay.css" />
+    <Content Include="Content\Styles\imports\shortcodes\pricing.css" />
+    <Content Include="Content\Styles\imports\shortcodes\process-steps.css" />
+    <Content Include="Content\Styles\imports\shortcodes\promo.css" />
+    <Content Include="Content\Styles\imports\shortcodes\social-icons.css" />
+    <Content Include="Content\Styles\imports\shortcodes\styled-icons.css" />
+    <Content Include="Content\Styles\imports\shortcodes\tabs.css" />
+    <Content Include="Content\Styles\imports\shortcodes\team.css" />
+    <Content Include="Content\Styles\imports\shortcodes\testimonials.css" />
+    <Content Include="Content\Styles\imports\shortcodes\toggles-accordions.css" />
+    <Content Include="Content\Styles\imports\shortcodes\youtubebg.css" />
+    <Content Include="Content\Styles\imports\sliders.css" />
+    <Content Include="Content\Styles\imports\topbar.css" />
+    <Content Include="Content\Styles\imports\typography.css" />
+    <Content Include="Content\Styles\imports\widgets.css" />
+    <Content Include="Content\Styles\intro-fonts.css" />
+    <Content Include="Content\Styles\magnific-popup.css" />
+    <Content Include="Content\Styles\nivo-slider.css" />
+    <Content Include="Content\Styles\responsive-rtl.css" />
+    <Content Include="Content\Styles\responsive.css" />
+    <Content Include="Content\Styles\style.css" />
+    <Content Include="Content\Styles\swiper.css" />
+    <Content Include="Content\Styles\vmap.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Styles\Site.css" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Documents\zamena-tovara-nenadlezhashego-kachestva.docx" />
+    <Content Include="Content\Styles\colors-rtl.php" />
+    <Content Include="Content\Styles\colors.php" />
+    <Content Include="Content\Styles\fonts\font-icons-snapchat.eot" />
+    <Content Include="Content\Styles\fonts\font-icons-snapchat.ttf" />
+    <Content Include="Content\Styles\fonts\font-icons-snapchat.woff" />
+    <Content Include="Content\Styles\fonts\font-icons.eot" />
+    <Content Include="Content\Styles\fonts\font-icons.ttf" />
+    <Content Include="Content\Styles\fonts\font-icons.woff" />
+    <Content Include="Content\Styles\fonts\lined-icons.eot" />
+    <Content Include="Content\Styles\fonts\lined-icons.ttf" />
+    <Content Include="Content\Styles\fonts\lined-icons.woff" />
+    <Content Include="Content\Styles\fonts\Simple-Line-Icons.eot" />
+    <Content Include="Content\Styles\fonts\Simple-Line-Icons.ttf" />
+    <Content Include="Content\Styles\fonts\Simple-Line-Icons.woff" />
+    <Content Include="Images\blank.svg" />
+    <Content Include="Images\camera_skins.png" />
+    <Content Include="Images\footer-bg.jpg" />
+    <Content Include="Images\footer-logo%402x.png" />
+    <Content Include="Images\footer-logo.png" />
+    <Content Include="Images\footer-widget-logo%402x.png" />
+    <Content Include="Images\footer-widget-logo.png" />
+    <Content Include="Images\grid.png" />
+    <Content Include="Images\logo%402x.png" />
+    <Content Include="Images\logo-dark%402x.png" />
+    <Content Include="Images\logo-dark.png" />
+    <Content Include="Images\logo-resto%402x.png" />
+    <Content Include="Images\logo-resto-dark%402x.png" />
+    <Content Include="Images\logo-resto-dark.png" />
+    <Content Include="Images\logo-resto.png" />
+    <Content Include="Images\logo-side%402x.png" />
+    <Content Include="Images\logo-side-dark%402x.png" />
+    <Content Include="Images\logo-side-dark.png" />
+    <Content Include="Images\logo-side.png" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\mac.png" />
+    <Content Include="Images\pattern.png" />
+    <Content Include="Images\pattern2.png" />
+    <Content Include="Images\preloader%402x.gif" />
+    <Content Include="Images\preloader-dark%402x.gif" />
+    <Content Include="Images\preloader-dark.gif" />
+    <Content Include="Images\preloader.gif" />
+    <Content Include="Images\world-map.png" />
+    <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\common\components\RadioYesNo\RadioYesNo.html" />
+    <Content Include="Scripts\app\common\components\RadioYesNo\RadioYesNoDirective.js" />
+    <Content Include="Scripts\app\common\constants\ComponentTypes.js" />
+    <Content Include="Scripts\app\common\constants\DocToViewConfig.js" />
+    <Content Include="Scripts\app\common\directives\Tooltip.js" />
+    <Content Include="Scripts\app\common\module.common.js" />
+    <Content Include="Scripts\app\common\validation\FormSubmit.js" />
+    <Content Include="Scripts\app\common\validation\ValidationAttributes.js" />
+    <Content Include="Scripts\app\common\directives\Date.js" />
+    <Content Include="Scripts\app\common\filters\Rub.js" />
+    <Content Include="Scripts\app\common\services\UtilsService.js" />
+    <Content Include="Scripts\app\common\services\DocumentService.js" />
+    <Content Include="Scripts\app\common\validation\Validation.js" />
+    <Content Include="Scripts\app\common\validation\ValidationHelper.js" />
+    <Content Include="Scripts\app\common\validation\ValidationMessageStorage.js" />
+    <Content Include="Scripts\app\common\components\CheckboxWithInput\CheckboxWithInput.html" />
+    <Content Include="Scripts\app\common\components\CheckboxWithInput\CheckboxWithInputDirective.js" />
+    <Content Include="Scripts\app\common\components\Hint\Hint.html" />
+    <Content Include="Scripts\app\common\components\Hint\HintDirective.js" />
+    <Content Include="Scripts\app\common\components\Inn\Inn.html" />
+    <Content Include="Scripts\app\common\components\Inn\InnDirective.js" />
+    <Content Include="Scripts\app\documents\module.documents.js" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Penya\PenyaConfig.js" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Organizaciya\OrganizaciyaConfig.js" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\module.js" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Penya\Penya.html" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Pokupatel\PokupatelConfig.js" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\TovarNaPeriodZameni\TovarNaPeriodZameniConfig.js" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\TovarNaPeriodZameni\TovarNaPeriodZameni.html" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Organizaciya\Organizaciya.html" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Pokupatel\Pokupatel.html" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Tovar\TovarConfig.js" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Tovar\Tovar.html" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Ubitki\UbitkiConfig.js" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Ubitki\Ubitki.html" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Zamena\ZamenaConfig.js" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\sections\Zamena\Zamena.html" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\ZamenaTovaraNenadlezhashegoKachestva.html" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\ZamenaTovaraNenadlezhashegoKachestvaConfig.js" />
+    <Content Include="Scripts\app\documents\ZamenaTovaraNenadlezhashegoKachestva\ZamenaTovaraNenadlezhashegoKachestvaController.js" />
+    <Content Include="Scripts\vendor\base\functions.js" />
+    <Content Include="Scripts\vendor\base\jquery.js" />
+    <Content Include="Scripts\vendor\base\plugins.js" />
+    <Content Include="Scripts\vendor\document\angular.js" />
+    <Content Include="Scripts\vendor\document\bootstrap.js" />
+    <Content Include="Scripts\vendor\document\FileAPI.js" />
+    <Content Include="Scripts\vendor\document\FileSaver.js" />
+    <Content Include="Scripts\vendor\document\jquery.inputmask.js" />
+    <Content Include="Scripts\vendor\document\ui-bootstrap-custom-tpls-2.5.0.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Document\FillForm.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Views\Document\DocumentTree.cshtml" />
+    <Content Include="Views\Document\Index.cshtml" />
+    <Content Include="Views\Document\Test.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LA.BusinessLogic\LA.BusinessLogic.csproj">
+      <Project>{c290026e-d120-46e8-ab52-d6378dda6fbf}</Project>
+      <Name>LA.BusinessLogic</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets" Condition="Exists('$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\TypeScript\Microsoft.TypeScript.targets')" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>39618</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost/LegalAssistance</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

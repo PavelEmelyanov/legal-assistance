@@ -1,0 +1,20 @@
+﻿@model List<LA.BusinessLogic.Models.Document>
+
+@foreach (var groupItem in Model.GroupBy(x => x.Category))
+{
+    <ul class="mega-menu-column col-md-4">
+        <li class="mega-menu-title">
+            <a href="#"><div>@groupItem.Key.Name</div></a>
+            <ul>
+                @foreach (var item in groupItem)
+                {
+                    <li>
+                        <a href="@Url.Action("FillForm", "Document", new { urlKey = item.FileName })">
+                            <div>@item.Name</div>
+                        </a>
+                    </li>
+                }                
+            </ul>
+        </li>
+    </ul>
+}

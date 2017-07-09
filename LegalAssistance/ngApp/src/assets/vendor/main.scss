@@ -1,0 +1,45 @@
+// Import External Css
+@import "css/animate";
+@import "css/bootstrap";
+@import "css/dark";
+@import "css/font-icons";
+@import "css/magnific-popup";
+@import "css/responsive";
+@import "css/swiper";
+
+// Initialize
+@import "sass/variables.scss";
+@import "sass/mixins.scss";
+
+
+// Core CSS
+@import "sass/typography.scss";
+@import "sass/helpers.scss";
+@import "sass/layouts.scss";
+
+
+// Content Blocks
+@import "sass/topbar.scss";
+@import "sass/header.scss";
+@import "sass/sliders.scss";
+@import "sass/pagetitle.scss";
+@import "sass/content.scss";
+@import "sass/portfolio.scss";
+@import "sass/blog.scss";
+@import "sass/shop.scss";
+@import "sass/events.scss";
+
+
+// Shortcodes
+@import "sass/shortcodes.scss";
+
+
+// Footer
+@import "sass/footer.scss";
+
+
+// Widgets
+@import "sass/widgets.scss";
+
+// Extras
+@import "sass/extras.scss";

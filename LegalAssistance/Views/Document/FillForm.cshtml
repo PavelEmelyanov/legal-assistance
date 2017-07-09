@@ -1,0 +1,17 @@
+﻿@model LA.BusinessLogic.Models.Document
+
+<span id="doc-data-json"
+      class="hidden">
+    @Html.Raw(Json.Encode(Model))
+</span>
+
+<div class="container" ng-controller="AppController">
+    <h1>@Model.Name</h1>    
+    <hr/>
+    <div ng-include="docUrl"></div>       
+</div>
+
+
+@section scripts{
+    @Scripts.Render("~/bundles/document")
+}
