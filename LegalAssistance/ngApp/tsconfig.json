@@ -9,6 +9,11 @@
     "lib": [ "es2015", "dom" ],
     "noImplicitAny": true,
     "suppressImplicitAnyIndexErrors": true,
+    "baseUrl": ".",
+    "paths": {
+      "@angular/*": ["node_modules/@angular/*"],
+      "@ngui/auto-complete": ["node_modules/@ngui/auto-complete/dist/index.d.ts"]
+    },
     "typeRoots": [
       "node_modules/@types"
     ]

@@ -1,0 +1,12 @@
+<input class="form-control" 
+        ngui-auto-complete 
+        [(ngModel)]="myData" 
+        [source]="search.bind(this)"
+        [list-formatter]="autocompleListFormatter"
+        auto-complete-placeholder="Введите название, ИНН, ОГРН или адрес организации"
+        (valueChanged)="onSelect($event)" 
+        no-match-found-text="По Вашему запросу ничего не найдено"
+        select-on-blur="false"
+        open-on-focus="false"
+        loading-text="Загрузка ..."
+        min-chars="1"/>

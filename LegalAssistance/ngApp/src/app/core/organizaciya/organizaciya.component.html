@@ -1,0 +1,73 @@
+<div class="form-group">
+    <label>К кому обращаемся: </label> <br />
+    <la-radio-group [options]="komu.options" (ngModel)="komu.value"></la-radio-group>    
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-xs-6">
+            <label>Введите название, ИНН, ОГРН или адрес организации:</label>
+            <!--<la-hint hint="relatedData.innTooltip"></la-hint>-->
+            <la-inn-autocomplete (select)="onOrgSelect($event)"                     
+                                is-required="!isNotFoundByAutocomplete"
+                                is-disabled="isNotFoundByAutocomplete">
+            </la-inn-autocomplete>
+        </div>
+        <div class="col-xs-6 form-input-down">
+            <label class="checkbox-inline">
+                <input type="checkbox"
+                        [(ngModel)]="isNotFoundByAutocomplete">
+                Не удалось найти через подсказчик?
+            </label>
+        </div>
+    </div>
+</div>
+<div [hidden]="!isNotFoundByAutocomplete">
+    <div class="alert alert-warning">
+        Пожалуйста заполните поля вручную. ОГРН обязательно только для юридических лиц (для ИП не нужно).
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label>ИНН: </label>
+                <input type="text"
+                       class="form-control"
+                       [(ngModel)]="inn.value"
+                       required
+                       la-positive-int
+                       placeholder="7709770002">
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label>ОГРН: </label>
+                <input type="text"
+                       class="form-control"
+                       [(ngModel)]="ogrn.value"
+                       la-positive-int
+                       placeholder="1077763747269">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label>Название / ФИО к кому обращаемся: </label>
+                <input type="text"
+                       class="form-control"
+                       [(ngModel)]="nazvaniaOrganizaciya.value"
+                       required
+                       placeholder="ООО 'Домашний Интерьер'">
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <div class="form-group">
+                <label>Адрес к кому обращаемся: </label>
+                <input type="text"
+                       class="form-control"
+                       [(ngModel)]="addressOrganizaciya.value"
+                       required
+                       placeholder="109240, г. Москва, ул. Николоямская, д.14, стр.1">
+            </div>
+        </div>
+    </div>
+</div>

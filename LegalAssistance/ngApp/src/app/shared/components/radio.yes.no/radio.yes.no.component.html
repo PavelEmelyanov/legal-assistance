@@ -1,0 +1,14 @@
+<label class="radio-inline">
+        <input type="radio"
+                [name]="name"
+                [(ngModel)]="value"                
+                [value]="false">
+        {{noText || 'Нет'}}
+</label>
+<label class="radio-inline">
+        <input type="radio"
+                [name]="name"
+                [(ngModel)]="value"                
+                [value]="true">
+        {{yesText || 'Да'}}
+</label>

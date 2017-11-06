@@ -1,0 +1,10 @@
+<label class="radio-inline"
+        *ngFor="let option of options">
+    <input type="radio"                
+        [name]="name"
+        [(ngModel)]="value"
+        [value]="option.value"
+        (change)="onSelect();">
+    {{option.description}}
+    <!--<la-hint hint="option.hint"></la-hint>-->
+</label>

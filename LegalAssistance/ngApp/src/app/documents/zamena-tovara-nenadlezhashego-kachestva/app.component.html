@@ -1,0 +1,56 @@
+<div>
+    <form la-submit="getDoc()" novalidate>
+        <fieldset>
+            <legend>Сведения о замене</legend>
+            <la-zamena-tovara></la-zamena-tovara>
+        </fieldset>
+        <div ng-if="document.techSlozhniyTovar.sluchay != 4">
+            <fieldset>
+                <legend>Сведения об организации</legend>
+                <la-organizaciya></la-organizaciya>                
+            </fieldset>
+            <fieldset>
+                <legend>Сведения о покупателе</legend>
+                <la-pokupatel></la-pokupatel>
+            </fieldset>
+            <fieldset>
+                <legend>Данные о купленном товаре</legend>
+                <div ng-include="sections.tovar"></div>
+            </fieldset>
+            <fieldset>
+                <legend>Дополнительные сведения</legend>
+                <!--Требование аналогичного товара на период замены-->
+                <div ng-include="sections.tovarNaPeriodZameni"></div>
+                <!--------------------------------------------------->
+
+                <!--Обращался ранее и требования не были выполнены-->
+                <div ng-include="sections.penya"></div>
+                <!-------------------------------------------------->                
+
+                <!--Требование возместить убытки-->
+                <div ng-include="sections.ubitki"></div>
+                <!-------------------------------->
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <label>Дата составления претензии: </label>
+                            <input type="text"
+                                   la-date
+                                   class="form-control"
+                                   ng-model="document.docDate.value"
+                                   required>
+                        </div>
+                    </div>                    
+                </div>
+            </fieldset>
+
+            <button type="button"
+                    class="btn btn-primary btn-lg"
+                    (click)="save()">
+                Получить Документ
+                <span class="glyphicon glyphicon-download-alt"></span>
+            </button>                            
+        </div>
+    </form>
+</div>
