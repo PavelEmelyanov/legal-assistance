@@ -9,5 +9,5 @@ export default abstract class DocComponent {
         Object.assign(this, init);
     }
 
-    public abstract toDto(): DocDto;
+    public abstract toDocDto(): DocDto;
 }

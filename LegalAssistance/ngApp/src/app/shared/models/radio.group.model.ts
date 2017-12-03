@@ -22,7 +22,7 @@ export class RadioGroup extends DocComponent {
         Object.assign(this, init);        
     }
 
-    public toDto(): DocDto {
+    public toDocDto(): DocDto {
         let value = this.value;
 
         if (this.resultTextTemplate){

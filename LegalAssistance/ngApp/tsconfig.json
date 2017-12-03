@@ -12,10 +12,13 @@
     "baseUrl": ".",
     "paths": {
       "@angular/*": ["node_modules/@angular/*"],
-      "@ngui/auto-complete": ["node_modules/@ngui/auto-complete/dist/index.d.ts"]
+      "@ngui/auto-complete": ["node_modules/@ngui/auto-complete/dist/index.d.ts"]      
     },
     "typeRoots": [
       "node_modules/@types"
+    ],
+    "types" : [
+      "bootstrap-datepicker"
     ]
   },
   "compileOnSave": true,

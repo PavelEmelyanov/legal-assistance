@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Input, DocDto, RadioGroup, RadioGroupOption } from '../../shared/models';
+import Utils from '../../shared/utils';
 import { DocComponentBase } from '../doc.component.base';
 
 @Component({  
@@ -63,19 +64,17 @@ export class OrganizaciyaComponent extends DocComponentBase {
     }   
 
     onOrgSelect(orgInfo: any){
-        this.inn.value = orgInfo['data']['inn'];
-        this.ogrn.value = orgInfo['data']['ogrn'];
-        this.nazvaniaOrganizaciya.value = orgInfo['value'];
-        this.addressOrganizaciya.value = orgInfo['data']['address']['value'];
-    }
-
-    getResult(): Array<DocDto> {
-        return [
-            this.komu.toDto(),
-            this.inn.toDto(), 
-            this.ogrn.toDto(), 
-            this.nazvaniaOrganizaciya.toDto(), 
-            this.addressOrganizaciya.toDto()
-        ];
+        if (orgInfo != null && Utils.isNotNullOrEmpty(orgInfo["data"])) {
+            this.inn.value = orgInfo['data']['inn'];
+            this.ogrn.value = orgInfo['data']['ogrn'];
+            this.nazvaniaOrganizaciya.value = orgInfo['value'];
+            this.addressOrganizaciya.value = orgInfo['data']['address']['value'];
+        }
+        else {
+            this.inn.value = null;
+            this.ogrn.value = null;
+            this.nazvaniaOrganizaciya.value = null;
+            this.addressOrganizaciya.value = null;
+        }        
     }
 }

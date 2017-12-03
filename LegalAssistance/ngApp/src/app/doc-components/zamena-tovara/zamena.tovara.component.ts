@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { DocDto, CustomInput } from '../../shared/models';
 import { DocComponentBase } from '../doc.component.base';
 import Utils from '../../shared/utils';
@@ -8,13 +8,16 @@ import Utils from '../../shared/utils';
   templateUrl: './zamena.tovara.component.html',  
 })
 export class ZamenaTovaraComponent extends DocComponentBase {
+  @Output() cannotProceed = new EventEmitter<boolean>();
+
   obmenTovara: CustomInput;  
   drugoyTovarFlag: boolean;
   drugoyModel: string;
   drugoyArticul: string;
 
   techSlozhniyTovar = {
-    flag: false
+    flag: false,
+    sluchay: 0
   };
 
   declareDocFields(): void {
@@ -25,9 +28,9 @@ export class ZamenaTovaraComponent extends DocComponentBase {
       getValue: () => {
           if (this.drugoyTovarFlag) {            
               if (Utils.isNotNullOrEmpty(this.drugoyArticul)) {
-                  return Utils.formatString('товар другой марки - {0}, артикул {1}', this.drugoyModel, this.drugoyArticul);
+                  return `товар другой марки - ${this.drugoyModel}, артикул ${this.drugoyArticul}`;
               } else {
-                  return Utils.formatString('товар другой марки - {0}', this.drugoyModel);
+                  return `товар другой марки - ${this.drugoyModel}`;
               }
           } else {
               return 'такой же товар';
@@ -36,7 +39,12 @@ export class ZamenaTovaraComponent extends DocComponentBase {
     });
   }
 
-  getResult(): Array<DocDto> {
-    return [this.obmenTovara.toDto()];
+  ngDoCheck() {
+    this.checkCannotProceedRadioChange();
+  }
+
+  private checkCannotProceedRadioChange() {
+    var result = this.techSlozhniyTovar.sluchay == 4;    
+    this.cannotProceed.emit(result);
   }
 }

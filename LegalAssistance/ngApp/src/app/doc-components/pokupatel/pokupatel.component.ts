@@ -19,8 +19,4 @@ export class PokupatelComponent extends DocComponentBase {
         componentInFileKey: 'address-pokupatel'
     });
   }
-
-  getResult(): Array<DocDto> {
-    return [this.pokupatel.toDto(), this.addressPokupatel.toDto()];
-  }
 }

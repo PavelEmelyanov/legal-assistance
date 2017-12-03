@@ -1,13 +1,21 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { PokupatelComponent }  from '../../core/pokupatel/pokupatel.component';
-import { OrganizaciyaComponent }  from '../../core/organizaciya/organizaciya.component';
-import { ZamenaTovaraComponent }  from '../../core/zamena-tovara/zamena.tovara.component';
+import { Component, ViewChild } from '@angular/core';
+
+import { PokupatelComponent }  from '../../doc-components/pokupatel/pokupatel.component';
+import { OrganizaciyaComponent }  from '../../doc-components/organizaciya/organizaciya.component';
+import { ZamenaTovaraComponent }  from '../../doc-components/zamena-tovara/zamena.tovara.component';
+import { TovarComponent }  from '../../doc-components/tovar/tovar.component';
+import { PenyaComponent }  from '../../doc-components/penya/penya.component';
+import { TovarNaPeriodZameniComponent }  from '../../doc-components/tovar-na-period-zameni/tovar.na.period.zameni.component';
+import { UbitkiComponent }  from '../../doc-components/ubitki/ubitki.component';
+import { DataDocumentaComponent }  from '../../doc-components/data-documenta/data.documenta.component';
+
+import { DocumentService } from '../../core/document.service';
 
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',  
 })
-export class AppComponent implements OnInit {  
+export class AppComponent {  
   @ViewChild(OrganizaciyaComponent)
   private organizaciya: OrganizaciyaComponent;
 
@@ -17,11 +25,42 @@ export class AppComponent implements OnInit {
   @ViewChild(ZamenaTovaraComponent)
   private zamena: ZamenaTovaraComponent;
 
-  ngOnInit() {
-    setTimeout(() => console.log(this.pokupatel.getResult(), this.organizaciya.getResult()), 100);
-  }
+  @ViewChild(TovarComponent)
+  private tovar: TovarComponent;
+
+  @ViewChild(UbitkiComponent)
+  private ubitki: UbitkiComponent;
+
+  @ViewChild(PenyaComponent)
+  private penya: PenyaComponent;
+
+  @ViewChild(TovarNaPeriodZameniComponent)
+  private tovarNaPeriodZameni: TovarNaPeriodZameniComponent;
   
-  save() {
-    console.log(this.pokupatel.getResult(), this.organizaciya.getResult(), this.zamena.getResult());
+  @ViewChild(DataDocumentaComponent)
+  private dataDocumenta: DataDocumentaComponent;
+
+  cenaTovara() { return 0; }
+
+  constructor(private documentService: DocumentService) { }
+
+  ngAfterViewInit() {    
+    // but wait a tick first to avoid one-time devMode
+    // unidirectional-data-flow-violation error
+    setTimeout(() => this.cenaTovara = () => {
+      return this.tovar ? this.tovar.cenaTovara.value : 0;
+    }, 0);
+  }
+
+  save() {    
+    this.documentService.generateDocument(
+      this.penya,
+      this.pokupatel,
+      this.organizaciya,
+      this.tovar,
+      this.tovarNaPeriodZameni,
+      this.zamena,
+      this.ubitki,
+      this.dataDocumenta);
   }
 }

@@ -1,14 +1,11 @@
 import { NgModule } from '@angular/core';
-import { FormsModule }   from '@angular/forms';
-
+import { SharedModule } from '../../shared';
 import { OrganizaciyaComponent } from './organizaciya.component';
-import { RadioGroupModule } from '../../shared/components/radio.group';
 import { InnAutocompleteModule } from './inn-autocomplete';
 
 @NgModule({
     imports: [
-        FormsModule,
-        RadioGroupModule,
+        SharedModule,
         InnAutocompleteModule
     ],
     declarations: [    

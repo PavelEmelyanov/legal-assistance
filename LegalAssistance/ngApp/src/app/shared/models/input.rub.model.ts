@@ -2,20 +2,20 @@ import DocComponent from './doc.component.model';
 import DocDto from './doc.dto.model';
 import Utils from '../utils';
 
-export default class Input extends DocComponent {    
-    public value: string;
+export default class InputRub extends DocComponent {    
+    public value: number;
     public resultTextTemplate: string;
 
-    public constructor(init?:Partial<Input>) {
+    public constructor(init?:Partial<InputRub>) {
         super(init);
         Object.assign(this, init);        
     }
 
     public toDocDto(): DocDto {
-        let value = this.value;
+        let value = Utils.toRub(this.value);
 
         if (this.resultTextTemplate){
-            value = Utils.formatString(this.resultTextTemplate, this.value);
+            value = Utils.formatString(this.resultTextTemplate, value);
         }
 
         return new DocDto({

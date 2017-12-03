@@ -1,21 +1,32 @@
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 import { NgModule } from '@angular/core';
 import { BrowserModule }  from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+
+import { CoreModule } from '../../core';
 
 import { AppComponent } from './app.component';
 
-import { PokupatelModule }  from '../../core/pokupatel';
-import { OrganizaciyaModule }  from '../../core/organizaciya';
-import { ZamenaTovaraModule } from '../../core/zamena-tovara'
+import { PokupatelModule }  from '../../doc-components/pokupatel';
+import { OrganizaciyaModule }  from '../../doc-components/organizaciya';
+import { ZamenaTovaraModule } from '../../doc-components/zamena-tovara';
+import { TovarModule } from '../../doc-components/tovar';
+import { PenyaModule } from '../../doc-components/penya';
+import { TovarNaPeriodZameniModule } from '../../doc-components/tovar-na-period-zameni';
+import { UbitkiModule } from '../../doc-components/ubitki';
+import { DataDocumentaModule } from '../../doc-components/data-documenta';
 
 @NgModule({
   imports: [
-    BrowserModule,
-    HttpClientModule,
+    BrowserModule,    
+    CoreModule,    
     PokupatelModule,
     OrganizaciyaModule,
-    ZamenaTovaraModule
+    ZamenaTovaraModule,
+    TovarModule,
+    PenyaModule,
+    TovarNaPeriodZameniModule,
+    UbitkiModule,
+    DataDocumentaModule
   ],
   declarations: [
     AppComponent,

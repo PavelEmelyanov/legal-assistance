@@ -1,0 +1,32 @@
+<div class="form-group">
+    <label>Требование возместить убытки в связи с низким качеством товара</label>
+    <la-radio-yes-no [(ngModel)]="flag">
+    </la-radio-yes-no>
+</div>
+<div class="form-group"
+     *ngIf="flag">
+    <div class="well">
+        <div class="row">
+            <div class="col-xs-4">
+                <label>Описание убытков: </label>
+                <textarea class="form-control"
+                          [(ngModel)]="prosba"
+                          rows="5"
+                          required
+                          placeholder="Микроволновая печь предназначалась в подарок начальнику и он понизил мне зарплату из-за плохого подарка."></textarea>
+            </div>
+            <div class="col-xs-4">
+                <label>Сумма для взыскание (рублей)</label>
+                <input class="form-control"
+                       [(ngModel)]="summa"
+                       required
+                       la-positive-int
+                       placeholder="1200" />
+            </div>
+        </div>
+        <span class="help-block">
+            Какие-то пояснения по убыткам. Что можно считать убытком?
+            Каков шанс взыскать эти убытки в суде?
+        </span>
+    </div>
+</div>

@@ -2,9 +2,9 @@
     <form la-submit="getDoc()" novalidate>
         <fieldset>
             <legend>Сведения о замене</legend>
-            <la-zamena-tovara></la-zamena-tovara>
+            <la-zamena-tovara (cannotProceed)="cannotProceed = $event"></la-zamena-tovara>
         </fieldset>
-        <div ng-if="document.techSlozhniyTovar.sluchay != 4">
+        <div *ngIf="!cannotProceed">
             <fieldset>
                 <legend>Сведения об организации</legend>
                 <la-organizaciya></la-organizaciya>                
@@ -15,34 +15,23 @@
             </fieldset>
             <fieldset>
                 <legend>Данные о купленном товаре</legend>
-                <div ng-include="sections.tovar"></div>
+                <la-tovar></la-tovar>
             </fieldset>
             <fieldset>
                 <legend>Дополнительные сведения</legend>
                 <!--Требование аналогичного товара на период замены-->
-                <div ng-include="sections.tovarNaPeriodZameni"></div>
+                <la-tovar-na-period-zameni></la-tovar-na-period-zameni>                
                 <!--------------------------------------------------->
 
                 <!--Обращался ранее и требования не были выполнены-->
-                <div ng-include="sections.penya"></div>
+                <la-penya [cenaTovara]="cenaTovara"></la-penya>
                 <!-------------------------------------------------->                
 
                 <!--Требование возместить убытки-->
-                <div ng-include="sections.ubitki"></div>
+                <la-ubitki></la-ubitki>
                 <!-------------------------------->
 
-                <div class="form-group">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <label>Дата составления претензии: </label>
-                            <input type="text"
-                                   la-date
-                                   class="form-control"
-                                   ng-model="document.docDate.value"
-                                   required>
-                        </div>
-                    </div>                    
-                </div>
+                <la-data-documenta></la-data-documenta>
             </fieldset>
 
             <button type="button"

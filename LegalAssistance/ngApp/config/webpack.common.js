@@ -63,14 +63,14 @@ module.exports = {
       /angular(\\|\/)core(\\|\/)@angular/,
       helpers.root('./src'), // location of your src
       {} // a map of your routes
-    ),
+    ),   
 
-     new webpack.DefinePlugin({
-        'ENV': JSON.stringify(ENV),   
-      }),
+    new webpack.DefinePlugin({
+      'ENV': JSON.stringify(ENV),   
+    }),
 
     new webpack.optimize.CommonsChunkPlugin({
       name: ['app', 'vendor', 'polyfills']
-    }),
+    }),    
   ]
 };
