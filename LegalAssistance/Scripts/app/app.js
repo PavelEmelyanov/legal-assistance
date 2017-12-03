@@ -2,6 +2,7 @@
     angular.module('LASite', [
         'LASite.common',
         'LASite.documents',
+        'LASite.doc-components',
         'ui.bootstrap']);    
 
     //App controller

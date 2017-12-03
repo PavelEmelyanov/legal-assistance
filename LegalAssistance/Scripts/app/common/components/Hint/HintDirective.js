@@ -10,7 +10,8 @@
             },
             link: function ($scope, element, attrs, controllers) {
                 $(element).tooltip({
-                    title: $scope.hint
+                    title: $scope.hint,
+                    placement: 'auto'
                 });
             }
         };

@@ -1,0 +1,21 @@
+﻿<div ng-controller="ZamenaTovaraNenadlezhashegoKachestvaController">
+    <form la-submit="getDoc()" novalidate>
+        <la-wizard>
+            <la-zamena-tovara></la-zamena-tovara>
+            <!--Сведения об организации-->
+            <la-organizaciya></la-organizaciya>
+            <!--Сведения о покупателе-->
+            <la-pokupatel></la-pokupatel>
+            <!--Сведения о товаре-->
+            <la-tovar></la-tovar>
+            <!--Требование аналогичного товара на период замены-->
+            <la-tovar-na-period-zameni></la-tovar-na-period-zameni>
+            <!--Обращался ранее и требования не были выполнены-->
+            <la-penya></la-penya>
+            <!--Требование возместить убытки-->
+            <la-ubitki></la-ubitki>
+            <!--Дата Документа-->
+            <la-doc-date></la-doc-date>
+        </la-wizard>
+    </form>
+</div>

@@ -1,0 +1,28 @@
+﻿<div class="wizard">
+    <div class="wizard-body" ng-transclude></div>
+    <div class="wizard-bottom">
+        <button class="button button-3d button-large button-rounded"
+                ng-show="showBackButton"
+                ng-click="showPreviousStep()"
+                type="button">
+            <i class="icon-circle-arrow-left"></i>
+            Назад            
+        </button>
+        <button class="button button-3d button-large button-rounded tright"
+                ng-click="showNextStep()"
+                ng-disabled="disableNextButton"
+                ng-class="{'button-light': disableNextButton}"
+                ng-show="!showSubmitButton"
+                type="button">
+            Далее
+            <i class="icon-circle-arrow-right"></i>
+        </button>
+        <button class="button button-3d button-large button-rounded tright button-blue"
+                ng-click="showNextStep()"
+                ng-show="showSubmitButton"
+                type="button">
+            Сформировать Документ
+            <i class="icon-download-alt"></i>
+        </button>
+    </div>
+</div>

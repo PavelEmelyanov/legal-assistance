@@ -11,7 +11,7 @@
                         element.tooltip('destroy');
                         element.tooltip({
                             title: value,
-                            placement: 'auto'
+                            placement: 'auto'                            
                         });
                     });
 

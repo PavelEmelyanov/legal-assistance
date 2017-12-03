@@ -15,18 +15,21 @@
                 if (angular.utils.isNotNullOrEmpty(tAttrs.validation)) {
                     $(tElement).find('input[type=text]').attr(tAttrs.validation, '');
                 }
-            },
-            link: function ($scope, element, attrs, controllers) {
-                var ngModelCtrl = controllers[0],
-                    formCtrl = controllers[1];
-                                
-                $scope.onChange = function () {
-                    if ($scope.flag) {                        
-                        ngModelCtrl.$setViewValue($scope.text);
-                    } else {
-                        ngModelCtrl.$setViewValue(null);
-                    }                                                         
-                };
+
+                return function ($scope, element, attrs, controllers) {
+                    var ngModelCtrl = controllers[0],
+                        formCtrl = controllers[1];
+
+                    $scope.onChange = function () {
+                        if ($scope.flag) {
+                            ngModelCtrl.$setViewValue($scope.text);
+                        } else {
+                            ngModelCtrl.$setViewValue(null);
+                        }
+                    };
+
+                    $scope.randomId = angular.utils.getRandomString();
+                }
             }
         };
     }]);

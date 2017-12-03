@@ -6,9 +6,13 @@
 </span>
 
 <div class="container" ng-controller="AppController">
-    <h1>@Model.Name</h1>    
-    <hr/>
-    <div ng-include="docUrl"></div>       
+    <div class="fancy-title title-bottom-border title-center nobottommargin"
+         style="padding-top: 20px;">
+        <h1>@Model.Name</h1>
+    </div>   
+    <div class="doc-form-container"
+         ng-include="docUrl">        
+    </div>    
 </div>
 
 

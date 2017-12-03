@@ -22,7 +22,7 @@
   min-width: 100%;
 }
 
-.dropdown-search .glyphicon-refresh {
+.dropdown-search .icon-refresh {
   display: none;
 }
 
@@ -31,7 +31,7 @@
   padding-right: 30px;
 }
 
-.dropdown-search.is-loading .glyphicon-refresh {
+.dropdown-search.is-loading .icon-refresh {
   position: absolute;
   display: block;
   top: 10px;
@@ -104,9 +104,41 @@
 
 .tooltip-inner {
     max-width: 500px;
+    min-width: 200px;
 }
 
 .help-block {
     color: #b94a48;
     font-weight: bold;
+}
+
+.wizard-body {
+    padding: 50px 125px 35px;
+    border: 1px solid #EEE;
+}
+
+.wizard-body .form-group {
+    margin-bottom: 25px;
+}
+
+.wizard-step {
+    display: none;
+}
+
+.wizard-step.active {
+    display: block;
+}
+
+.wizard-step label {
+    font-size: 16px;
+}
+
+.wizard-step form-control.active {
+    border-color: #1ABC9C;
+}
+
+.wizard-bottom {
+    text-align: center;
+    background-color:#F5F5F5;
+    padding: 20px 0;
 }

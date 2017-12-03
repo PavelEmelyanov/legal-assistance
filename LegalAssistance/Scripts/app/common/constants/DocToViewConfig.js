@@ -11,7 +11,7 @@
         //File name is key
         var result = {
             docFolder: docFolder,
-            'zamena-tovara-nenadlezhashego-kachestva': docFolder + '/ZamenaTovaraNenadlezhashegoKachestva/ZamenaTovaraNenadlezhashegoKachestva.html'
+            'zamena-tovara-nenadlezhashego-kachestva': docFolder + '/zamena-tovara-nenadlezhashego-kachestva/ZamenaTovaraNenadlezhashegoKachestva.html'
         }
 
         return result;

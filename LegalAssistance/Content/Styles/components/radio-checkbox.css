@@ -61,8 +61,13 @@
 	box-shadow: inset 0px 0px 0px 4px #fff;
 }
 
-.radio-style:checked + .radio-style-2-label:before {
+/*Update color*/
+/*.radio-style:checked + .radio-style-2-label:before {
 	background: #ccc;
+	box-shadow: inset 0px 0px 0px 4px #fff;
+}*/
+.radio-style:checked + .radio-style-2-label:before {
+	background: #1ABC9C;
 	box-shadow: inset 0px 0px 0px 4px #fff;
 }
 
@@ -77,6 +82,7 @@
 	background: #1ABC9C;
 	color: #FFF;
 }
+
 .radio-style:checked + .radio-style-3-label:before {
 	color: #BBB;
 	background-color: transparent;

@@ -1,0 +1,87 @@
+﻿<div class="wizard-step">
+    <h3>Сведения об организации</h3>
+    <div class="form-group">
+        <label>К кому обращаемся: </label> <br />
+        <label class="radio-inline"
+               ng-repeat="option in components.komu.options">
+            <input type="radio"
+                   ng-model="components.komu.value"
+                   value="{{option.value}}">
+            {{option.key}}
+            <la-hint hint="option.hint"></la-hint>
+        </label>
+    </div>
+    
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="form-group form-group-lg">
+                <label>Введите название, ИНН, ОГРН или адрес организации:</label>
+                <la-hint hint="relatedData.innTooltip"></la-hint>
+                <la-inn inn="components.inn.value"
+                        ogrn="components.ogrn.value"
+                        name="components.nazvaniaOrganizaciya.value"
+                        address="components.addressOrganizaciya.value"
+                        is-required="!components.inn.isNotFoundByAutocomplete"
+                        is-disabled="components.inn.isNotFoundByAutocomplete">
+                </la-inn>
+            </div>
+        </div>
+        <div class="col-xs-4 form-input-down">
+            <label class="checkbox-inline">
+                <input type="checkbox"
+                       ng-model="components.inn.isNotFoundByAutocomplete">
+                Не удалось найти через подсказчик?
+            </label>
+        </div>
+    </div>
+    <div ng-show="components.inn.isNotFoundByAutocomplete">
+        <div class="alert alert-warning">
+            Пожалуйста заполните поля вручную. ОГРН обязательно только для юридических лиц (для ИП не нужно).
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label>ИНН: </label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="components.inn.value"
+                           required
+                           la-positive-int
+                           placeholder="7709770002">
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label>ОГРН: </label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="components.ogrn.value"
+                           la-positive-int
+                           placeholder="1077763747269">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label>Название / ФИО к кому обращаемся: </label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="components.nazvaniaOrganizaciya.value"
+                           required
+                           placeholder="ООО 'Домашний Интерьер'">
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="form-group">
+                    <label>Адрес к кому обращаемся: </label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="components.addressOrganizaciya.value"
+                           required
+                           placeholder="109240, г. Москва, ул. Николоямская, д.14, стр.1">
+                </div>
+            </div>
+        </div>
+    </div>  
+</div>

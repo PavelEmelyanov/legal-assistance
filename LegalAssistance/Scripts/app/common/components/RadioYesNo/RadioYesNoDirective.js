@@ -24,7 +24,10 @@
                     return ngModelCtrl.$modelValue;
                 }, function (newValue) {
                     $scope.flag = newValue;
-                })
+                });
+
+                $scope.randomId1 = angular.utils.getRandomString();
+                $scope.randomId2 = angular.utils.getRandomString();                
             }
         };
     }]);

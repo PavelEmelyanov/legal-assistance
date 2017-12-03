@@ -1,16 +1,23 @@
 ﻿<div>
-    <label class="radio-inline">
-        <input type="radio"
-               ng-model="flag"
-               ng-value="false"
-               ng-change="onChange()">
+    <input type="radio"
+           ng-model="flag"
+           ng-value="false"
+           ng-change="onChange()"
+           class="radio-style"
+           id="{{randomId1}}">
+    <label class="radio-style-2-label"
+           for="{{randomId1}}">        
         {{noText || 'Нет'}}
-    </label>
-    <label class="radio-inline">
-        <input type="radio"
-               ng-model="flag"
-               ng-value="true"
-               ng-change="onChange()">
+    </label>    
+
+    <input type="radio"
+           ng-model="flag"
+           ng-value="true"
+           ng-change="onChange()"
+           class="radio-style"
+           id="{{randomId2}}">
+    <label class="radio-style-2-label"
+           for="{{randomId2}}">                
         {{yesText || 'Да'}}
     </label>
 </div>

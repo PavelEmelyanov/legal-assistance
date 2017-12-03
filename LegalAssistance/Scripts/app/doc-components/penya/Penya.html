@@ -1,0 +1,106 @@
+﻿<div class="wizard-step">
+    <h3>Дополнительные сведения</h3>
+    <label>Я обращался ранее и мои требования не были выполнены:</label>
+    <la-radio-yes-no ng-model="penyaModel.flag"
+                     ng-change="penyaModel.zamenaAnalogichnogoTovaraFlag = false; calculateNeustoyka();">
+    </la-radio-yes-no>
+</div>
+
+<div class="wizard-step" ng-if="penyaModel.flag">
+    <h3>Обращение ранее</h3>
+    <div class="well">
+        <div class="form-group">
+            <div class="form-inline">
+                <div class="form-group">
+                    Дата обращения ранее:
+                </div>
+                <div class="form-group">
+                    <input type="text"
+                           la-date
+                           class="form-control"
+                           ng-model="penyaModel.date"
+                           ng-change="calculateNeustoyka()"
+                           required>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox"
+                       ng-model="penyaModel.proverkaKachestva"
+                       ng-change="penyaModel.otsutstvieTovaraNaZamenu = false; penyaModel.dostavkaSever = false; calculateNeustoyka();">
+                Была установлена необходимость проверки качества
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox"
+                       ng-model="penyaModel.otsutstvieTovaraNaZamenu"
+                       ng-change="penyaModel.proverkaKachestva = false; penyaModel.dostavkaSever = false; calculateNeustoyka();">
+                Было установлено отсутствие товара для замены
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="checkbox-inline">
+                <input type="checkbox"
+                       ng-model="penyaModel.dostavkaSever"
+                       ng-change="penyaModel.proverkaKachestva = false; penyaModel.otsutstvieTovaraNaZamenu = false; calculateNeustoyka();">
+                Товар необходимо доставить в район Крайнего Севера и приравненную к нему местность
+            </label>
+        </div>
+        <div class="form-group"
+             ng-if="penyaModel.neustoyka > 0">
+            Вы можете потребовать неустойку в размере {{penyaModel.neustoyka | rub}}
+
+            <div>
+                <label>Включить требование неустойки в заявление?</label>
+                <la-radio-yes-no style="display: inline-block"
+                                 ng-model="penyaModel.trebovatNeustoyku">
+                </la-radio-yes-no>
+            </div>
+        </div>       
+    </div>
+</div>
+
+<div ng-if="penyaModel.flag">
+    <div class="wizard-step">
+        <h3>Обращение ранее</h3>
+        <div class="form-group">
+            <label>
+                Я потребовал предоставить аналогичный товар на период замены,
+                но моё требование не было выполнено
+            </label>
+            <la-radio-yes-no ng-model="penyaModel.zamenaAnalogichnogoTovaraFlag"
+                             ng-change="penyaModel.analogichniyTovarDate = penyaModel.date; calculateNeustoykaAnalogichniyTovar();">
+            </la-radio-yes-no>
+        </div>   
+    </div>
+    <div class="wizard-step" ng-if="penyaModel.zamenaAnalogichnogoTovaraFlag">
+        <h3>Обращение ранее</h3>
+        <div class="form-group">
+            <div class="form-inline">
+                <div class="form-group">
+                    Дата обращения ранее (аналогичный товар):
+                </div>
+                <div class="form-group">
+                    <input type="text"
+                           la-date
+                           class="form-control"
+                           ng-model="penyaModel.analogichniyTovarDate"
+                           ng-change="calculateNeustoykaAnalogichniyTovar()"
+                           required>
+                </div>
+            </div>
+        </div>
+        <div ng-if="penyaModel.analogichniyTovarNeustoyka > 0">
+            Вы можете потребовать неустойку в размере {{penyaModel.analogichniyTovarNeustoyka | rub}}
+
+            <div>
+                <label>Включить требование неустойки в заявление?</label>
+                <la-radio-yes-no style="display: inline-block"
+                                 ng-model="penyaModel.analogichniyTovarTrebovatNeustoyku">
+                </la-radio-yes-no>
+            </div>
+        </div>
+    </div>
+</div>

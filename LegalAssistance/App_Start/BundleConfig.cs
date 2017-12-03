@@ -29,6 +29,7 @@ namespace LegalAssistance
                       "~/Content/Styles/animate.css",
                       "~/Content/Styles/magnific-popup.css",
                       "~/Content/Styles/responsive.css",
+                      "~/Content/Styles/components/radio-checkbox.css",
                       "~/Content/Styles/site.css"));
 
             //bundles.Add(new StyleBundle("~/bundles/css")
