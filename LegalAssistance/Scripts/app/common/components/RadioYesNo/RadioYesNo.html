@@ -1,23 +1,19 @@
 ﻿<div>
-    <input type="radio"
-           ng-model="flag"
-           ng-value="false"
-           ng-change="onChange()"
-           class="radio-style"
-           id="{{randomId1}}">
-    <label class="radio-style-2-label"
-           for="{{randomId1}}">        
+    <la-radio ng-model="flag"
+              ng-value="false"
+              ng-change="onChange()">
         {{noText || 'Нет'}}
-    </label>    
+    </la-radio>   
 
-    <input type="radio"
-           ng-model="flag"
-           ng-value="true"
-           ng-change="onChange()"
-           class="radio-style"
-           id="{{randomId2}}">
-    <label class="radio-style-2-label"
-           for="{{randomId2}}">                
+    <la-radio ng-model="flag"
+              ng-value="true"
+              ng-change="onChange()">
         {{yesText || 'Да'}}
-    </label>
+    </la-radio> 
+
+    <div>
+        <la-validate-expression is-valid="isValid()">
+            Пожалуйста, выберите одну из опций
+        </la-validate-expression>
+    </div>    
 </div>

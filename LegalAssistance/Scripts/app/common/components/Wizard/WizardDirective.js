@@ -8,10 +8,14 @@
             templateUrl: 'Scripts/app/common/components/Wizard/Wizard.html',
             replace: true,
             transclude: true,
-            link: function ($scope, element, attrs, controllers) {
-
+            scope: {
+                formSubmit: '&'
+            },
+            link: function ($scope, element, attrs) {
                 $scope.showNextStep = function () {
-                    switchStep(1);
+                    makeValidation(function () {
+                        switchStep(1);
+                    });
                 }
 
                 $scope.showPreviousStep = function () {
@@ -27,9 +31,36 @@
                     $scope.disableNextButton = false;
                 });
 
+                $scope.getDoc = function () {
+                    makeValidation(function () {
+                        $scope.formSubmit();
+                    })
+                }
+
+                var makeValidation = function (callback) {
+                    $scope.wizardForm.submitted = false;
+
+                    //Get currently open step
+                    var currentStep = getCurrentStep();
+
+                    //Find invalid inputs
+                    var invalidInputs = currentStep.find('.ng-invalid');
+
+                    if (invalidInputs.length > 0) {
+                        //Display errors
+                        $scope.wizardForm.submitted = true;
+                        //Set focus to first invalid                        
+                        invalidInputs[0].focus();
+                    }
+                    else {
+                        //Current step is valid
+                        callback();
+                    }
+                }
+
                 var switchStep = function (n) {
                     //Deactivate current tab
-                    var currentStep = $('.wizard-body .wizard-step.active');
+                    var currentStep = getCurrentStep();
                     currentStep.removeClass('active');
 
                     //Find next tab
@@ -39,7 +70,9 @@
                     $(steps[index]).addClass('active');
 
                     $scope.showSubmitButton = steps.length == index + 1;
-                    $scope.showBackButton = !(index == 1 && n == -1);
+                    $scope.showBackButton = !(index == 0 && n == -1);
+                    
+                    $scope.progressPercent = parseInt(index / (steps.length - 1) * 100) + '%';
                 }
 
                 var showFirstStep = function () {
@@ -48,10 +81,15 @@
 
                     if (firstChildSteps.length > 0) {
                         firstChildSteps.first().addClass('active');
+                        $scope.progressPercent = 0;
                     }
                     else {
                         setTimeout(showFirstStep, 50);
                     }
+                }
+                
+                var getCurrentStep = function () {
+                    return $('.wizard-body .wizard-step.active');
                 }
                 
                 var init = function () {

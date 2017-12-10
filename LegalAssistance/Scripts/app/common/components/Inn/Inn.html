@@ -3,7 +3,7 @@
          ng-class="{'is-active': noResults && orgInfo, 'is-loading': loading}">        
         <input type="text"
                ng-model="orgInfo"
-               placeholder="Введите название, ИНН, ОГРН или адрес организации"
+               placeholder="Начните вводить название, ИНН, ОГРН или адрес организации"
                uib-typeahead="info as info.value for info in searchOrg($viewValue)"
                typeahead-loading="loading"
                typeahead-no-results="noResults"

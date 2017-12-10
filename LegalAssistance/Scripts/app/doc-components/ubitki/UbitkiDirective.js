@@ -14,14 +14,18 @@
             link: function ($scope, element, attrs) {
 
                 var init = function () {
+                    $scope.ubitkiModel = {
+                        flag: false,
+                    };
+
                     $scope.components = {
                         vozmeshenieUbitkovProsba: {
                             componentType: componentTypes.custom,
                             componentInFileKey: 'vozmeshenie-ubitkov-prosba',
                             removeLineIfResultIsEmpty: true,
                             getValue: function () {
-                                if ($scope.flag) {
-                                    return $scope.prosba + '.';
+                                if ($scope.ubitkiModel.flag) {
+                                    return $scope.ubitkiModel.prosba + '.';
                                 } else {
                                     return null;
                                 }
@@ -32,8 +36,8 @@
                             componentInFileKey: 'vozmeshenie-ubitkov-summa',
                             removeLineIfResultIsEmpty: true,
                             getValue: function() {
-                                if ($scope.flag) {
-                                    return Utils.toRub($scope.summa);
+                                if ($scope.ubitkiModel.flag) {
+                                    return angular.utils.toRub($scope.ubitkiModel.summa);
                                 } else {
                                     return null;
                                 }

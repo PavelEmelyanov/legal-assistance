@@ -5,13 +5,11 @@
     @Html.Raw(Json.Encode(Model))
 </span>
 
-<div class="container" ng-controller="AppController">
-    <div class="fancy-title title-bottom-border title-center nobottommargin"
-         style="padding-top: 20px;">
+<div class="container doc-form-container" ng-controller="AppController">
+    <div class="fancy-title title-bottom-border title-center nobottommargin">
         <h1>@Model.Name</h1>
     </div>   
-    <div class="doc-form-container"
-         ng-include="docUrl">        
+    <div ng-include="docUrl">        
     </div>    
 </div>
 

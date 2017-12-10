@@ -2,10 +2,10 @@
     <input type="checkbox"
            ng-model="flag"
            ng-change="onChange()"
-           id="{{randomId}}"
+           id="{{::randomId}}"
            class="checkbox-style">
     <label class="checkbox-style-3-label"
-           for="{{randomId}}" ng-transclude
+           for="{{::randomId}}" ng-transclude
            style="margin: 0 0 6px 0;">                
     </label>
     <input type="text"

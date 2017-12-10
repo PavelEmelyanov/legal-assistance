@@ -13,7 +13,8 @@
         var invalidCssClass = 'la-invalid-input';
 
         var factory = {
-            renderErrors: function ($el, inputCtrl, formCtrl, attrs) {
+            renderErrors: function ($el, inputCtrl, formCtrl, attrs) {                
+                var timeout = $el.data('bs.tooltip') ? 200 : 0;
                 //Remove previous tooltip
                 $el.tooltip('destroy');
 
@@ -24,15 +25,18 @@
 
                     $el.addClass(invalidCssClass);
 
-                    $el.tooltip({
-                        title: internal.getErrorMessages(inputCtrl, attrs),
-                        template: internal.getTooltipTemplate(),
-                        placement: 'bottom',
-                        trigger: 'manual'
-                    });
+                    //Timeout is need to correctly render tooltip
+                    setTimeout(function () {
+                        $el.tooltip({
+                            title: internal.getErrorMessages(inputCtrl, attrs),
+                            template: internal.getTooltipTemplate(),
+                            placement: 'bottom',
+                            trigger: 'manual'
+                        });
 
-                    $el.tooltip('show');
-                } else {
+                        $el.tooltip('show');
+                    }, timeout);
+                } else {                                  
                     $el.removeClass(invalidCssClass);
                 }
             },            
@@ -66,7 +70,7 @@
             },
 
             getTooltipTemplate: function () {
-                return '<div class="tooltip" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner tooltip-invalid"></div></div>'
+                return '<div class="tooltip tooltip-invalid" role="tooltip"><div class="tooltip-arrow"></div><div class="tooltip-inner"></div></div>'
             },
         }
 

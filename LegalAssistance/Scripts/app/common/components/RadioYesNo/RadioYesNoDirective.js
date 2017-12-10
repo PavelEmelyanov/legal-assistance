@@ -26,6 +26,11 @@
                     $scope.flag = newValue;
                 });
 
+                $scope.isValid = function () {
+                    return $scope.flag === false
+                        || $scope.flag === true;
+                }
+
                 $scope.randomId1 = angular.utils.getRandomString();
                 $scope.randomId2 = angular.utils.getRandomString();                
             }

@@ -1,15 +1,15 @@
 ﻿(function () {
     'use strict';
 
-    DocDate.$inject = ['ComponentsToDtoService', 'ComponentTypes'];
+    DocCommon.$inject = ['ComponentsToDtoService', 'ComponentTypes'];
 
     angular.module('LASite.doc-components')
-        .directive('laDocDate', DocDate);
+        .directive('laDocCommon', DocCommon);
 
-    function DocDate(componentsToDtoService, componentTypes) {
+    function DocCommon(componentsToDtoService, componentTypes) {
         return {
             restrict: 'E',
-            templateUrl: 'Scripts/app/doc-components/doc-date/DocDate.html',
+            templateUrl: 'Scripts/app/doc-components/doc-common/DocCommon.html',
             scope: true,
             link: function ($scope, element, attrs) {
 
@@ -19,6 +19,10 @@
                             componentType: componentTypes.input,
                             componentInFileKey: "doc-date",
                             value: new Date()
+                        },
+                        pol: {
+                            componentType: componentTypes.checkbox,
+                            componentInFileKey: "pol"                            
                         }
                     }
 

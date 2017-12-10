@@ -1,7 +1,31 @@
 ﻿<div class="wizard-step">
     <h3>Данные о купленном товаре</h3>
     <div class="row">
-        <div class="col-xs-4">
+        <div class="col-lg-5 col-md-6 col-xs-12">
+            <div class="form-group form-group-lg">
+                <label>Наименование товара: </label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="components.naimenovanieTovara.value"
+                       required
+                       placeholder="Микроволновая печь Samsung G43">
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="form-group form-group-lg">
+                <label>Цена товара (руб): </label>
+                <input type="text"
+                       class="form-control"
+                       la-positive-int
+                       ng-model="components.cenaTovara.value"
+                       required
+                       placeholder="3999"
+                       ng-change="onCenaChange()">
+            </div>
+        </div>
+    </div>  
+    <div class="row">
+        <div class="col-lg-5 col-md-6 col-xs-12">
             <div class="form-group form-group-lg">
                 <label>Дата совершения покупки: </label>
                 <input type="text"
@@ -11,7 +35,7 @@
                        required>
             </div>
         </div>
-        <div class="col-xs-8">
+        <div class="col-lg-7 col-md-6 col-xs-12">
             <div class="form-group form-group-lg">
                 <label>Место совершения покупки (адрес + название): </label>
                 <input type="text"
@@ -27,60 +51,12 @@
 <div class="wizard-step">
     <h3>Данные о купленном товаре</h3>
     <div class="row">
-        <div class="col-xs-5">
-            <div class="form-group form-group-lg">
-                <label>Наименование товара: </label>
-                <input type="text"
-                       class="form-control"
-                       ng-model="components.naimenovanieTovara.value"
-                       required
-                       placeholder="Микроволновая печь Samsung G43">
-            </div>
-        </div>
-        <div class="col-xs-5">
-            <div class="form-group form-group-lg">
-                <la-checkbox-with-input ng-model="components.articul.value"
-                                        flag="components.articul.isSelected"
-                                        placeholder="12312311">
-                    Артикул
-                </la-checkbox-with-input>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-xs-5">
-            <div class="form-group form-group-lg">
-                <label>Цена товара (руб): </label>
-                <input type="text"
-                       class="form-control"
-                       la-positive-int
-                       ng-model="components.cenaTovara.value"
-                       required
-                       placeholder="3999"
-                       ng-change="onCenaChange()">
-            </div>
-        </div>
-        <div class="col-xs-7">
-            <div class="form-group form-input-down">
-                <label class="checkbox-inline">
-                    <input type="checkbox"
-                           ng-model="components.imeetsyaLiDokument.value">
-                    Документ, подтверждающий факт покупки, имеется
-                </label>
-            </div>
-        </div>
-    </div>
-</div>
-
-<div class="wizard-step">
-    <h3>Данные о купленном товаре</h3>
-    <div class="row">
-        <div class="col-xs-4">
+        <div class="col-lg-6 col-md-12 col-xs-12">
             <p class="form-control-static">
                 <label>Установлены ли специальные сроки:</label>
             </p>
         </div>
-        <div class="col-xs-5">
+        <div class="col-lg-5 col-md-7 col-xs-12">
             <div class="form-group form-group-lg">
                 <la-checkbox-with-input ng-model="components.garantSrok.value"
                                         flag="components.garantSrok.isSelected"
@@ -112,8 +88,8 @@
 <div class="wizard-step">
     <h3>Данные о купленном товаре</h3>
     <div class="row">
-        <div class="col-xs-8">
-            <div class="form-group">
+        <div class="col-lg-8 col-md-12 col-xs-12">
+            <div class="form-group form-group-lg">
                 <label>Суть претензии по качеству: </label>
                 <textarea class="form-control"
                           ng-model="components.sutPretenzii.value"
@@ -125,15 +101,22 @@
                 </span>
             </div>
         </div>
-    </div>
+    </div>    
+</div>
+
+<div class="wizard-step">
+    <!--<div class="form-group">
+        <label>Документ, подтверждающий факт покупки, имеется</label>
+        <la-radio-yes-no ng-model="components.imeetsyaLiDokument.value">            
+        </la-radio-yes-no>
+    </div>-->
     <div class="form-group">
-        <label class="checkbox-inline">
-            <input type="checkbox"
-                   ng-model="components.tovarNeOdnovremenno.value">
-            Некачественный товар предоставляется одновременно с подачей настоящего требования
-        </label>
-        <div class="alert alert-warning" ng-if="components.tovarNeOdnovremenno.value">
-            Вам необходимо предоставить товар самому вместе с подачей настоящего Требования
-        </div>
+        <label>Некачественный товар предоставляется одновременно с подачей настоящего требования</label>
+        <la-radio-yes-no ng-model="components.tovarNeOdnovremenno.value">
+        </la-radio-yes-no>
     </div>
+    <la-alert-info ng-if="components.tovarNeOdnovremenno.value">
+        Вам необходимо предоставить
+        товар самому вместе с подачей настоящего Требования
+    </la-alert-info>        
 </div>

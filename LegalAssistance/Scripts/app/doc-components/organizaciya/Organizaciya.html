@@ -1,22 +1,23 @@
 ﻿<div class="wizard-step">
     <h3>Сведения об организации</h3>
     <div class="form-group">
-        <label>К кому обращаемся: </label> <br />
-        <label class="radio-inline"
-               ng-repeat="option in components.komu.options">
-            <input type="radio"
-                   ng-model="components.komu.value"
-                   value="{{option.value}}">
+        <label>К кому обращаемся: </label> <br />        
+        <la-radio ng-repeat="option in components.komu.options"
+                  ng-model="components.komu.value"
+                  ng-value="option.value">
             {{option.key}}
             <la-hint hint="option.hint"></la-hint>
-        </label>
-    </div>
-    
-    <div class="row">
-        <div class="col-xs-8">
-            <div class="form-group form-group-lg">
-                <label>Введите название, ИНН, ОГРН или адрес организации:</label>
-                <la-hint hint="relatedData.innTooltip"></la-hint>
+        </la-radio>
+    </div>   
+</div>
+
+<div class="wizard-step">
+    <h3>Сведения об организации</h3>
+    <label>Введите название, ИНН, ОГРН или адрес организации:</label>
+    <la-hint hint="relatedData.innTooltip"></la-hint>
+    <div class="row">        
+        <div class="col-lg-8 col-md-12 col-xs-12">
+            <div class="form-group form-group-lg">                
                 <la-inn inn="components.inn.value"
                         ogrn="components.ogrn.value"
                         name="components.nazvaniaOrganizaciya.value"
@@ -26,44 +27,46 @@
                 </la-inn>
             </div>
         </div>
-        <div class="col-xs-4 form-input-down">
-            <label class="checkbox-inline">
-                <input type="checkbox"
-                       ng-model="components.inn.isNotFoundByAutocomplete">
-                Не удалось найти через подсказчик?
-            </label>
+        <div class="col-xs-4">
+            <button type="button" 
+                    class="button button-3d button-rounded"
+                    ng-click="components.inn.isNotFoundByAutocomplete = !components.inn.isNotFoundByAutocomplete">
+                Не удалось найти?
+            </button>
         </div>
     </div>
     <div ng-show="components.inn.isNotFoundByAutocomplete">
-        <div class="alert alert-warning">
-            Пожалуйста заполните поля вручную. ОГРН обязательно только для юридических лиц (для ИП не нужно).
-        </div>
+        <la-alert-info>
+            Пожалуйста заполните поля вручную.
+            ОГРН обязательно только для юридических лиц
+            (для ИП не нужно).
+        </la-alert-info>
         <div class="row">
-            <div class="col-xs-4">
-                <div class="form-group">
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="form-group form-group-lg">
                     <label>ИНН: </label>
                     <input type="text"
                            class="form-control"
                            ng-model="components.inn.value"
                            required
-                           la-positive-int
+                           la-digit
                            placeholder="7709770002">
                 </div>
             </div>
-            <div class="col-xs-4">
-                <div class="form-group">
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="form-group form-group-lg">
                     <label>ОГРН: </label>
                     <input type="text"
                            class="form-control"
                            ng-model="components.ogrn.value"
-                           la-positive-int
+                           la-digit
                            placeholder="1077763747269">
                 </div>
             </div>
         </div>
         <div class="row">
-            <div class="col-xs-4">
-                <div class="form-group">
+            <div class="col-lg-6 col-md-12 col-xs-12">
+                <div class="form-group form-group-lg">
                     <label>Название / ФИО к кому обращаемся: </label>
                     <input type="text"
                            class="form-control"
@@ -72,8 +75,8 @@
                            placeholder="ООО 'Домашний Интерьер'">
                 </div>
             </div>
-            <div class="col-xs-4">
-                <div class="form-group">
+            <div class="col-lg-6 col-md-12 col-xs-12">
+                <div class="form-group form-group-lg">
                     <label>Адрес к кому обращаемся: </label>
                     <input type="text"
                            class="form-control"
@@ -83,5 +86,5 @@
                 </div>
             </div>
         </div>
-    </div>  
+    </div>
 </div>

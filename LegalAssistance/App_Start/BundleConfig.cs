@@ -1,7 +1,5 @@
-﻿using System.Diagnostics;
-using System.IO;
+﻿using System.IO;
 using System.Linq;
-using System.Reflection;
 using System.Web;
 using System.Web.Optimization;
 
@@ -30,14 +28,12 @@ namespace LegalAssistance
                       "~/Content/Styles/magnific-popup.css",
                       "~/Content/Styles/responsive.css",
                       "~/Content/Styles/components/radio-checkbox.css",
-                      "~/Content/Styles/site.css"));
-
-            //bundles.Add(new StyleBundle("~/bundles/css")
-            //    .Include(string.Format(distFolder, "*.css")));
+                      "~/Content/Styles/datepicker.css",
+                      "~/Content/Styles/site.css"));            
 
             RegisterDocsBundles(bundles);
-
-            BundleTable.EnableOptimizations = false;
+            
+            BundleTable.EnableOptimizations = false;            
         }
 
         /// <summary>

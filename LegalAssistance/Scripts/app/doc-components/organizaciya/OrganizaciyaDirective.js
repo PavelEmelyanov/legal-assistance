@@ -63,6 +63,8 @@
                         },
                     };
 
+                    $scope.components.komu.value = $scope.components.komu.options[0].value;
+
                     $scope.relatedData = {
                         innTooltip: 'В случае продавца, ИНН и другую информацию можно найти на чеке. В случае изготовителя - на упаковке товара.',
                     }

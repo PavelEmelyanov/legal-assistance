@@ -4,13 +4,14 @@
         <label>Меняем на товар: </label>
         <la-radio-yes-no ng-model="drugoyTovarFlag"
                          yes-text="Другой (другая модель, артикул)"
-                         no-text="Такой же">
+                         no-text="Такой же"
+                         required>
         </la-radio-yes-no>
         <tps-hint hint="relatedData.drugoyTovarTooltip"></tps-hint>
     </div>
     <div ng-if="drugoyTovarFlag">
         <div class="row">
-            <div class="col-xs-5">
+            <div class="col-lg-5 col-md-6 col-xs-12">
                 <div class="form-group form-group-lg">
                     <label>Модель (другой товар): </label>
                     <input type="text"
@@ -18,15 +19,6 @@
                            ng-model="drugoyModel"
                            required
                            placeholder="Микроволновая печь Samsung A35">
-                </div>
-            </div>
-            <div class="col-xs-5">
-                <div class="form-group form-group-lg">
-                    <la-checkbox-with-input ng-model="drugoyArticul"
-                                            flag="drugoyArticulSelected"
-                                            placeholder="12312311">
-                        Артикул (другой товар):
-                    </la-checkbox-with-input>
                 </div>
             </div>
         </div>
@@ -102,12 +94,10 @@
                 Не один из данных случаев
             </label>
         </div>
-    </div>
-    <div ng-if="techSlozhniyTovar.sluchay == 4">
-        <div class="alert alert-danger">
-            К сожалению вы не можете потребовать заменить товар, т.к.
-            он является технически сложным, прошло 15 дней с момента получения
-            и Ваш случай не подходит не под один из описанных выше
-        </div>
-    </div>
+    </div>    
+    <la-alert-danger ng-if="techSlozhniyTovar.sluchay == 4">
+        К сожалению вы не можете потребовать заменить товар, т.к.
+        он является технически сложным, прошло 15 дней с момента получения
+        и Ваш случай не подходит не под один из описанных выше
+    </la-alert-danger>                
 </div>

@@ -6,69 +6,68 @@
     </la-radio-yes-no>
 </div>
 
-<div class="wizard-step"
-     ng-if="tovarNaZamenuModel.flag">
-    <h3>Требование аналогичного товара на период замены</h3>
-    <div class="form-group">
+<div ng-if="tovarNaZamenuModel.flag">
+    <div class="wizard-step">
+        <h3>Требование аналогичного товара на период замены</h3>
+        <div class="form-group">
+            <label>
+                Включён ли некачественный заменяемый товар в ПЕРЕЧЕНЬ
+                <a href="http://www.consultant.ru/document/cons_doc_LAW_17579/c8b966271331ed0f59b793d7144df9b88335c640/"
+                   target="_blank">
+                    (ссылка)
+                </a>
+                :
+            </label>
+            <la-radio-yes-no ng-model="tovarNaZamenuModel.zamenyamiyTovarFlag"
+                             ng-change="tovarNaZamenuModel.obladaetSvoystvami = undefined;">
+            </la-radio-yes-no>
+        </div>
+
+        <la-alert-warning ng-if="tovarNaZamenuModel.zamenyamiyTovarFlag === true">
+            {{relatedData.alertNaZamenuTechSlozhniy}}
+        </la-alert-warning>  
+    </div>
+
+    <div class="wizard-step" ng-if="tovarNaZamenuModel.zamenyamiyTovarFlag === false">
+        <div class="form-group">
+            <label>Обладает ли аналогичный товар теми же потребительскими свойствами, что и заменяемый: </label>
+
+            <la-radio-yes-no ng-model="tovarNaZamenuModel.obladaetSvoystvami">
+            </la-radio-yes-no>
+
+            <div class="text-center">
+                <!--<a la-tooltip="{{relatedData.svoistvaTooltip}}">-->
+                Определение потребительские свойства
+                <!--</a>-->
+            </div>
+        </div>
+        <la-alert-warning ng-if="tovarNaZamenuModel.obladaetSvoystvami === false">
+            {{relatedData.alertNaZamenuSvoistva}}
+        </la-alert-warning>
+    </div>
+
+    <div class="wizard-step"
+         ng-if="tovarNaZamenuModel.obladaetSvoystvami === true">
+        <h3>Требование аналогичного товара на период замены</h3>
+
         <label>
-            Включён ли некачественный заменяемый товар в ПЕРЕЧЕНЬ
-            <a href="http://www.consultant.ru/document/cons_doc_LAW_17579/c8b966271331ed0f59b793d7144df9b88335c640/"
-               target="_blank">
-                (ссылка)
-            </a>
-            :
+            Укажите, какой товар вы хотите получить
+            на <u>период</u> процесса замены вашего
+            некачетсвенного товара:
         </label>
-        <la-radio-yes-no ng-model="tovarNaZamenuModel.zamenyamiyTovarFlag"
-                         ng-change="tovarNaZamenuModel.obladaetSvoystvami = undefined;">
-        </la-radio-yes-no>
-    </div>
-    <div class="alert alert-danger"
-         ng-if="tovarNaZamenuModel.zamenyamiyTovarFlag === true">
-        {{relatedData.alertNaZamenuTechSlozhniy}}
-    </div>
-    <div class="form-group"
-         ng-if="tovarNaZamenuModel.zamenyamiyTovarFlag === false">
-        <label>Обладает ли аналогичный товар теми же потребительскими свойствами, что и заменяемый: </label>
 
-        <la-radio-yes-no ng-model="tovarNaZamenuModel.obladaetSvoystvami">
-        </la-radio-yes-no>
-
-        <div class="text-center">
-            <!--<a la-tooltip="{{relatedData.svoistvaTooltip}}">-->
-            Определение потребительские свойства
-            <!--</a>-->
-        </div>
-    </div>
-    <div class="alert alert-danger"
-         ng-if="tovarNaZamenuModel.obladaetSvoystvami === false">
-        {{relatedData.alertNaZamenuSvoistva}}
-    </div>    
-</div>
-
-<div class="wizard-step"
-     ng-if="tovarNaZamenuModel.obladaetSvoystvami === true">
-    <h3>Требование аналогичного товара на период замены</h3>
-    <label>Укажите, какой товар вы хотите получить на ПЕРИОД процесса замены вашего некачетсвенного товара</label>
-    <div class="row">
-        <div class="col-xs-5">
-            <div class="form-group form-group-lg">
-                <label>Товар</label>
-                <input type="text"
-                       class="form-control"
-                       ng-model="tovarNaZamenuModel.naimenovanieTovara"
-                       required
-                       placeholder="Микроволновая печь Samsung F43">
-            </div>
-
-        </div>
-        <div class="col-xs-5">
-            <div class="form-group form-group-lg">
-                <la-checkbox-with-input ng-model="tovarNaZamenuModel.articul"
-                                        flag="tovarNaZamenuModel.articulIsSelected"
-                                        placeholder="12312311">
-                    Артикул
-                </la-checkbox-with-input>
+        <div class="row">
+            <div class="col-lg-5 col-md-7 col-xs-12">
+                <div class="form-group form-group-lg">
+                    <label>Товар</label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="tovarNaZamenuModel.naimenovanieTovara"
+                           required
+                           placeholder="Микроволновая печь Samsung F43">
+                </div>
             </div>
         </div>
-    </div>
+    </div>      
 </div>
+

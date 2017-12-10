@@ -124,6 +124,29 @@
                     componentsToDtoService.registerComponents($scope.components);
                 }
 
+                var reasons = [
+                    'proverkaKachestva',
+                    'otsutstvieTovaraNaZamenu',
+                    'dostavkaSever',
+                    'drugayPrichina'
+                ];
+
+                $scope.onReasonChange = function (selectedKey) {                   
+                    angular.forEach(reasons, function (key) {
+                        if (key != selectedKey) {
+                            $scope.penyaModel[key] = false;
+                        }
+                    });
+
+                    $scope.calculateNeustoyka();
+                }
+
+                $scope.isReasonSelected = function () {
+                    return reasons.reduce(function (sum, key) {
+                        return sum || $scope.penyaModel[key];
+                    }, false);
+                }
+
                 //Подсчитать пеню, если обращение было ранее
                 $scope.calculateNeustoyka = function () {   
                     if (!$scope.penyaModel.flag        

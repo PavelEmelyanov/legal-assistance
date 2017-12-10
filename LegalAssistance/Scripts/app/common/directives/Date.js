@@ -22,6 +22,13 @@
                         clearIncomplete: true
                     });
 
+                    $el.datepicker({
+                        language: 'ru-RU',
+                        format: 'dd.mm.yyyy',
+                        endDate: new Date(),
+                        autoclose: true
+                    });
+
                     ctrl.$formatters.push(function (modelValue) {
                         if (angular.utils.isNotNullOrEmpty(modelValue) && angular.isDate(modelValue)) {
                             return angular.utils.toDate(modelValue);

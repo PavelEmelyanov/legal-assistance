@@ -202,6 +202,7 @@
     <Content Include="Content\Styles\custom.css" />
     <Content Include="Content\Styles\dark-rtl.css" />
     <Content Include="Content\Styles\dark.css" />
+    <Content Include="Content\Styles\datepicker.css" />
     <Content Include="Content\Styles\elastic.css" />
     <Content Include="Content\Styles\font-icons-rtl.css" />
     <Content Include="Content\Styles\font-icons-snapchat.css" />
@@ -309,6 +310,14 @@
     <Content Include="Images\preloader.gif" />
     <Content Include="Images\world-map.png" />
     <Content Include="Scripts\app\app.js" />
+    <Content Include="Scripts\app\common\components\Alerts\AlertSuccess.js" />
+    <Content Include="Scripts\app\common\components\Alerts\AlertDanger.js" />
+    <Content Include="Scripts\app\common\components\Alerts\AlertWarning.js" />
+    <Content Include="Scripts\app\common\components\Alerts\AlertInfo.js" />
+    <Content Include="Scripts\app\common\components\Checkbox\Checkbox.html" />
+    <Content Include="Scripts\app\common\components\Checkbox\CheckboxDirective.js" />
+    <Content Include="Scripts\app\common\components\Radio\Radio.html" />
+    <Content Include="Scripts\app\common\components\Radio\RadioDirective.js" />
     <Content Include="Scripts\app\common\components\Wizard\Wizard.html" />
     <Content Include="Scripts\app\common\components\Wizard\WizardDirective.js" />
     <Content Include="Scripts\app\common\components\RadioYesNo\RadioYesNo.html" />
@@ -319,6 +328,7 @@
     <Content Include="Scripts\app\common\module.common.js" />
     <Content Include="Scripts\app\common\services\ComponentsToDtoService.js" />
     <Content Include="Scripts\app\common\validation\FormSubmit.js" />
+    <Content Include="Scripts\app\common\validation\CustomValidation.js" />
     <Content Include="Scripts\app\common\validation\ValidationAttributes.js" />
     <Content Include="Scripts\app\common\directives\Date.js" />
     <Content Include="Scripts\app\common\filters\Rub.js" />
@@ -336,8 +346,8 @@
     <Content Include="Scripts\app\doc-components\module.js" />
     <Content Include="Scripts\app\doc-components\penya\PenyaDirective.js" />
     <Content Include="Scripts\app\doc-components\organizaciya\OrganizaciyaDirective.js" />
-    <Content Include="Scripts\app\doc-components\doc-date\DocDate.html" />
-    <Content Include="Scripts\app\doc-components\doc-date\DocDateDirective.js" />
+    <Content Include="Scripts\app\doc-components\doc-common\DocCommon.html" />
+    <Content Include="Scripts\app\doc-components\doc-common\DocCommonDirective.js" />
     <Content Include="Scripts\app\documents\module.documents.js" />
     <Content Include="Scripts\app\documents\zamena-tovara-nenadlezhashego-kachestva\module.js" />
     <Content Include="Scripts\app\doc-components\penya\Penya.html" />
@@ -358,7 +368,9 @@
     <Content Include="Scripts\vendor\base\jquery.js" />
     <Content Include="Scripts\vendor\base\plugins.js" />
     <Content Include="Scripts\vendor\document\angular.js" />
+    <Content Include="Scripts\vendor\document\datepicker.ru.js" />
     <Content Include="Scripts\vendor\document\bootstrap.js" />
+    <Content Include="Scripts\vendor\document\datepicker.js" />
     <Content Include="Scripts\vendor\document\FileAPI.js" />
     <Content Include="Scripts\vendor\document\FileSaver.js" />
     <Content Include="Scripts\vendor\document\jquery.inputmask.js" />
