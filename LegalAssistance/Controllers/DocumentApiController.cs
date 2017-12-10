@@ -58,12 +58,17 @@ namespace LegalAssistance.Controllers
         }
 
         private void UpdateDocument(DocX document, DocumentFormValue doc)
-        {   
-            foreach (var p in doc.Components)
-            {
-                var key = string.Format("[[{0}]]", p.Key);
+        {
+            var allKeys = GetAllKeys(document);
 
-                if (string.IsNullOrEmpty(p.Value) && p.RemoveLineIfResultIsEmpty)
+            foreach (var keyWithoutBrackets in allKeys)
+            {
+                var key = string.Format("[[{0}]]", keyWithoutBrackets);
+
+                bool removeLineIfResultIsEmpty;
+                var value = GetValue(keyWithoutBrackets, doc.Components, out removeLineIfResultIsEmpty);
+
+                if (string.IsNullOrEmpty(value) && removeLineIfResultIsEmpty)
                 {
                     var paragraph = document.Paragraphs.FirstOrDefault(x => x.Text.Contains(key));
 
@@ -80,12 +85,12 @@ namespace LegalAssistance.Controllers
                             paragraph.ReplaceText("\n" + key, string.Empty);
                             paragraph.ReplaceText(key + "\n", string.Empty);
                         }
-                    }                                       
+                    }
                 }
                 else
                 {
-                    document.ReplaceText(key, p.Value ?? string.Empty, false, RegexOptions.IgnoreCase);
-                }                
+                    document.ReplaceText(key, value ?? string.Empty, false, RegexOptions.IgnoreCase);
+                }
             }
         }
 
@@ -109,6 +114,60 @@ namespace LegalAssistance.Controllers
 
                 return result;
             }
+        }
+
+        private List<string> GetAllKeys(DocX document)
+        {
+            var text = document.Text;
+            var matches = Regex.Matches(text, @"\[\[(.*?)\]\]");
+
+            var result = new List<string>();
+
+            foreach (Match match in matches)
+            {
+                result.Add(match.Groups[1].Value);
+            }
+
+            return result;
+        }
+
+        private string GetValue(string keyWithoutBrackets, List<ComponentFormValue> components, out bool removeLineIfResultIsEmpty)
+        {
+            var keyString = keyWithoutBrackets.Split(':').Select(x => x.Trim()).ToList();
+            var key = keyString.First();
+
+            var component = components.FirstOrDefault(x => x.Key == key);
+
+            if (component != null)
+            {
+                removeLineIfResultIsEmpty = component.RemoveLineIfResultIsEmpty;
+                
+                if (key == "pol")
+                {
+                    //Если мужчина
+                    if (component.Value == "1")
+                    {
+                        return keyString[1];
+                    }
+                    else
+                    {
+                        //Если женщина
+                        return keyString[2];
+                    }
+                }
+                else if (keyString.Count == 1)
+                {
+                    return component.Value;
+                }
+                else
+                {
+                    return string.Empty;
+                }
+            }
+            else
+            {
+                throw new System.Exception(string.Format("Component value for {0} key is not found", key));
+            }            
         }
     }
 }

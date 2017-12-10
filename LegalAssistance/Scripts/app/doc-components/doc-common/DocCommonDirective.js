@@ -22,7 +22,9 @@
                         },
                         pol: {
                             componentType: componentTypes.checkbox,
-                            componentInFileKey: "pol"                            
+                            componentInFileKey: "pol",
+                            yesText: 1,
+                            noText: 0
                         }
                     }
 
