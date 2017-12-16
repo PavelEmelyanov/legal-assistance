@@ -115,7 +115,11 @@
         <la-radio-yes-no ng-model="components.tovarNeOdnovremenno.value">
         </la-radio-yes-no>
     </div>
-    <la-alert-info ng-if="components.tovarNeOdnovremenno.value">
+    <la-alert-info ng-if="components.tovarNeOdnovremenno.value === false">
+        Продавец/изготовитель имеет право получить товар для проведения
+        экспертизы после Вашего обращения.
+    </la-alert-info>    
+    <la-alert-info ng-if="components.tovarNeOdnovremenno.value === true">
         Вам необходимо предоставить
         товар самому вместе с подачей настоящего Требования
     </la-alert-info>        
