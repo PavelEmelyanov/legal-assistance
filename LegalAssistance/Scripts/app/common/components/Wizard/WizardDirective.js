@@ -72,7 +72,10 @@
                     $scope.showSubmitButton = steps.length == index + 1;
                     $scope.showBackButton = !(index == 0 && n == -1);
                     
-                    $scope.progressPercent = parseInt(index / (steps.length - 1) * 100) + '%';
+                    $scope.progressBar = {
+                        percent: parseInt(index / (steps.length - 1) * 100) + '%',
+                        steps: index > 0 && "{0}/{1}".format(index, steps.length - 1)
+                    };
                 }
 
                 var showFirstStep = function () {

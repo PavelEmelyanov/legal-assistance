@@ -1,7 +1,10 @@
 ﻿<form name="wizardForm" novalidate ng-submit="getDoc()">
     <div class="wizard">      
         <div class="wizard-progress">
-            <div class="wizard-progress-bar" ng-style="{'width': progressPercent}">{{progressPercent}}</div>
+            <div class="wizard-progress-bar" 
+                 ng-style="{'width': progressBar.percent}">
+                {{progressBar.steps}}
+            </div>
         </div>
         <div class="wizard-body" ng-transclude></div>
         <div class="wizard-bottom">
