@@ -116,6 +116,10 @@
                         zamenaAnalogichnogoTovaraFlag: false                      
                     };
                     
+                    $scope.relatedData = {
+                        obrashenieRaneeHint: 'Ваше обращение было письменным или имеются другие доказательства факта.'
+                    }
+
                     $scope.$watch('cenaTovara', function (value) {
                         $scope.calculateNeustoyka();
                         $scope.calculateNeustoykaAnalogichniyTovar();
