@@ -1,0 +1,31 @@
+﻿.form-input-down {
+    margin-top: 36px
+}
+
+.la-invalid-input {
+  border-color: #b94a48;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+}
+
+.la-invalid-input:focus {
+  border-color: #953b39;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #d59392;
+}
+
+.help-block {
+    color: #b94a48;
+    font-weight: bold;
+}
+
+.expression-invalid.ng-invalid {
+    display: inline-block;    
+    font-size: 14px;
+    padding: 3px 8px;
+    color: #ffffff;
+    text-align: center;
+    background-color: #000000;
+    border-radius: 4px;
+    border: 4px solid #b94a48;
+}

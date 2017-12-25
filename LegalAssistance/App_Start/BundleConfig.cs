@@ -12,7 +12,8 @@ namespace LegalAssistance
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/base")
-                .IncludeDirectory("~/Scripts/vendor/base", "*.js", true));
+                .IncludeDirectory("~/Scripts/vendor/base", "*.js", true)
+                .IncludeDirectory("~/Scripts/site", "*.js", true));
 
             bundles.Add(new ScriptBundle("~/bundles/document")
                 .IncludeDirectory("~/Scripts/vendor/document", "*.js", true)
@@ -29,7 +30,7 @@ namespace LegalAssistance
                       "~/Content/Styles/responsive.css",
                       "~/Content/Styles/components/radio-checkbox.css",
                       "~/Content/Styles/datepicker.css",
-                      "~/Content/Styles/site.css"));            
+                      "~/Content/Styles/site/*.css"));            
 
             RegisterDocsBundles(bundles);
             

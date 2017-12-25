@@ -1,0 +1,9 @@
+﻿#support-project {
+    float: right;
+    margin: 25px 0 25px 15px;
+}
+
+.button.opacity-hover:hover {
+    background-color: #1ABC9C !important;
+    opacity: 0.9;
+}

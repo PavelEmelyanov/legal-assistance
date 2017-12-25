@@ -256,13 +256,19 @@
     <Content Include="Content\Styles\nivo-slider.css" />
     <Content Include="Content\Styles\responsive-rtl.css" />
     <Content Include="Content\Styles\responsive.css" />
+    <Content Include="Content\Styles\site\social-icons.css" />
+    <Content Include="Content\Styles\site\home.css" />
+    <Content Include="Content\Styles\site\tooltip.css" />
+    <Content Include="Content\Styles\site\autocomplete.css" />
+    <Content Include="Content\Styles\site\form.css" />
+    <Content Include="Content\Styles\site\wizard.css" />
     <Content Include="Content\Styles\style.css" />
     <Content Include="Content\Styles\swiper.css" />
     <Content Include="Content\Styles\vmap.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Styles\Site.css" />
+    <Content Include="Content\Styles\site\layout.css" />
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -364,6 +370,7 @@
     <Content Include="Scripts\app\doc-components\zamena-tovara\ZamenaTovara.html" />
     <Content Include="Scripts\app\documents\zamena-tovara-nenadlezhashego-kachestva\ZamenaTovaraNenadlezhashegoKachestva.html" />
     <Content Include="Scripts\app\documents\zamena-tovara-nenadlezhashego-kachestva\ZamenaTovaraNenadlezhashegoKachestvaController.js" />
+    <Content Include="Scripts\site\share.social.icons.js" />
     <Content Include="Scripts\vendor\base\functions.js" />
     <Content Include="Scripts\vendor\base\jquery.js" />
     <Content Include="Scripts\vendor\base\plugins.js" />
@@ -403,6 +410,9 @@
     <Content Include="Views\Document\DocumentTree.cshtml" />
     <Content Include="Views\Document\Index.cshtml" />
     <Content Include="Views\Document\Test.cshtml" />
+    <Content Include="Views\Shared\SupportProjectModal.cshtml" />
+    <Content Include="Views\Shared\Header.cshtml" />
+    <Content Include="Views\Shared\SocialIcons.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LA.BusinessLogic\LA.BusinessLogic.csproj">

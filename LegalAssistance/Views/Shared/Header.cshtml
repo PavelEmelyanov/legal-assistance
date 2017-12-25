@@ -1,0 +1,45 @@
+﻿<header id="header" class="static-sticky">
+    <div id="header-wrap">
+
+        <div class="container clearfix">
+
+            <div id="primary-menu-trigger"><i class="icon-reorder"></i></div>
+
+            <!-- Logo
+            ============================================= -->
+            <div id="logo">
+                <a href="@Url.Action("Index", "Home")" class="standard-logo" 
+                   style="font-size: 36px; padding: 29px 0; font-weight: bold;">
+                    <span class="color">ЮР</span>обот
+                </a>
+                @*<a href="@Url.Action("Index", "Home")" class="standard-logo" data-dark-logo="images/logo-dark.png"><img src="images/logo.png" alt="Canvas Logo"></a>
+                  <a href="@Url.Action("Index", "Home")" class="retina-logo" data-dark-logo="images/logo-dark@2x.png"><img src="images/logo@2x.png" alt="Canvas Logo"></a>*@ 
+            </div><!-- #logo end -->
+            <!-- Primary Navigation
+            ============================================= -->
+            <nav id="primary-menu" class="style-2">
+                <ul>
+                    <li>
+                        <a href="@Url.Action("Index", "Home")"><div>Главная</div></a>
+                    </li>
+                    <li class="mega-menu">
+                        @*<a href="@Url.Action("Index", "Document")"><div>Документы</div></a>*@
+                        <a href="@Url.Action("Index", "Document")">
+                            <div>Документы</div>
+                        </a>
+                        <div class="mega-menu-content style-2 clearfix">
+                            @Html.Action("DocumentTree", "Document")
+                        </div>
+                    </li>
+                </ul>
+                <div id="support-project">
+                    <a href="#supportProjectModal"
+                       data-lightbox="inline"
+                       class="button opacity-hover button-small button-rounded">
+                        Поддержать проект
+                    </a>
+                </div>
+            </nav><!-- #primary-menu end -->
+        </div>
+    </div>
+</header>

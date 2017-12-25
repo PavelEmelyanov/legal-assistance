@@ -1,0 +1,79 @@
+﻿.container.doc-form-container .fancy-title {
+    padding-top: 20px;
+}
+
+@media (max-width: 767px) {
+    .container.doc-form-container {
+        width: 360px !important;
+    }
+}
+
+.wizard-body {    
+    border: 1px solid #EEE;
+}
+
+@media (min-width: 1201px) {
+    .wizard-body {
+        padding: 50px 125px 35px;
+    }
+}
+
+@media (max-width: 1200px) and (min-width: 768px) {
+    .wizard-body {
+        padding: 40px 60px 35px;
+    }
+}
+
+@media (max-width: 767px) {
+    .wizard-body {
+        padding: 20px 30px;
+    }
+}
+
+
+.wizard-body .form-group {
+    margin-bottom: 25px;
+}
+
+.wizard-step {
+    display: none;
+}
+
+.wizard-step.active {
+    display: block;
+}
+
+.wizard-step label, 
+.wizard-step .alert i, .sb-msg i, .msgtitle i,
+.wizard-step .style-msg .sb-msg, .style-msg2 .msgtitle, .style-msg2 .sb-msg {
+    font-size: 16px;
+}
+
+.wizard-step .checkbox-style-1-label:before, .radio-style-1-label:before, .checkbox-style-2-label:before, .radio-style-2-label:before, .checkbox-style-3-label:before, .radio-style-3-label:before {
+    width: 27px;
+    height: 27px;
+}
+
+.wizard-step form-control.active {
+    border-color: #1ABC9C;
+}
+
+.wizard-bottom {
+    text-align: center;
+    background-color:#F5F5F5;
+    padding: 20px 0;
+}
+
+.wizard-progress {
+    background-color: #F5F5F5;
+    width: 100%;
+}
+
+.wizard-progress .wizard-progress-bar{
+    width: 0%;
+    height: 30px;
+    background-color: #1ABC9C;
+    text-align: center;
+    line-height: 30px;
+    color: white;
+}
