@@ -19,13 +19,7 @@
                             componentType: componentTypes.input,
                             componentInFileKey: "doc-date",
                             value: new Date()
-                        },
-                        pol: {
-                            componentType: componentTypes.checkbox,
-                            componentInFileKey: "pol",
-                            yesText: 1,
-                            noText: 0
-                        }
+                        }                        
                     }
 
                     componentsToDtoService.registerComponents($scope.components);

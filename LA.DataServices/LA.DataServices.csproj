@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Interfaces\ICategoryService.cs" />
     <Compile Include="Interfaces\IDocumentService.cs" />
     <Compile Include="Models\Component.cs" />
     <Compile Include="Models\ComponentCheckboxWithInput.cs" />
@@ -51,6 +52,7 @@
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CategoryService.cs" />
     <Compile Include="Services\DocumentService.cs" />
   </ItemGroup>
   <ItemGroup />

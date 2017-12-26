@@ -12,6 +12,8 @@ namespace LA.DataServices.Models
 
         public string UrlKey { get; set; }
 
+        public long CategoryID { get; set; }
+
         public virtual List<DocumentComponent> DocumentComponents { get; set; }
 
         public virtual Category Category { get; set; }

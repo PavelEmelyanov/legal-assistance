@@ -1,4 +1,9 @@
-﻿.container.doc-form-container .fancy-title {
+﻿.doc-form-wrapper {
+    min-height: 450px;
+    position: relative;
+}
+
+.container.doc-form-container .fancy-title {
     padding-top: 20px;
 }
 

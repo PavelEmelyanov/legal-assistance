@@ -2,62 +2,47 @@
     <div class="content-wrap">
         <div class="container clearfix">
             <div class="heading-block title-center nobottomborder page-section">
-                <h1>Создайте заявление - верните деньги</h1>
-                @*<span>
-                    Сервис для автоматического создания документов, 
-                    необходимых для защиты своих прав
-                </span>*@
-                <span>
+                <h1 class="text-rotater" data-separator="|" data-rotate="flipInX" data-speed="4000">                                        
+                    Создайте заявление - 
+                    <span class="t-rotate color" style="display: none">верните деньги|защитите свои права</span>
+                    <span class="t-rotate-on-start" style="visibility: hidden">верните деньги</span>
+                </h1>                   
+                <span>                    
                     Заполните форму - получите готовый для печати документ.
                     Это просто, <span class="color">бесплатно</span> и не требует юридической подготовки.
                 </span>
             </div>
             <div>
-                <ul class="process-steps process-3 clearfix">
+                <ul class="process-steps process-4 clearfix">
                     <li>
                         <a class="i-circled i-alt divcenter bgcolor icon-bulb"></a>
                         <h5>Выберите Проблему</h5>                        
                     </li>
                     <li>
                         <a class="i-circled i-alt divcenter bgcolor icon-line-paper"></a>
-                        <h5>Создайте Заявление</h5>
+                        <h5>Заполните Форму</h5>
                     </li>
                     <li>
                         <a class="i-circled i-alt divcenter bgcolor icon-like"></a>
+                        <h5>Получите Готовое Заявление</h5>
+                    </li>
+                    <li>
+                        <a class="i-circled i-alt divcenter bgcolor icon-line-head"></a>
                         <h5>Обратитесь к продавцу/поставщику услуг</h5>
                     </li>
                 </ul>
             </div>
             <div class="center">
-                <button class="button button-3d button-xlarge">
+                <a class="button button-3d button-xlarge"
+                   data-scrollto="#choose-problem">
                     <i class="icon-star3"></i>
                     Начать!
-                </button>
+                </a>
             </div>
         </div>
     </div>
 </section>
 
-
-@*<section id="slider" class="slider-parallax swiper_wrapper clearfix">
-    <div class="slider-parallax-inner">
-        <div class="swiper-container swiper-parent">
-            <div class="swiper-wrapper">
-                <div class="swiper-slide" style="background-image: url('images/home-banner.jpg'); background-position: center top;">
-                    <div class="container clearfix">
-                        <div class="slider-caption">
-                            <h2 data-caption-animate="fadeInUp">
-                                Юридическая помощь
-                            </h2>
-                            <p data-caption-animate="fadeInUp" data-caption-delay="200">
-                                Помогаем быстро и просто создавать
-                                документы для различных жизненных ситуаций.                                
-                                <a href="#">Как это работает?</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>*@
+<section id="choose-problem" class="bottommargin-lg">
+    @Html.Action("DocumentTree", "Document")    
+</section>

@@ -3132,13 +3132,18 @@ var SEMICOLON = SEMICOLON || {};
 					if( !trSpeed ) { trSpeed = 1200; }
 					if( !trSeparator ) { trSeparator = ","; }
 
-					var tRotater = $(this).find('.t-rotate');
+					var tRotaterRemove = $(this).find('.t-rotate-on-start');
+					tRotaterRemove.remove();
+
+					var tRotater = $(this).find('.t-rotate');					
 
 					tRotater.Morphext({
 						animation: trRotate,
 						separator: trSeparator,
 						speed: Number(trSpeed)
 					});
+
+					tRotater.show();
 				});
 			}
 		},

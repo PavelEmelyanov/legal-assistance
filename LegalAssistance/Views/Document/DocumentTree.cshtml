@@ -1,20 +1,42 @@
-﻿@model List<LA.BusinessLogic.Models.Document>
+﻿@model List<LA.BusinessLogic.Models.DocumentMenuItem>
 
-@foreach (var groupItem in Model.GroupBy(x => x.Category))
-{
-    <ul class="mega-menu-column col-md-4">
-        <li class="mega-menu-title">
-            <a href="#"><div>@groupItem.Key.Name</div></a>
-            <ul>
-                @foreach (var item in groupItem)
-                {
-                    <li>
-                        <a href="@Url.Action("FillForm", "Document", new { urlKey = item.FileName })">
-                            <div>@item.Name</div>
-                        </a>
-                    </li>
-                }                
-            </ul>
-        </li>
-    </ul>
+@{ 
+    var colClass = "col-md-4";
 }
+
+<div class="content-wrap">
+    <div class="container clearfix">
+        <div class="heading-block center nobottomborder">
+            <h2>Выберите Проблему</h2>
+            <div class="clear"></div>
+        </div>
+        <div class="row center">
+            @foreach (var item in Model)
+            {
+                <div class="@colClass">
+                    <div class="fancy-title title-bottom-border">
+                        <h3>@item.Category</h3>
+                    </div>
+                    @foreach (var doc in item.Documents)
+                    {
+                        @*<a href="@Url.Action("FillForm", "Document", new { urlKey = doc.FileName })"
+                            class="button button-border button-rounded button-fill fill-from-bottom button-black button-small nomargin">
+                            <span>@doc.Name</span>
+                        </a>*@
+                        <a href="@Url.Action("FillForm", "Document", new { urlKey = doc.FileName })"
+                           class="la-doc-menu-item-link">
+                            <span>@doc.Name</span>
+                        </a>
+                    }
+
+                    @if (item.Documents.Count == 0)
+                    {
+                        <div style="padding-top: 8px">
+                            Находится в разработке
+                        </div>
+                    }
+                </div>
+            }
+        </div>
+    </div>
+</div>

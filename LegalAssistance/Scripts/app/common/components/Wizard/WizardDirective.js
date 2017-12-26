@@ -84,7 +84,7 @@
 
                     if (firstChildSteps.length > 0) {
                         firstChildSteps.first().addClass('active');
-                        $scope.progressPercent = 0;
+                        $scope.progressPercent = 0;                       
                     }
                     else {
                         setTimeout(showFirstStep, 50);

@@ -36,8 +36,8 @@ namespace LegalAssistance.Controllers
         [ChildActionOnly]
         public ActionResult DocumentTree()
         {
-            var docs = _documentService.GetForMenu();
-            return PartialView("DocumentTree", docs);
+            var menuItems = _documentService.GetForMenu();
+            return PartialView("DocumentTree", menuItems);
         }
     }
 }

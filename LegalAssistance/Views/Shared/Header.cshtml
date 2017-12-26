@@ -22,14 +22,10 @@
                     <li>
                         <a href="@Url.Action("Index", "Home")"><div>Главная</div></a>
                     </li>
-                    <li class="mega-menu">
-                        @*<a href="@Url.Action("Index", "Document")"><div>Документы</div></a>*@
+                    <li>                        
                         <a href="@Url.Action("Index", "Document")">
-                            <div>Документы</div>
+                            <div>Заявления</div>
                         </a>
-                        <div class="mega-menu-content style-2 clearfix">
-                            @Html.Action("DocumentTree", "Document")
-                        </div>
                     </li>
                 </ul>
                 <div id="support-project">

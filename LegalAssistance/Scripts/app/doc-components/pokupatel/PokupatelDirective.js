@@ -22,6 +22,12 @@
                         addressPokupatel: {
                             componentType: componentTypes.input,
                             componentInFileKey: 'address-pokupatel'
+                        },
+                        pol: {
+                            componentType: componentTypes.checkbox,
+                            componentInFileKey: "pol",
+                            yesText: 1,
+                            noText: 0
                         }
                     };
 

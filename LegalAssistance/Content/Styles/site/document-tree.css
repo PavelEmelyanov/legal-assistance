@@ -1,0 +1,16 @@
+﻿.la-doc-menu-item-link {
+    width: 100%;
+    display: block;
+    padding: 8px 0;
+    font-size: 16px;
+    color: #222;    
+    font-family: 'Raleway', sans-serif; 
+}
+
+.la-doc-menu-item-link span {
+    border-bottom: 1px dotted #222;
+}
+
+.la-doc-menu-item-link:hover {
+    color: #1ABC9C;
+}

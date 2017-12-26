@@ -10,6 +10,6 @@ namespace LA.BusinessLogic.Interfaces
     public interface IDocumentService
     {
         Document GetByUrlKey(string urlKey);
-        List<Document> GetForMenu();
+        List<DocumentMenuItem> GetForMenu();
     }
 }

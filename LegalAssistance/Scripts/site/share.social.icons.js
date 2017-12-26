@@ -47,9 +47,8 @@
         var siteUrl = location.origin;
         var text = 'ЮРобот';
         var image = 'https://www.wmj.ru/imgs/2016/12/05/09/929194/d1bbd77c2612ef45eee03defa5c373710d7c56e8.jpg';
-        var title = 'ЮРобот. Создайте заявление - верните деньги. Заполните форму - получите готовый для печати документ. Это просто и бесплатно.'
-
-
+        var title = 'Создайте заявление - верните деньги за товары и услуги. Заполните форму - получите готовый для печати документ. Это просто и бесплатно.'
+        
         $('.js-share-site-vk').click(function () {
             Share.vkontakte(siteUrl, title, image, text);
         })

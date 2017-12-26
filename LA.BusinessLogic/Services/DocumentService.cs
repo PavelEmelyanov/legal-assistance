@@ -12,10 +12,12 @@ namespace LA.BusinessLogic.Services
     public class DocumentService : IDocumentService
     {
         private DataServices.Interfaces.IDocumentService _documentService;
+        private DataServices.Interfaces.ICategoryService _categoryService;
 
         public DocumentService()
         {
             _documentService = new DataServices.Services.DocumentService();
+            _categoryService = new DataServices.Services.CategoryService();
         }
 
         public Document GetByUrlKey(string urlKey)
@@ -24,10 +26,21 @@ namespace LA.BusinessLogic.Services
             return MappingHelper.Map<DataServices.Models.Document, Document>(result);
         }
         
-        public List<Document> GetForMenu()
+        public List<DocumentMenuItem> GetForMenu()
         {
-            var result = _documentService.GetForMenu();
-            return result.Select(x => MappingHelper.Map<DataServices.Models.Document, Document>(x)).ToList();
+            var documents = _documentService.GetForMenu();
+            var categories = _categoryService.GetAll();
+
+            var result = categories.Select(x => new DocumentMenuItem
+            {
+                Category = x.Name,
+                Documents = documents
+                    .Where(y => y.CategoryID == x.ID)
+                    .Select(y => MappingHelper.Map<DataServices.Models.Document, Document>(y))
+                    .ToList()
+            }).ToList();
+
+            return result;
         }
     }
 }

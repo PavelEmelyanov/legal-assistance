@@ -54,6 +54,7 @@
     <Compile Include="Models\ComponentInput.cs" />
     <Compile Include="Models\ComponentRadioGroup.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\DocumentMenuItem.cs" />
     <Compile Include="Models\Document.cs" />
     <Compile Include="Models\DocumentComponent.cs" />
     <Compile Include="Models\DocumentFormValue.cs" />

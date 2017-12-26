@@ -1,0 +1,66 @@
+﻿<footer id="footer" class="dark">
+
+    <div class="container">
+
+        <!-- Footer Widgets
+        ============================================= -->
+        <div class="footer-widgets-wrap clearfix" style="padding: 30px 0;">
+            <div class="col_half">
+                <div class="widget clearfix">
+                    <h4>О нас</h4>
+                    <p>
+                        Проект ЮРобот был создан, чтобы помочь Вам
+                        защитить свои права и восстановить справедливость.
+                        С помощью нашей системы вы можете заполнить простую форму
+                        и получить готовое заявление на возврат некачественного товара,
+                        сформировать жалобу в ЖКХ и много другое.
+                        В процессе заполнение формы, вы получите юридическую
+                        консультацию и узнаете что Вы в праве требовать.
+                        Это просто, бесплатно и не требует юридических знаний
+                        и опыта.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col_half col_last">
+                <div class="widget clearfix">
+                    <h4>Расскажите о нас в социальных сетях</h4>
+                    @Html.Partial("SocialIcons")
+                </div>
+                <div class="widget clearfix">
+                    <div class="col_half">
+                        <div class="widget clearfix">
+                            <h4 class="nobottommargin">Напишите нам</h4>
+                            <abbr title="Email"><strong>Email:</strong></abbr> info@canvas.com
+                        </div>
+                    </div>
+                    <div class="col_half col_last">
+                        <div class="widget clearfix">
+                            <h4 class="nobottommargin">Поддержите наш проект</h4>
+                            <a href="#supportProjectModal" data-lightbox="inline">
+                                нажмите сюда, чтобы поддержать
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Copyrights
+    ============================================= -->
+    <div id="copyrights">
+        <div class="container clearfix">
+            <div class="col_half">
+                © ЮРобот
+            </div>
+            <div class="col_half col_last tright">
+                <div class="fright clearfix">
+                    <div class="copyrights-menu copyright-links nobottommargin">
+                        <a href="@Url.Action("Index", "Home")">Главная</a>/<a href="@Url.Action("Index", "Document")">Заявления</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

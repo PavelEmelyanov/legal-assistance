@@ -256,6 +256,7 @@
     <Content Include="Content\Styles\nivo-slider.css" />
     <Content Include="Content\Styles\responsive-rtl.css" />
     <Content Include="Content\Styles\responsive.css" />
+    <Content Include="Content\Styles\site\document-tree.css" />
     <Content Include="Content\Styles\site\social-icons.css" />
     <Content Include="Content\Styles\site\home.css" />
     <Content Include="Content\Styles\site\tooltip.css" />
@@ -413,6 +414,7 @@
     <Content Include="Views\Shared\SupportProjectModal.cshtml" />
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Shared\SocialIcons.cshtml" />
+    <Content Include="Views\Shared\Footer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LA.BusinessLogic\LA.BusinessLogic.csproj">
