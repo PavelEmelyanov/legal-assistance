@@ -1,10 +1,11 @@
 ﻿<div ng-controller="ZamenaTovaraNenadlezhashegoKachestvaController">    
     <la-wizard form-submit="getDoc()">
+        <!--Перед началом заполнения формы-->
+        <la-doc-on-start get-target-text="settings.getOnStartTargetText()"></la-doc-on-start>
+        <!--Сведения о замене товара-->
         <la-zamena-tovara></la-zamena-tovara>
         <!--Сведения об организации-->
-        <la-organizaciya></la-organizaciya>
-        <!--Сведения о покупателе-->
-        <la-pokupatel></la-pokupatel>
+        <la-organizaciya></la-organizaciya>        
         <!--Сведения о товаре-->
         <la-tovar cena-tovara="cenaTovara"></la-tovar>
         <!--Требование аналогичного товара на период замены-->
@@ -15,5 +16,7 @@
         <la-ubitki></la-ubitki>
         <!--Общая инфа для всех документов-->
         <la-doc-common></la-doc-common>
+        <!--Финальный степ-->
+        <la-doc-on-end get-target-text="settings.getOnEndTargetText()"></la-doc-on-end>
     </la-wizard>    
 </div>

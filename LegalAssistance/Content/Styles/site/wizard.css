@@ -1,6 +1,7 @@
 ﻿.doc-form-wrapper {
     min-height: 450px;
     position: relative;
+    margin-bottom: 50px
 }
 
 .container.doc-form-container .fancy-title {
@@ -81,4 +82,26 @@
     text-align: center;
     line-height: 30px;
     color: white;
+}
+
+.wizard-doc-on-start-list {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Raleway', sans-serif;    
+    letter-spacing: 1px;
+    color: #555;        
+}
+
+.wizard-doc-on-start-list li {
+    margin-bottom: 15px;
+}
+
+.wizard-end-item {
+    margin-bottom: 30px;
+    font-size: 16px;
+}
+
+.wizard-end-item h4 {
+    margin-bottom: 0px;
 }

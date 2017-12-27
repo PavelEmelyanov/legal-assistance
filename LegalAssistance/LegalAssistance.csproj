@@ -350,19 +350,21 @@
     <Content Include="Scripts\app\common\components\Hint\HintDirective.js" />
     <Content Include="Scripts\app\common\components\Inn\Inn.html" />
     <Content Include="Scripts\app\common\components\Inn\InnDirective.js" />
+    <Content Include="Scripts\app\doc-components\doc-on-end\DocOnEnd.html" />
+    <Content Include="Scripts\app\doc-components\doc-on-end\DocOnEndDirective.js" />
+    <Content Include="Scripts\app\doc-components\doc-on-start\DocOnStart.html" />
+    <Content Include="Scripts\app\doc-components\doc-on-start\DocOnStartDirective.js" />
     <Content Include="Scripts\app\doc-components\module.js" />
     <Content Include="Scripts\app\doc-components\penya\PenyaDirective.js" />
     <Content Include="Scripts\app\doc-components\organizaciya\OrganizaciyaDirective.js" />
-    <Content Include="Scripts\app\doc-components\doc-common\DocCommon.html" />
-    <Content Include="Scripts\app\doc-components\doc-common\DocCommonDirective.js" />
     <Content Include="Scripts\app\documents\module.documents.js" />
     <Content Include="Scripts\app\documents\zamena-tovara-nenadlezhashego-kachestva\module.js" />
     <Content Include="Scripts\app\doc-components\penya\Penya.html" />
-    <Content Include="Scripts\app\doc-components\pokupatel\PokupatelDirective.js" />
+    <Content Include="Scripts\app\doc-components\doc-common\DocCommonDirective.js" />
     <Content Include="Scripts\app\doc-components\tovar-na-period-zameni\TovarNaPeriodZameniDirective.js" />
     <Content Include="Scripts\app\doc-components\tovar-na-period-zameni\TovarNaPeriodZameni.html" />
     <Content Include="Scripts\app\doc-components\organizaciya\Organizaciya.html" />
-    <Content Include="Scripts\app\doc-components\pokupatel\Pokupatel.html" />
+    <Content Include="Scripts\app\doc-components\doc-common\DocCommon.html" />
     <Content Include="Scripts\app\doc-components\tovar\TovarDirective.js" />
     <Content Include="Scripts\app\doc-components\tovar\Tovar.html" />
     <Content Include="Scripts\app\doc-components\ubitki\UbitkiDirective.js" />
@@ -394,8 +396,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Document\FillForm.cshtml" />
   </ItemGroup>

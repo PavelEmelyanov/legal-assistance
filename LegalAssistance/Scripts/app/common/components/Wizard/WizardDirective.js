@@ -76,6 +76,9 @@
                         percent: parseInt(index / (steps.length - 1) * 100) + '%',
                         steps: index > 0 && "{0}/{1}".format(index, steps.length - 1)
                     };
+
+                    //Scroll top
+                    $(window).scrollTop(0);
                 }
 
                 var showFirstStep = function () {

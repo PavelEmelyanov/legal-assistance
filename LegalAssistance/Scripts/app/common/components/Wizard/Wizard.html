@@ -21,13 +21,13 @@
                     ng-class="{'button-light': disableNextButton}"
                     ng-show="!showSubmitButton"
                     type="button">
-                Далее
+                {{showBackButton ? 'Далее' : 'Перейти к заполнению'}}
                 <i class="icon-circle-arrow-right"></i>
             </button>
             <button class="button button-3d button-large button-rounded tright button-blue"                    
                     ng-show="showSubmitButton"
                     type="submit">
-                Сформировать Документ
+                Получить Документ
                 <i class="icon-download-alt"></i>
             </button>
         </div>

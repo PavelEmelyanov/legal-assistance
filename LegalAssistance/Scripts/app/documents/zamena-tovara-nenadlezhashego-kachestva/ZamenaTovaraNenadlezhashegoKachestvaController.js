@@ -13,5 +13,13 @@
             var mainDocument = $scope.$parent.MainDocument;            
             documentService.getDoc(mainDocument);
         }
+
+        $scope.settings = {
+            getOnStartTargetText: function () {
+                return "продавцу/изготовителю для замены товара ненадлежащего качества"
+            },
+        }
+
+        $scope.settings.getOnEndTargetText = $scope.settings.getOnStartTargetText;
     }
 })();

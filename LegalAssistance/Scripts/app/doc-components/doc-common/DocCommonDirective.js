@@ -15,12 +15,26 @@
 
                 var init = function () {
                     $scope.components = {
+                        pokupatel: {
+                            componentType: componentTypes.input,
+                            componentInFileKey: 'pokupatel'
+                        },
+                        addressPokupatel: {
+                            componentType: componentTypes.input,
+                            componentInFileKey: 'address-pokupatel'
+                        },
+                        pol: {
+                            componentType: componentTypes.checkbox,
+                            componentInFileKey: "pol",
+                            yesText: 1,
+                            noText: 0
+                        },
                         docDate: {
                             componentType: componentTypes.input,
                             componentInFileKey: "doc-date",
                             value: new Date()
-                        }                        
-                    }
+                        }
+                    };
 
                     componentsToDtoService.registerComponents($scope.components);
                 }

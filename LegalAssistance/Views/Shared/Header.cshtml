@@ -8,7 +8,7 @@
             <!-- Logo
             ============================================= -->
             <div id="logo">
-                <a href="@Url.Action("Index", "Home")" class="standard-logo" 
+                <a href="@Url.Action("Index", "Home")" 
                    style="font-size: 36px; padding: 29px 0; font-weight: bold;">
                     <span class="color">ЮР</span>обот
                 </a>
@@ -27,8 +27,14 @@
                             <div>Заявления</div>
                         </a>
                     </li>
+                    <li class="visible-xs visible-sm">
+                        <a href="#supportProjectModal"
+                           data-lightbox="inline">
+                            <div>Поддержать проект</div>
+                        </a>
+                    </li>
                 </ul>
-                <div id="support-project">
+                <div id="support-project" class="visible-lg visible-md">
                     <a href="#supportProjectModal"
                        data-lightbox="inline"
                        class="button opacity-hover button-small button-rounded">

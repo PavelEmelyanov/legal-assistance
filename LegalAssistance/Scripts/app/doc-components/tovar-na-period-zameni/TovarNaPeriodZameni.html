@@ -12,7 +12,7 @@
         <div class="form-group">
             <label>
                 Включён ли некачественный заменяемый товар в ПЕРЕЧЕНЬ
-                <a href="http://www.consultant.ru/document/cons_doc_LAW_17579/c8b966271331ed0f59b793d7144df9b88335c640/"
+                <a href="http://www.consultant.ru/document/cons_doc_LAW_17579/87e5413f153110f9529509bc465f7b49a12580ad/"
                    target="_blank">
                     (ссылка)
                 </a>
@@ -31,16 +31,16 @@
     <div class="wizard-step" ng-if="tovarNaZamenuModel.zamenyamiyTovarFlag === false">
         <div class="form-group">
             <label>Обладает ли аналогичный товар теми же потребительскими свойствами, что и заменяемый: </label>
-
             <la-radio-yes-no ng-model="tovarNaZamenuModel.obladaetSvoystvami">
-            </la-radio-yes-no>
-
-            <div class="text-center">
-                <!--<a la-tooltip="{{relatedData.svoistvaTooltip}}">-->
-                Определение потребительские свойства
-                <!--</a>-->
-            </div>
+            </la-radio-yes-no>           
         </div>
+        <la-alert-info>
+            Под "потребительскими свойствами" понимается товар того же вида и типа.
+            Пример - для холодильника определённого размера и с определённым типом двигателя
+            схожими потребительскими свойствами будет обладать
+            другой холодильник такого же размера и
+            с тем же типом двигателя.
+        </la-alert-info>
         <la-alert-warning ng-if="tovarNaZamenuModel.obladaetSvoystvami === false">
             {{relatedData.alertNaZamenuSvoistva}}
         </la-alert-warning>
@@ -52,7 +52,7 @@
 
         <label>
             Укажите, какой товар вы хотите получить
-            на <u>период</u> процесса замены вашего
+            на <span class="color">период</span> процесса замены вашего
             некачетсвенного товара:
         </label>
 
