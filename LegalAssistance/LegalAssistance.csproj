@@ -407,6 +407,7 @@
     <Content Include="Views\Shared\Header.cshtml" />
     <Content Include="Views\Shared\SocialIcons.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
+    <None Include="Properties\PublishProfiles\LaProfile.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LA.BusinessLogic\LA.BusinessLogic.csproj">

@@ -17,7 +17,10 @@
                     Components: componentsToDtoService.getDocParams()
                 }
 
-                var url = 'http://192.168.197.202/LegalAssistance/api/document/generate';
+                var url = '{0}{1}{2}'.format(
+                    location.origin,
+                    document.getElementsByTagName('base')[0].getAttribute('href'),
+                    'api/document/generate');
 
                 return $http({ method: "POST", url: url, data: dto, responseType: 'arraybuffer' })
                     .then(function (response) {

@@ -6,7 +6,8 @@
         .constant('DocToViewConfig', docToViewConfig());
 
     function docToViewConfig() {
-        var docFolder = '/LegalAssistance/Scripts/app/documents';
+        var baseHref = document.getElementsByTagName('base')[0].getAttribute('href');
+        var docFolder = baseHref + 'Scripts/app/documents';
 
         //File name is key
         var result = {

@@ -32,7 +32,7 @@
                         obrashenieRaneeUstanovleno: {
                             componentType: componentTypes.custom,
                             componentInFileKey: "obrashenie-ranee-ustanovleno",
-                            getValue: () => {
+                            getValue: function () {
                                 if ($scope.penyaModel.proverkaKachestva) {
                                     return "Была установлена необходимость проверки качества.";
                                 }
@@ -52,7 +52,7 @@
                             componentType: componentTypes.custom,
                             removeLineIfResultIsEmpty: true,
                             componentInFileKey: "obrashenie-ranee-neustoyka",
-                            getValue: () => {
+                            getValue: function () {
                                 if ($scope.penyaModel.flag) {
                                     return angular.utils.toRub($scope.penyaModel.neustoyka);
                                 } else {
@@ -63,7 +63,7 @@
                         obrashenieRaneeNeustoykaFormula: {
                             componentType: componentTypes.custom,
                             componentInFileKey: 'obrashenie-ranee-neustoyka-formula',
-                            getValue: () => {
+                            getValue: function () {
                                 return $scope.penyaModel.formula;
                             }
                         },
@@ -71,7 +71,7 @@
                             componentType: componentTypes.custom,
                             removeLineIfResultIsEmpty: true,
                             componentInFileKey: "obrashenie-ranee-analog-tovar-data",
-                            getValue: () => {
+                            getValue: function () {
                                 if ($scope.penyaModel.zamenaAnalogichnogoTovaraFlag) {
                                     return angular.utils.toDate($scope.penyaModel.analogichniyTovarDate);
                                 } else {
@@ -83,7 +83,7 @@
                             componentType: componentTypes.custom,
                             removeLineIfResultIsEmpty: true,
                             componentInFileKey: "obrashenie-ranee-analog-tovar-neustoyka",
-                            getValue: () => {
+                            getValue: function () {
                                 if ($scope.penyaModel.zamenaAnalogichnogoTovaraFlag) {
                                     return angular.utils.toRub($scope.penyaModel.analogichniyTovarNeustoyka);
                                 } else {
@@ -94,14 +94,14 @@
                         obrashenieRaneeAnalogichniyTovarNeustoykaFormula: {
                             componentType: componentTypes.custom,
                             componentInFileKey: 'obrashenie-ranee-analog-tovar-neustoyka-formula',
-                            getValue: () => {
+                            getValue: function () {
                                 return $scope.penyaModel.analogichniyTovarFormula;
                             }
                         },
                         stat21: {
                             componentType: componentTypes.custom,
                             componentInFileKey: "stat-21",
-                            getValue: () => {
+                            getValue: function () {
                                 if ($scope.penyaModel.trebovatNeustoyku) {
                                     return "21,";
                                 } else {

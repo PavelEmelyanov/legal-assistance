@@ -19,7 +19,7 @@ namespace LegalAssistance
                 .IncludeDirectory("~/Scripts/vendor/document", "*.js", true)
                 .IncludeDirectory("~/Scripts/app", "*.js", true));
 
-            bundles.Add(new StyleBundle("~/bundles/css").Include(
+            bundles.Add(new StyleBundle("~/Content/Styles/base").Include(                                      
                       "~/Content/Styles/bootstrap.css",
                       "~/Content/Styles/style.css",
                       "~/Content/Styles/swiper.css",
@@ -30,12 +30,15 @@ namespace LegalAssistance
                       "~/Content/Styles/responsive.css",
                       "~/Content/Styles/components/radio-checkbox.css",
                       "~/Content/Styles/datepicker.css",
-                      "~/Content/Styles/site/*.css"));            
+                      "~/Content/Styles/site/*.css"));
 
-            RegisterDocsBundles(bundles);
-            
-            BundleTable.EnableOptimizations = false;            
-        }
+            //RegisterDocsBundles(bundles);
+#if DEBUG
+            BundleTable.EnableOptimizations = false;
+#else
+            BundleTable.EnableOptimizations = true;
+#endif
+        }        
 
         /// <summary>
         /// Register bundle for every *.docx file
