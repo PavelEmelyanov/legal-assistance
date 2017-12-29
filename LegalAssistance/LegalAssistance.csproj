@@ -288,6 +288,15 @@
     <Content Include="Images\footer-bg.jpg" />
     <Content Include="Images\grid.png" />
     <Content Include="Images\image-for-social-network.png" />
+    <Content Include="Images\markup\android-chrome-192x192.png" />
+    <Content Include="Images\markup\android-chrome-256x256.png" />
+    <Content Include="Images\markup\apple-touch-icon.png" />
+    <Content Include="Images\markup\browserconfig.xml" />
+    <Content Include="Images\markup\favicon-16x16.png" />
+    <Content Include="Images\markup\favicon-32x32.png" />
+    <Content Include="Images\markup\favicon.ico" />
+    <Content Include="Images\markup\mstile-150x150.png" />
+    <Content Include="Images\markup\safari-pinned-tab.svg" />
     <Content Include="Images\pattern.png" />
     <Content Include="Images\pattern2.png" />
     <Content Include="Images\preloader%402x.gif" />
@@ -388,16 +397,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Images\markup\manifest.json" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Document\DocumentTree.cshtml" />
     <Content Include="Views\Document\Index.cshtml" />
     <Content Include="Views\Document\Test.cshtml" />
-    <Content Include="Views\Shared\SupportProjectModal.cshtml" />
-    <Content Include="Views\Shared\Header.cshtml" />
-    <Content Include="Views\Shared\SocialIcons.cshtml" />
-    <Content Include="Views\Shared\Footer.cshtml" />
+    <Content Include="Views\Shared\_SupportProjectModal.cshtml" />
+    <Content Include="Views\Shared\_Header.cshtml" />
+    <Content Include="Views\Shared\_SocialIcons.cshtml" />
+    <Content Include="Views\Shared\_Footer.cshtml" />
     <None Include="Properties\PublishProfiles\LaProfile.pubxml" />
-    <Content Include="Views\Shared\Metas.cshtml" />
+    <Content Include="Views\Shared\_Metas.cshtml" />
+    <Content Include="Views\Shared\_Favicon.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LA.BusinessLogic\LA.BusinessLogic.csproj">

@@ -1,5 +1,9 @@
 ﻿@model LA.BusinessLogic.Models.Document
 
+@{ 
+    ViewBag.Title = Model.Name;
+}
+
 <span id="doc-data-json"
       class="hidden">
     @Html.Raw(Json.Encode(Model))
