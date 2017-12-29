@@ -63,7 +63,7 @@ namespace LA.BusinessLogic.Services
         
         private void AddSiteSignature(DocX document)
         {
-            var text = "Документ подготовлен при поддержке сайта http://www.urobot.ru";
+            var text = "Документ подготовлен при поддержке сайта http://www.urobott.ru";
             var margin = 14.1732f;
             var fontSize = 9;
 

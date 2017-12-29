@@ -15,8 +15,6 @@
     function AppController($scope, docToViewConfig) {
         $scope.MainDocument = angular.fromJson($('#doc-data-json').text());
         $scope.docUrl = docToViewConfig[$scope.MainDocument.FileName];
-
-        console.log($scope.MainDocument);
     }
     //-----
 })();

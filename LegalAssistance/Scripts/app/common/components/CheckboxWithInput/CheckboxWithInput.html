@@ -10,7 +10,8 @@
     </label>
     <input type="text"
            class="form-control"
-           ng-model="text"
+           ng-model="ngModel"
+           ng-change="onChange()"
            ng-disabled="!flag"
            ng-required="flag"
            placeholder="{{placeholder}}" />

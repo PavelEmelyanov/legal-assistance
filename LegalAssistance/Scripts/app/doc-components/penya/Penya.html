@@ -1,13 +1,30 @@
-﻿<div class="wizard-step">
-    <h3>Дополнительные сведения</h3>
+﻿<la-wizard-step>
+    <h3>Давайте узнаем, можете ли Вы взыскать пеню</h3>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="form-group form-group-lg">
+                <label>Цена товара (руб): </label>
+                <input type="text"
+                       class="form-control"
+                       la-positive-int
+                       ng-model="components.cenaTovara.value"
+                       required
+                       placeholder="3999">
+            </div>
+        </div>
+    </div>
+</la-wizard-step>
+
+<la-wizard-step>
+    <h3>Обращение ранее</h3>
     <label>Я обращался ранее и мои требования не были выполнены:</label> <la-hint hint="relatedData.obrashenieRaneeHint"></la-hint>
     <la-radio-yes-no ng-model="penyaModel.flag"
                      ng-change="penyaModel.zamenaAnalogichnogoTovaraFlag = false; calculateNeustoyka();">
     </la-radio-yes-no>
-</div>
+</la-wizard-step>
 
-<div class="wizard-step" ng-if="penyaModel.flag">
-    <h3>Обращение ранее</h3>    
+<la-wizard-step ng-if="penyaModel.flag">
+    <h3>Обращение ранее</h3>
     <div class="row">
         <div class="col-lg-4 col-md-6 col-xs-12">
             <div class="form-group form-group-lg">
@@ -19,63 +36,63 @@
                        ng-change="calculateNeustoyka()"
                        required>
             </div>
-        </div>        
+        </div>
     </div>
-    
+
     <div class="form-group">
         <la-radio ng-model="penyaModel.proverkaKachestva"
                   ng-value="true"
                   ng-change="onReasonChange('proverkaKachestva');">
             Была установлена необходимость проверки качества
-        </la-radio>        
+        </la-radio>
     </div>
     <div class="form-group">
         <la-radio ng-model="penyaModel.otsutstvieTovaraNaZamenu"
-                     ng-value="true"
-                     ng-change="onReasonChange('otsutstvieTovaraNaZamenu')">
+                  ng-value="true"
+                  ng-change="onReasonChange('otsutstvieTovaraNaZamenu')">
             Было установлено отсутствие товара для замены
-        </la-radio>        
+        </la-radio>
     </div>
     <div class="form-group">
         <la-radio ng-model="penyaModel.dostavkaSever"
                   ng-value="true"
                   ng-change="onReasonChange('dostavkaSever')">
             Товар необходимо доставить в район Крайнего Севера и приравненную к нему местность
-        </la-radio>                
-    </div>                 
+        </la-radio>
+    </div>
     <div class="form-group">
         <la-radio ng-model="penyaModel.drugayPrichina"
                   ng-value="true"
                   ng-change="onReasonChange('drugayPrichina')">
             Другое
         </la-radio>
-    </div>   
+    </div>
 
     <div>
         <la-validate-expression is-valid="isReasonSelected()">
             Пожалуйста, выберите одну из опций
         </la-validate-expression>
-    </div>    
-</div>
+    </div>
+</la-wizard-step>
 
 <div ng-if="penyaModel.flag">
-    <div class="wizard-step" ng-if="penyaModel.neustoyka > 0">
+    <la-wizard-step ng-if="penyaModel.neustoyka > 0">
         <h3>Обращение ранее</h3>
 
         <la-alert-success>
-            Вы можете потребовать неустойку в размере 
+            Вы можете потребовать неустойку в размере
             <strong>{{penyaModel.neustoyka | rub}}</strong>
             !!!
-        </la-alert-success>      
+        </la-alert-success>
 
         <div>
             <label>Включить требование неустойки в заявление?</label>
             <la-radio-yes-no ng-model="penyaModel.trebovatNeustoyku">
             </la-radio-yes-no>
-        </div>     
-    </div>  
+        </div>
+    </la-wizard-step>
 
-    <div class="wizard-step">
+    <la-wizard-step>
         <h3>Обращение ранее</h3>
         <div class="form-group">
             <label>
@@ -85,7 +102,7 @@
             <la-radio-yes-no ng-model="penyaModel.zamenaAnalogichnogoTovaraFlag"
                              ng-change="penyaModel.analogichniyTovarDate = penyaModel.date; calculateNeustoykaAnalogichniyTovar();">
             </la-radio-yes-no>
-        </div>   
+        </div>
         <div class="row" ng-if="penyaModel.zamenaAnalogichnogoTovaraFlag">
             <div class="col-lg-4 col-md-6 col-xs-12">
                 <div class="form-group form-group-lg">
@@ -99,17 +116,17 @@
                 </div>
             </div>
         </div>
-    </div>
+    </la-wizard-step>
 
-    <div class="wizard-step" ng-if="penyaModel.analogichniyTovarNeustoyka > 0">
-        <h3>Обращение ранее</h3>        
+    <la-wizard-step ng-if="penyaModel.analogichniyTovarNeustoyka > 0">
+        <h3>Обращение ранее</h3>
         <div ng-if="penyaModel.analogichniyTovarNeustoyka > 0">
 
             <la-alert-success>
                 Вы можете потребовать неустойку в размере
                 <strong>{{penyaModel.analogichniyTovarNeustoyka | rub}}</strong>
                 !!!
-            </la-alert-success>                  
+            </la-alert-success>
 
             <div>
                 <label>Включить требование неустойки в заявление?</label>
@@ -117,5 +134,13 @@
                 </la-radio-yes-no>
             </div>
         </div>
-    </div>
+    </la-wizard-step>
 </div>
+
+<la-wizard-step ng-if="!(penyaModel.neustoyka > 0 || penyaModel.analogichniyTovarNeustoyka > 0)">
+    <h3>Вы не можете взыскать пеню</h3>
+    <la-alert-info>
+        К сожалению, у вас нет законных оснований, чтобы взыскать пеню
+    </la-alert-info>               
+    <h4>Нажмите кнопку "Далее", чтобы заполнить форму и получить заявление.</h4>
+</la-wizard-step>

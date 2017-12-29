@@ -1,13 +1,13 @@
-﻿<div class="wizard-step">
+﻿<la-wizard-step>
     <h3>Требование аналогичного товара на период замены</h3>
     <label>Я хочу потребовать аналогичный товар на период замены:</label>
     <la-radio-yes-no ng-model="tovarNaZamenuModel.flag"
                      ng-change="tovarNaZamenuModel.zamenyamiyTovarFlag = undefined; tovarNaZamenuModel.obladaetSvoystvami = undefined;">
     </la-radio-yes-no>
-</div>
+</la-wizard-step>
 
 <div ng-if="tovarNaZamenuModel.flag">
-    <div class="wizard-step">
+    <la-wizard-step>
         <h3>Требование аналогичного товара на период замены</h3>
         <div class="form-group">
             <label>
@@ -25,14 +25,14 @@
 
         <la-alert-warning ng-if="tovarNaZamenuModel.zamenyamiyTovarFlag === true">
             {{relatedData.alertNaZamenuTechSlozhniy}}
-        </la-alert-warning>  
-    </div>
+        </la-alert-warning>
+    </la-wizard-step>
 
-    <div class="wizard-step" ng-if="tovarNaZamenuModel.zamenyamiyTovarFlag === false">
+    <la-wizard-step ng-if="tovarNaZamenuModel.zamenyamiyTovarFlag === false">
         <div class="form-group">
             <label>Обладает ли аналогичный товар теми же потребительскими свойствами, что и заменяемый: </label>
             <la-radio-yes-no ng-model="tovarNaZamenuModel.obladaetSvoystvami">
-            </la-radio-yes-no>           
+            </la-radio-yes-no>
         </div>
         <la-alert-info>
             Под "потребительскими свойствами" понимается товар того же вида и типа.
@@ -44,10 +44,9 @@
         <la-alert-warning ng-if="tovarNaZamenuModel.obladaetSvoystvami === false">
             {{relatedData.alertNaZamenuSvoistva}}
         </la-alert-warning>
-    </div>
+    </la-wizard-step>
 
-    <div class="wizard-step"
-         ng-if="tovarNaZamenuModel.obladaetSvoystvami === true">
+    <la-wizard-step ng-if="tovarNaZamenuModel.obladaetSvoystvami === true">
         <h3>Требование аналогичного товара на период замены</h3>
 
         <label>
@@ -68,6 +67,5 @@
                 </div>
             </div>
         </div>
-    </div>      
+    </la-wizard-step>      
 </div>
-

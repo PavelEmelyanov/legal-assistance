@@ -15,12 +15,7 @@
 
                 var init = function () {
                     $scope.drugoyTovarFlag = false;
-
-                    $scope.techSlozhniyTovar = {
-                        flag: false,
-                        sluchay: 0
-                    };
-
+                    
                     $scope.relatedData = {
                         drugoyTovarTooltip: 'У вас есть возможность заменить товар на любой другой, другого типа, с другими характеристиками и свойствами.',
                     }
@@ -42,15 +37,6 @@
                             }
                         },
                     }
-
-                    $scope.$watch('techSlozhniyTovar.sluchay', function (newValue, oldValue) {
-                        if (newValue == 4) {
-                            $rootScope.$broadcast('wizard:disable-next');
-                        }
-                        else if (oldValue == 4) {
-                            $rootScope.$broadcast('wizard:enable-next');
-                        }
-                    });
 
                     componentsToDtoService.registerComponents($scope.components);
                 }

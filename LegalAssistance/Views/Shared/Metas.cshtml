@@ -1,0 +1,17 @@
+﻿@{
+    var request = HttpContext.Current.Request;
+
+    var siteUrl = string.Format("{0}://{1}{2}", Request.Url.Scheme, Request.Url.Authority, Url.Content("~/"));
+    var title = "ЮРобот";
+    var description = "Создайте заявление - верните деньги за товары и услуги. Получите бесплатно юридическую консультацию и готовый для печати документ.";
+    var image = string.Format("{0}images/image-for-social-network.png", siteUrl);
+}
+
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<meta property="og:url" content="@siteUrl">
+<meta property="og:type" content="website">
+<meta property="og:title" content="@title">
+<meta property="og:description" content="@description">
+<meta property="og:image" content="@image">

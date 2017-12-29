@@ -22,8 +22,9 @@
 
                     $scope.onChange = function () {
                         if ($scope.flag) {
-                            ngModelCtrl.$setViewValue($scope.text);
+                            ngModelCtrl.$setViewValue($scope.ngModel);
                         } else {
+                            $scope.ngModel = null;
                             ngModelCtrl.$setViewValue(null);
                         }
                     };

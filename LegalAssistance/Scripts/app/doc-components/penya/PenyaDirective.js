@@ -10,13 +10,15 @@
         return {
             restrict: 'E',
             templateUrl: 'Scripts/app/doc-components/penya/Penya.html',
-            scope: {
-                cenaTovara: '='
-            },
+            scope: true,
             link: function ($scope, element, attrs) {
 
                 var init = function () {
                     $scope.components = {
+                        cenaTovara: {
+                            componentType: componentTypes.rub,
+                            componentInFileKey: 'cena-tovara',
+                        },
                         obrashenieRaneeDate: {
                             componentType: componentTypes.custom,
                             removeLineIfResultIsEmpty: true,
@@ -120,7 +122,7 @@
                         obrashenieRaneeHint: 'Ваше обращение было письменным или имеются другие доказательства факта.'
                     }
 
-                    $scope.$watch('cenaTovara', function (value) {
+                    $scope.$watch('components.cenaTovara.value', function (value) {
                         $scope.calculateNeustoyka();
                         $scope.calculateNeustoykaAnalogichniyTovar();
                     });
@@ -152,7 +154,9 @@
                 }
 
                 //Подсчитать пеню, если обращение было ранее
-                $scope.calculateNeustoyka = function () {   
+                $scope.calculateNeustoyka = function () {
+                    $scope.cenaTovara = $scope.components.cenaTovara.value;
+
                     if (!$scope.penyaModel.flag        
                         || !angular.utils.isNotNullOrEmpty($scope.penyaModel.date)
                         || $scope.penyaModel.dostavkaSever
@@ -190,7 +194,9 @@
                 }
 
                 //Подсчитать пеню, если было требование на предоставление аналогичного товара                
-                $scope.calculateNeustoykaAnalogichniyTovar = function() {     
+                $scope.calculateNeustoykaAnalogichniyTovar = function () {
+                    $scope.cenaTovara = $scope.components.cenaTovara.value;
+
                     if (!$scope.penyaModel.zamenaAnalogichnogoTovaraFlag
                         || !angular.utils.isNotNullOrEmpty($scope.penyaModel.analogichniyTovarDate)
                         || !($scope.cenaTovara > 0)) {

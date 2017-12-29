@@ -1,17 +1,21 @@
 ﻿<div ng-controller="ZamenaTovaraNenadlezhashegoKachestvaController">    
     <la-wizard form-submit="getDoc()">
         <!--Перед началом заполнения формы-->
-        <la-doc-on-start get-target-text="settings.getOnStartTargetText()"></la-doc-on-start>
+        <la-doc-on-start get-target-text="settings.getOnStartTargetText()"
+                         get-action-text="settings.getActionText()">
+        </la-doc-on-start>
+        <!--Валидна ли замена товара-->
+        <la-zamena-tovara-validation></la-zamena-tovara-validation>
+        <!--Обращался ранее и требования не были выполнены-->
+        <la-penya></la-penya>
+        <!--Сведения о товаре-->
+        <la-tovar></la-tovar>
         <!--Сведения о замене товара-->
         <la-zamena-tovara></la-zamena-tovara>
         <!--Сведения об организации-->
-        <la-organizaciya></la-organizaciya>        
-        <!--Сведения о товаре-->
-        <la-tovar cena-tovara="cenaTovara"></la-tovar>
+        <la-organizaciya></la-organizaciya> 
         <!--Требование аналогичного товара на период замены-->
-        <la-tovar-na-period-zameni></la-tovar-na-period-zameni>
-        <!--Обращался ранее и требования не были выполнены-->
-        <la-penya cena-tovara="cenaTovara"></la-penya>
+        <la-tovar-na-period-zameni></la-tovar-na-period-zameni>        
         <!--Требование возместить убытки-->
         <la-ubitki></la-ubitki>
         <!--Общая инфа для всех документов-->

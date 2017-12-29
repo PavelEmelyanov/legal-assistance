@@ -286,24 +286,8 @@
     <Content Include="Images\blank.svg" />
     <Content Include="Images\camera_skins.png" />
     <Content Include="Images\footer-bg.jpg" />
-    <Content Include="Images\footer-logo%402x.png" />
-    <Content Include="Images\footer-logo.png" />
-    <Content Include="Images\footer-widget-logo%402x.png" />
-    <Content Include="Images\footer-widget-logo.png" />
     <Content Include="Images\grid.png" />
-    <Content Include="Images\logo%402x.png" />
-    <Content Include="Images\logo-dark%402x.png" />
-    <Content Include="Images\logo-dark.png" />
-    <Content Include="Images\logo-resto%402x.png" />
-    <Content Include="Images\logo-resto-dark%402x.png" />
-    <Content Include="Images\logo-resto-dark.png" />
-    <Content Include="Images\logo-resto.png" />
-    <Content Include="Images\logo-side%402x.png" />
-    <Content Include="Images\logo-side-dark%402x.png" />
-    <Content Include="Images\logo-side-dark.png" />
-    <Content Include="Images\logo-side.png" />
-    <Content Include="Images\logo.png" />
-    <Content Include="Images\mac.png" />
+    <Content Include="Images\image-for-social-network.png" />
     <Content Include="Images\pattern.png" />
     <Content Include="Images\pattern2.png" />
     <Content Include="Images\preloader%402x.gif" />
@@ -321,6 +305,7 @@
     <Content Include="Scripts\app\common\components\Radio\Radio.html" />
     <Content Include="Scripts\app\common\components\Radio\RadioDirective.js" />
     <Content Include="Scripts\app\common\components\Wizard\Wizard.html" />
+    <Content Include="Scripts\app\common\components\Wizard\WizardStepDirective.js" />
     <Content Include="Scripts\app\common\components\Wizard\WizardDirective.js" />
     <Content Include="Scripts\app\common\components\RadioYesNo\RadioYesNo.html" />
     <Content Include="Scripts\app\common\components\RadioYesNo\RadioYesNoDirective.js" />
@@ -352,6 +337,8 @@
     <Content Include="Scripts\app\doc-components\module.js" />
     <Content Include="Scripts\app\doc-components\penya\PenyaDirective.js" />
     <Content Include="Scripts\app\doc-components\organizaciya\OrganizaciyaDirective.js" />
+    <Content Include="Scripts\app\doc-components\zamena-tovara-validation\ZamenaTovaraValidation.html" />
+    <Content Include="Scripts\app\doc-components\zamena-tovara-validation\ZamenaTovaraValidationDirective.js" />
     <Content Include="Scripts\app\documents\module.documents.js" />
     <Content Include="Scripts\app\documents\zamena-tovara-nenadlezhashego-kachestva\module.js" />
     <Content Include="Scripts\app\doc-components\penya\Penya.html" />
@@ -368,7 +355,9 @@
     <Content Include="Scripts\app\doc-components\zamena-tovara\ZamenaTovara.html" />
     <Content Include="Scripts\app\documents\zamena-tovara-nenadlezhashego-kachestva\ZamenaTovaraNenadlezhashegoKachestva.html" />
     <Content Include="Scripts\app\documents\zamena-tovara-nenadlezhashego-kachestva\ZamenaTovaraNenadlezhashegoKachestvaController.js" />
+    <Content Include="Scripts\site\extensions.js" />
     <Content Include="Scripts\site\share.social.icons.js" />
+    <Content Include="Scripts\ui-config.js" />
     <Content Include="Scripts\vendor\base\functions.js" />
     <Content Include="Scripts\vendor\base\jquery.js" />
     <Content Include="Scripts\vendor\base\plugins.js" />
@@ -408,6 +397,7 @@
     <Content Include="Views\Shared\SocialIcons.cshtml" />
     <Content Include="Views\Shared\Footer.cshtml" />
     <None Include="Properties\PublishProfiles\LaProfile.pubxml" />
+    <Content Include="Views\Shared\Metas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\LA.BusinessLogic\LA.BusinessLogic.csproj">

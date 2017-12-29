@@ -12,6 +12,8 @@ namespace LegalAssistance
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/base")
+                .Include("~/Scripts/ui-config.js")
+                .Include("~/Scripts/site/extensions.js")
                 .IncludeDirectory("~/Scripts/vendor/base", "*.js", true)
                 .IncludeDirectory("~/Scripts/site", "*.js", true));
 

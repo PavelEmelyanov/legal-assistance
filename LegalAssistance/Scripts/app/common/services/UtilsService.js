@@ -53,6 +53,22 @@
 
             },
 
+            toMonths: function (value) {
+                var str = value.toString();
+                var lastNumber = parseInt(str.substring(str.length - 1));
+                var template = value + ' {0}';
+
+                if (value >= 5 && value <= 20) {
+                    return template.format('месяцев');
+                } else if (lastNumber == 1) {
+                    return template.format('месяц');
+                } else if (lastNumber == 2 || lastNumber == 3 || lastNumber == 4) {
+                    return template.format('месяца')
+                } else {
+                    return template.format('месяцев');
+                }
+            },
+
             getDatePeriod: function (startDate, endDate) {
                 // get total seconds between the times
                 var delta = Math.abs(endDate.getTime() - startDate.getTime()) / 1000;
@@ -86,18 +102,7 @@
 
                 return text;
             }
-        }
-
-        //Prototype utils
-        String.prototype.format = function () {
-            var args = arguments;
-            return this.replace(/{(\d+)}/g, function (match, number) {
-                return typeof args[number] != 'undefined'
-                  ? args[number]
-                  : match
-                ;
-            });
-        };
+        }        
 
         return factory;
     }

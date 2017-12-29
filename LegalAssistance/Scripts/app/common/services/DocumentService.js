@@ -17,9 +17,8 @@
                     Components: componentsToDtoService.getDocParams()
                 }
 
-                var url = '{0}{1}{2}'.format(
-                    location.origin,
-                    document.getElementsByTagName('base')[0].getAttribute('href'),
+                var url = '{0}{1}'.format(
+                    window.config.url,
                     'api/document/generate');
 
                 return $http({ method: "POST", url: url, data: dto, responseType: 'arraybuffer' })

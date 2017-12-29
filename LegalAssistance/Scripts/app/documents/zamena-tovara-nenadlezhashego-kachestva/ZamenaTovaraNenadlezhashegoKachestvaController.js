@@ -18,6 +18,9 @@
             getOnStartTargetText: function () {
                 return "продавцу/изготовителю для замены товара ненадлежащего качества"
             },
+            getActionText: function () {
+                return 'заменить товар';
+            }
         }
 
         $scope.settings.getOnEndTargetText = $scope.settings.getOnStartTargetText;
