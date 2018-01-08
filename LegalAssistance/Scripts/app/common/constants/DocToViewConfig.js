@@ -12,7 +12,8 @@
         //File name is key
         var result = {
             docFolder: docFolder,
-            'zamena-tovara-nenadlezhashego-kachestva': docFolder + '/zamena-tovara-nenadlezhashego-kachestva/ZamenaTovaraNenadlezhashegoKachestva.html'
+            'zamena-tovara-nenadlezhashego-kachestva': docFolder + '/zamena-tovara-nenadlezhashego-kachestva/ZamenaTovaraNenadlezhashegoKachestva.html',
+            'vozvrat-tovara-deneg': docFolder + '/vozvrat-tovara/VozvratTovara.html'
         }
 
         return result;

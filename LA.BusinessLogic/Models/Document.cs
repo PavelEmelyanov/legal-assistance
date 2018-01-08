@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace LA.BusinessLogic.Models
 {
@@ -15,6 +11,8 @@ namespace LA.BusinessLogic.Models
         public string FileName { get; set; }
 
         public string UrlKey { get; set; }
+
+        public int SortOrder { get; set; }
 
         public List<DocumentComponent> DocumentComponents { get; set; }
 

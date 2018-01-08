@@ -14,6 +14,8 @@ namespace LA.DataServices.Models
 
         public long CategoryID { get; set; }
 
+        public int SortOrder { get; set; }
+
         public virtual List<DocumentComponent> DocumentComponents { get; set; }
 
         public virtual Category Category { get; set; }

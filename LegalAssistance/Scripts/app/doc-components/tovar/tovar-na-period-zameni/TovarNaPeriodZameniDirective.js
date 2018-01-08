@@ -9,7 +9,7 @@
     function TovarNaPeriodZameni(componentsToDtoService, componentTypes) {
         return {
             restrict: 'E',
-            templateUrl: 'Scripts/app/doc-components/tovar-na-period-zameni/TovarNaPeriodZameni.html',
+            templateUrl: 'Scripts/app/doc-components/tovar/tovar-na-period-zameni/TovarNaPeriodZameni.html',
             scope: true,
             link: function ($scope, element, attrs) {
 

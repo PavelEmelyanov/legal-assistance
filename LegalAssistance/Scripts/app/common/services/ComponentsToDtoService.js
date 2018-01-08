@@ -60,6 +60,15 @@
                 });
 
                 return result;
+            },
+
+            getDocDate: function () {
+                var docDateComp = componentStorage.find(function (comp) {
+                    return comp.componentInFileKey == 'doc-date';
+                });
+
+                var result = docDateComp ? docDateComp.value : null;
+                return result;
             }
         };
 

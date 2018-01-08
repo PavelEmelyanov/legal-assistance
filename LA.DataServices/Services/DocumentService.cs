@@ -25,8 +25,18 @@ namespace LA.DataServices.Services
                 Name = "Замена Товара Ненадлежащего Качества",
                 FileName = "zamena-tovara-nenadlezhashego-kachestva",
                 UrlKey = "zamena-tovara-nenadlezhashego-kachestva",
-                CategoryID = 1
-            }            
+                CategoryID = 1,
+                SortOrder = 2
+            },
+            new Document
+            {
+                ID = 2,
+                Name = "Возврат Товара - Денег",
+                FileName = "vozvrat-tovara-deneg",
+                UrlKey = "vozvrat-tovara-deneg",
+                CategoryID = 1,
+                SortOrder = 1
+            }
         };
     }
 }

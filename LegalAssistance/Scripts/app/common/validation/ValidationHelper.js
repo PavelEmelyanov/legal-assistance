@@ -5,9 +5,9 @@
         .module('LASite.common')
         .factory("ValidationHelper", ValidationHelper);
 
-    ValidationHelper.$inject = ['ValidationMessageStorage'];
+    ValidationHelper.$inject = ['ValidationMessageStorage', '$parse'];
 
-    function ValidationHelper(validationMessageStorage) {
+    function ValidationHelper(validationMessageStorage, $parse) {
         //Helper functions for validation
         var defaultErrors = validationMessageStorage.getErrorMessages();
         var invalidCssClass = 'la-invalid-input';

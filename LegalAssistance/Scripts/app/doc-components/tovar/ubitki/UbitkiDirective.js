@@ -9,7 +9,7 @@
     function Ubitki(componentsToDtoService, componentTypes) {
         return {
             restrict: 'E',
-            templateUrl: 'Scripts/app/doc-components/ubitki/Ubitki.html',
+            templateUrl: 'Scripts/app/doc-components/tovar/ubitki/Ubitki.html',
             scope: true,
             link: function ($scope, element, attrs) {
 

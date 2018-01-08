@@ -4,12 +4,12 @@
     Tovar.$inject = ['ComponentsToDtoService', 'ComponentTypes'];
 
     angular.module('LASite.doc-components')
-        .directive('laTovar', Tovar);
+        .directive('laTovarInfo', Tovar);
 
     function Tovar(componentsToDtoService, componentTypes) {
         return {
             restrict: 'E',
-            templateUrl: 'Scripts/app/doc-components/tovar/Tovar.html',
+            templateUrl: 'Scripts/app/doc-components/tovar/tovar-info/TovarInfo.html',
             scope: true,
             link: function ($scope, element, attrs) {
 

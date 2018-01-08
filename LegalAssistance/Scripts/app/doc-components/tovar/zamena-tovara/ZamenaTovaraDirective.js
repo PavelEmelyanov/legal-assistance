@@ -9,7 +9,7 @@
     function ZamenaTovara(componentsToDtoService, componentTypes, $rootScope) {
         return {
             restrict: 'E',
-            templateUrl: 'Scripts/app/doc-components/zamena-tovara/ZamenaTovara.html',
+            templateUrl: 'Scripts/app/doc-components/tovar/zamena-tovara/ZamenaTovara.html',
             scope: true,
             link: function ($scope, element, attrs) {
 

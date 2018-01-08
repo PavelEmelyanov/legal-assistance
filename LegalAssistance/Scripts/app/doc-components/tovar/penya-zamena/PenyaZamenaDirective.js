@@ -1,15 +1,15 @@
 ﻿(function () {
     'use strict';
 
-    Penya.$inject = ['ComponentsToDtoService', 'ComponentTypes'];
+    PenyaZamena.$inject = ['ComponentsToDtoService', 'ComponentTypes'];
 
     angular.module('LASite.doc-components')
-        .directive('laPenya', Penya);
+        .directive('laPenyaZamena', PenyaZamena);
 
-    function Penya(componentsToDtoService, componentTypes) {
+    function PenyaZamena(componentsToDtoService, componentTypes) {
         return {
             restrict: 'E',
-            templateUrl: 'Scripts/app/doc-components/penya/Penya.html',
+            templateUrl: 'Scripts/app/doc-components/tovar/penya-zamena/PenyaZamena.html',
             scope: true,
             link: function ($scope, element, attrs) {
 
@@ -99,18 +99,7 @@
                             getValue: function () {
                                 return $scope.penyaModel.analogichniyTovarFormula;
                             }
-                        },
-                        stat21: {
-                            componentType: componentTypes.custom,
-                            componentInFileKey: "stat-21",
-                            getValue: function () {
-                                if ($scope.penyaModel.trebovatNeustoyku) {
-                                    return "21,";
-                                } else {
-                                    return null;
-                                }
-                            }
-                        },
+                        }                        
                     };
 
                     $scope.penyaModel = {
@@ -121,12 +110,7 @@
                     $scope.relatedData = {
                         obrashenieRaneeHint: 'Ваше обращение было письменным или имеются другие доказательства факта.'
                     }
-
-                    $scope.$watch('components.cenaTovara.value', function (value) {
-                        $scope.calculateNeustoyka();
-                        $scope.calculateNeustoykaAnalogichniyTovar();
-                    });
-
+                    
                     componentsToDtoService.registerComponents($scope.components);
                 }
 
@@ -153,9 +137,15 @@
                     }, false);
                 }
 
+                $scope.onPriceChange = function () {
+                    $scope.calculateNeustoyka();
+                    $scope.calculateNeustoykaAnalogichniyTovar();                    
+                }
+
                 //Подсчитать пеню, если обращение было ранее
                 $scope.calculateNeustoyka = function () {
-                    $scope.cenaTovara = $scope.components.cenaTovara.value;
+                    $scope.penyaModel.docDate = getDocDate();
+                    $scope.cenaTovara = $scope.components.cenaTovara.value;                    
 
                     if (!$scope.penyaModel.flag        
                         || !angular.utils.isNotNullOrEmpty($scope.penyaModel.date)
@@ -165,8 +155,8 @@
                         $scope.penyaModel.trebovatNeustoyku = false;
                         $scope.penyaModel.neustoyka = null;
                         $scope.penyaModel.formula = null;
-                    } else {
-                        var period = angular.utils.getDatePeriod($scope.penyaModel.date, new Date());
+                    } else {                        
+                        var period = angular.utils.getDatePeriod($scope.penyaModel.date, $scope.penyaModel.docDate);
                         var delta = 7;
 
                         if ($scope.penyaModel.proverkaKachestva) {
@@ -183,7 +173,7 @@
                             $scope.penyaModel.trebovatNeustoyku = true;
                             $scope.penyaModel.neustoyka = neustoyka;
                             $scope.penyaModel.formula = '({0} - {1} - {2} дней) * 1% * {3}'
-                                    .format(angular.utils.toDate(new Date()), angular.utils.toDate($scope.penyaModel.date), delta, $scope.cenaTovara);                                                  
+                                    .format(angular.utils.toDate($scope.penyaModel.docDate), angular.utils.toDate($scope.penyaModel.date), delta, $scope.cenaTovara);
                         }
                         else {
                             $scope.penyaModel.trebovatNeustoyku = false;
@@ -195,6 +185,7 @@
 
                 //Подсчитать пеню, если было требование на предоставление аналогичного товара                
                 $scope.calculateNeustoykaAnalogichniyTovar = function () {
+                    $scope.penyaModel.docDate = getDocDate();
                     $scope.cenaTovara = $scope.components.cenaTovara.value;
 
                     if (!$scope.penyaModel.zamenaAnalogichnogoTovaraFlag
@@ -205,14 +196,14 @@
                         $scope.penyaModel.analogichniyTovarNeustoyka = null;
                         $scope.penyaModel.analogichniyTovarTrebovatNeustoyku = null;         
                     } else {
-                        var period = angular.utils.getDatePeriod($scope.penyaModel.analogichniyTovarDate, new Date());
+                        var period = angular.utils.getDatePeriod($scope.penyaModel.analogichniyTovarDate, $scope.penyaModel.docDate);
                         var delta = 3;
 
                         var neustoyka = Math.round((period.days - delta) * 0.01 * $scope.cenaTovara);
 
                         if (neustoyka > 0) {
                             $scope.penyaModel.analogichniyTovarFormula = '({0} - {1} - {2} дней) * 1% * {3}'
-                                    .format(angular.utils.toDate(new Date()), angular.utils.toDate($scope.penyaModel.analogichniyTovarDate), delta, $scope.cenaTovara);
+                                    .format(angular.utils.toDate($scope.penyaModel.docDate), angular.utils.toDate($scope.penyaModel.analogichniyTovarDate), delta, $scope.cenaTovara);
                             $scope.penyaModel.analogichniyTovarNeustoyka = neustoyka;
                             $scope.penyaModel.analogichniyTovarTrebovatNeustoyku = true;
                         }
@@ -221,6 +212,17 @@
                             $scope.penyaModel.analogichniyTovarNeustoyka = null;
                             $scope.penyaModel.analogichniyTovarTrebovatNeustoyku = false;
                         }
+                    }
+                }
+
+                function getDocDate() {
+                    var result = componentsToDtoService.getDocDate();
+
+                    if (result) {
+                        return result;
+                    }
+                    else {
+                        throw new Error("Doc date is undefined");
                     }
                 }
 

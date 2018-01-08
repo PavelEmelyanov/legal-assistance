@@ -36,6 +36,7 @@ namespace LA.BusinessLogic.Services
                 Category = x.Name,
                 Documents = documents
                     .Where(y => y.CategoryID == x.ID)
+                    .OrderBy(y => y.SortOrder)
                     .Select(y => MappingHelper.Map<DataServices.Models.Document, Document>(y))
                     .ToList()
             }).ToList();

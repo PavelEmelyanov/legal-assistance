@@ -16,16 +16,25 @@
                     $el.attr('placeholder', 'ДД.MM.ГГГГ');
 
                     $el.inputmask('dd.mm.yyyy', {
-                        yearrange: { minyear: currentYear - 10, maxyear: currentYear + 10 },
+                        yearrange: { minyear: currentYear - 15, maxyear: currentYear + 15 },
                         showMaskOnHover: false,
                         placeholder: 'ДД.MM.ГГГГ',
                         clearIncomplete: true
                     });
 
+                    var startDate = angular.isDefined(attrs.laDateNoPast)
+                        ? new Date()
+                        : null;
+
+                    var endDate = angular.isDefined(attrs.laDateNoFuture)
+                        ? new Date()
+                        : null;
+
                     $el.datepicker({
                         language: 'ru-RU',
                         format: 'dd.mm.yyyy',
-                        endDate: new Date(),
+                        startDate: startDate,
+                        endDate: endDate,
                         autoclose: true
                     });
 

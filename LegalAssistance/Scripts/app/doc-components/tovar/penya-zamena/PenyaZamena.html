@@ -1,5 +1,5 @@
 ﻿<la-wizard-step>
-    <h3>Давайте узнаем, можете ли Вы взыскать пеню</h3>
+    <h3>Укажите, пожалуйста, цену товара:</h3>
     <div class="row">
         <div class="col-lg-4 col-md-6 col-xs-12">
             <div class="form-group form-group-lg">
@@ -9,7 +9,8 @@
                        la-positive-int
                        ng-model="components.cenaTovara.value"
                        required
-                       placeholder="3999">
+                       placeholder="3999"
+                       ng-change="onPriceChange()">
             </div>
         </div>
     </div>
@@ -34,6 +35,7 @@
                        class="form-control"
                        ng-model="penyaModel.date"
                        ng-change="calculateNeustoyka()"
+                       la-date-no-future                       
                        required>
             </div>
         </div>
@@ -136,11 +138,3 @@
         </div>
     </la-wizard-step>
 </div>
-
-<la-wizard-step ng-if="!(penyaModel.neustoyka > 0 || penyaModel.analogichniyTovarNeustoyka > 0)">
-    <h3>Вы не можете взыскать пеню</h3>
-    <la-alert-info>
-        К сожалению, у вас нет законных оснований, чтобы взыскать пеню
-    </la-alert-info>               
-    <h4>Нажмите кнопку "Далее", чтобы заполнить форму и получить заявление.</h4>
-</la-wizard-step>
