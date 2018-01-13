@@ -1,0 +1,57 @@
+﻿<la-wizard-step>
+    <h3>Устранение недостатков</h3>
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-xs-12">
+            <div class="form-group form-group-lg">
+                <label>Сумма, понесённых на устранение недостатков расходов: </label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="components.nedostatkiSumma.value"
+                       required
+                       placeholder="1520 рублей">
+            </div>
+        </div>
+    </div>
+</la-wizard-step>
+
+<la-wizard-step>
+    <h3>Устранение недостатков</h3>
+    <div class="row">
+        <div class="col-lg-9 col-md-12 col-xs-12">
+            <div class="form-group form-group-lg">
+                <label>Описание понесённых расходов: </label>
+                <textarea class="form-control"
+                          ng-model="components.nedostatkiOpisanie.value"
+                          rows="5"
+                          required
+                          placeholder="Опишите подробно понесённые расходы - помимо затрат непосредственно на ремонт, здесь могут быть затраты на транспорт, исследование товара и т.д."></textarea>
+            </div>
+        </div>
+    </div>
+</la-wizard-step>
+
+<la-wizard-step>
+    <h3>Устранение недостатков</h3>  
+    <div class="form-group form-group-lg">
+        <label>
+            Недостатки устраняли самостоятельно или их устраняло 3-е лицо?
+            <la-hint hint="'3-е лицо это какая-либо организация или ИП, которые по договору устраняли недостатки товара'"></la-hint>
+         </label>
+        <la-radio-yes-no ng-model="components.nedostatkiFirma.isSelected"
+                         no-text="Самостоятельно"
+                         yes-text="3-е лицо">
+        </la-radio-yes-no>
+    </div>
+    <div class="row" ng-if="components.nedostatkiFirma.isSelected">
+        <div class="col-lg-6 col-md-7 col-xs-12">
+            <div class="form-group form-group-lg">
+                <label>Название организации или ИП: </label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="components.nedostatkiFirma.value"
+                       required
+                       placeholder="Введите название">
+            </div>
+        </div>
+    </div>            
+</la-wizard-step>

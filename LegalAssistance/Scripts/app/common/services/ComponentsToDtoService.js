@@ -29,12 +29,17 @@
                         //Checkbox
                     else if (component.componentType == componentTypes.checkbox) {
                         value = component.value
-                            ? component.yesText
-                            : component.noText;
+                            ? 'true'
+                            : null;
                     }
                         //Input, Rub, Radio Group, TextArea, Select, Checkbox with Input
                     else {
                         value = component.value;
+
+                        if (component.componentType == componentTypes.checkboxWithInput
+                            && !component.isSelected) {
+                            value = null;
+                        }
 
                         if (angular.isDate(value)) {
                             value = angular.utils.toDate(value);
@@ -52,8 +57,7 @@
 
                     var param = {
                         key: component.componentInFileKey,
-                        value: value,
-                        removeLineIfResultIsEmpty: component.removeLineIfResultIsEmpty
+                        value: value
                     };
 
                     return param;

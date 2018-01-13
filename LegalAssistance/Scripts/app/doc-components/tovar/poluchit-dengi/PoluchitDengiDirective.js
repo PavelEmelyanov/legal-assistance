@@ -23,9 +23,9 @@
                             componentInFileKey: "sposob-polucheniya-deneg",
                             getValue: function () {
                                 if ($scope.optionFlag) {
-                                    return 'путём перечисления на карту {0}'.format($scope.cardNumber);
-                                } else {
                                     return 'наличными'
+                                } else {                                    
+                                    return 'путём перечисления на карту {0}'.format($scope.cardNumber);
                                 }
                             }
                         },

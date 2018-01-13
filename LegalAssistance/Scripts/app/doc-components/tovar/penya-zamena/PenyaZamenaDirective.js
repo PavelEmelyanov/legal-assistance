@@ -21,7 +21,6 @@
                         },
                         obrashenieRaneeDate: {
                             componentType: componentTypes.custom,
-                            removeLineIfResultIsEmpty: true,
                             componentInFileKey: "obrashenie-ranee-data",
                             getValue: function() {
                                 if ($scope.penyaModel.date) {
@@ -52,7 +51,6 @@
                         },
                         obrashenieRaneeNeustoyka: {
                             componentType: componentTypes.custom,
-                            removeLineIfResultIsEmpty: true,
                             componentInFileKey: "obrashenie-ranee-neustoyka",
                             getValue: function () {
                                 if ($scope.penyaModel.flag) {
@@ -71,7 +69,6 @@
                         },
                         obrashenieRaneeAnalogichniyTovarDate: {
                             componentType: componentTypes.custom,
-                            removeLineIfResultIsEmpty: true,
                             componentInFileKey: "obrashenie-ranee-analog-tovar-data",
                             getValue: function () {
                                 if ($scope.penyaModel.zamenaAnalogichnogoTovaraFlag) {
@@ -83,7 +80,6 @@
                         },
                         obrashenieRaneeAnalogichniyTovarNeustoyka: {
                             componentType: componentTypes.custom,
-                            removeLineIfResultIsEmpty: true,
                             componentInFileKey: "obrashenie-ranee-analog-tovar-neustoyka",
                             getValue: function () {
                                 if ($scope.penyaModel.zamenaAnalogichnogoTovaraFlag) {

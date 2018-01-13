@@ -3,5 +3,6 @@
 
     angular.module('LASite.documents',
         ['LASite.documents.ZamenaTovaraNenadlezhashegoKachestva',
-        'LASite.documents.VozvratTovara']);
+        'LASite.documents.VozvratTovara',
+        'LASite.documents.VozmeshenieRashodovNaUstranenieNedostatkovTovara']);
 })();

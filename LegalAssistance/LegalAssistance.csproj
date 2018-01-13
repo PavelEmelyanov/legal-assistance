@@ -352,9 +352,14 @@
     <Content Include="Scripts\app\doc-components\tovar\spec-sroki\SpecSrokiDirective.js" />
     <Content Include="Scripts\app\doc-components\tovar\poluchit-dengi\PoluchitDengi.html" />
     <Content Include="Scripts\app\doc-components\tovar\poluchit-dengi\PoluchitDengiDirective.js" />
+    <Content Include="Scripts\app\doc-components\tovar\tovar-nedostatki-info\TovarNedostatkiInfo.html" />
+    <Content Include="Scripts\app\doc-components\tovar\tovar-nedostatki-info\TovarNedostatkiInfoDirective.js" />
     <Content Include="Scripts\app\doc-components\tovar\tovar-validation\TovarValidation.html" />
     <Content Include="Scripts\app\doc-components\tovar\tovar-validation\TovarValidationDirective.js" />
     <Content Include="Scripts\app\documents\module.documents.js" />
+    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara\module.js" />
+    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara\VozmeshenieRashodovNaUstranenieNedostatkovTovara.html" />
+    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara\VozmeshenieRashodovNaUstranenieNedostatkovTovaraController.js" />
     <Content Include="Scripts\app\documents\vozvrat-tovara\module.js" />
     <Content Include="Scripts\app\documents\vozvrat-tovara\VozvratTovara.html" />
     <Content Include="Scripts\app\documents\vozvrat-tovara\VozvratTovaraController.js" />
@@ -408,6 +413,7 @@
     <Content Include="packages.config" />
     <Content Include="Images\markup\manifest.json" />
     <Content Include="Content\Documents\vozvrat-tovara-deneg.docx" />
+    <Content Include="Content\Documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara.docx" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Document\DocumentTree.cshtml" />
     <Content Include="Views\Document\Index.cshtml" />

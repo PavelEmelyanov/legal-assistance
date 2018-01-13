@@ -21,8 +21,7 @@
                             componentInFileKey: 'cena-tovara',
                         },
                         obrashenieRaneeDate: {
-                            componentType: componentTypes.custom,
-                            removeLineIfResultIsEmpty: true,
+                            componentType: componentTypes.custom,                            
                             componentInFileKey: "obrashenie-ranee-data",
                             getValue: function() {
                                 if ($scope.penyaModel.date) {
@@ -34,7 +33,6 @@
                         },
                         obrashenieRaneeNeustoyka: {
                             componentType: componentTypes.custom,
-                            removeLineIfResultIsEmpty: true,
                             componentInFileKey: "obrashenie-ranee-neustoyka",
                             getValue: function () {
                                 if ($scope.penyaModel.flag) {

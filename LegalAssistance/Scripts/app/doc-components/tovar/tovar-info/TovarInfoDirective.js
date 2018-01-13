@@ -22,26 +22,23 @@
                         naimenovanieTovara: {
                             componentType: componentTypes.input,
                             componentInFileKey: 'naimenovanie-tovara'
-                        },
-                        articul: {
-                            componentType: componentTypes.checkboxWithInput,
-                            componentInFileKey: "articul",
-                            resultTextTemplate: ", Артикул {0}",
-                        },                        
+                        },                      
                         imeetsyaLiDokument: {
                             componentType: componentTypes.checkbox,
-                            componentInFileKey: "imeetsya-li-dokument",
-                            yesText: "Документ, подтверждающий факт покупки, имеется",
+                            componentInFileKey: "imeetsya-li-dokument"
                         },
                         sutPretenzii: {
                             componentType: componentTypes.input,
                             componentInFileKey: 'sut-pretenzii'
-                        },                        
+                        },
+                        proverkaKachestva: {
+                            componentType: componentTypes.checkboxWithInput,
+                            componentInFileKey: "proverka-kachestva-info",
+                            isSelected: false
+                        },
                         tovarNeOdnovremenno: {
                             componentType: componentTypes.checkbox,
-                            componentInFileKey: "tovar-ne-odnovremenno",
-                            noText: 'В случае необходимости предоставить товар, прошу Вас уведомить меня о дате и месте передачи',
-                            removeLineIfResultIsEmpty: true,
+                            componentInFileKey: "tovar-ne-odnovremenno"
                         }
                     };
 

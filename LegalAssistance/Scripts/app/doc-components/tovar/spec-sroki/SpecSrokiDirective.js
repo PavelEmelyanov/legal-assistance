@@ -31,7 +31,6 @@
                         specSroki: {
                             componentType: componentTypes.custom,
                             componentInFileKey: "spec-sroki",
-                            removeLineIfResultIsEmpty: true,
                             getValue: function () {
                                 return $scope.specSrokiInfo.successMessage
                             }
@@ -53,12 +52,8 @@
                     var dataPokupki = $scope.dataPokupki,
                         docDate = $scope.docDate,
                         garantSrok = +$scope.specSrokiInfo.garantSrok,
-                        srokSluzhbi = +$scope.specSrokiInfo.srokSluzhbi,
-                        defaultGarantSrok = 24,
-                        defaultSrokSluzhbi = 120;
-
-                    var lastDate = angular.copy(dataPokupki);
-
+                        srokSluzhbi = +$scope.specSrokiInfo.srokSluzhbi;
+                    
                     //Если установлены оба срока, 
                     //то выбираем максимальный
                     if (garantSrok && srokSluzhbi) {
@@ -79,6 +74,7 @@
                             garantSrok,
                             srokCases.yesGarant,
                             srokCases.yesGarantWithFlag,
+                            24,
                             'гарантийный срок {0} истёк'.format(angular.utils.toMonths(garantSrok)));
                     }
                     else if (srokSluzhbi) {
@@ -90,24 +86,17 @@
                             srokSluzhbi,
                             srokCases.yesSluzhba,
                             srokCases.yesSluzhbaWithFlag,
+                            120,
                             'срок службы {0} истёк'.format(angular.utils.toMonths(srokSluzhbi)));
                     }
                     else {
-                        //Если ни один из сроков не установлен
-                        //Берём срок службы по умолчанию - 10 лет
-                        checkSrok(
-                            dataPokupki,
-                            docDate,
-                            defaultSrokSluzhbi,
-                            srokCases.defaultSluzhba,
-                            srokCases.defaultSluzhbaWithFlag,
-                            'установленный законом срок службы 10 лет истёк');
+                        //Если не один из сроков не установен
+                        checkDefaultSroki(dataPokupki, docDate);                        
                     }
                 }
 
-                function checkSrok(dataPokupki, docDate, srok, srokCase, srokCaseWithFlag, errorMesage) {
-                    var lastDate = angular.copy(dataPokupki),
-                        nedostatkiSrok = 24;
+                function checkSrok(dataPokupki, docDate, srok, srokCase, srokCaseWithFlag, nedostatkiSrok, errorMesage) {
+                    var lastDate = angular.copy(dataPokupki);
 
                     lastDate.addMonths(srok);
 
@@ -137,9 +126,55 @@
                     }
                 }
 
+                function checkDefaultSroki(dataPokupki, docDate) {
+                    var lastDate = angular.copy(dataPokupki),
+                        defaultGarantSrok = 24,
+                        defaultSrokSluzhbi = 120;
+
+                    var errorGarantMessage = 'установленный законом гарантийный срок 2 года истёк',
+                        errorSluzhbiMessage = 'недостатки товара возникли уже после передачи товара покупателю';
+
+                    //Проверяем дефолтный гарантийный срок 2 года
+                    lastDate.addMonths(defaultGarantSrok);
+
+                    if (docDate < lastDate) {
+                        setSuccessResult(srokCases.defaultGarant);
+                        $scope.specSrokiInfo.showNedostatkiFlag = false;
+                    }
+                    else {
+                        //Проверяем срок 10 лет
+                        lastDate = angular.copy(dataPokupki);
+                        lastDate.addMonths(defaultSrokSluzhbi);
+
+                        if (docDate < lastDate) {
+                            //Показываем флаг и проверям срок службы
+                            $scope.specSrokiInfo.showNedostatkiFlag = true;
+
+                            if ($scope.specSrokiInfo.nedostatkiFlag) {
+                                //Недостатки появились до получения товара
+                                setSuccessResult(srokCases.defaultSluzhbaWithFlag);
+                            }
+                            else {
+                                //Истёк срок службы 10 лет
+                                setErrorResult(errorSluzhbiMessage);
+                            }                            
+                        }
+                        else {
+                            $scope.specSrokiInfo.showNedostatkiFlag = false;
+                            $scope.specSrokiInfo.nedostatkiFlag = false;
+                            //Истёк гарантийный срок и недостатки возникли после
+                            setErrorResult(errorGarantMessage);
+                        }
+                    }
+                }
+
                 function setSuccessResult(srokCase, srok) {
                     $scope.specSrokiInfo.success = true;
-                    $scope.specSrokiInfo.successMessage = srokCase.format(srok);
+                    $scope.specSrokiInfo.successMessage = srok 
+                        ? srokCase.format(angular.utils.toMonths(srok))
+                        : srokCase;
+
+                    console.log($scope.specSrokiInfo.successMessage);
                 }
 
                 function setErrorResult(message, flag) {
@@ -164,21 +199,15 @@
                     var flagMessage = ' Однако недостатки товара возникли по причинам, возникшим до передачи товара покупателю и в соответствии со ст.19 п.6 Закона РФ «О защите прав потребителей» я могу обратиться за защитой прав в течении {0} со дня получения товара.';
 
                     srokCases = {
-                        yesGarant: yesMessage.format('гарантийный срок/срок годности {0}'),
-                        //--Not Used
-                        defaultGarant: defaultMessage.format('гарантийный срок/срок годности'),
-                        //--
-                        yesSluzhba: yesMessage.format('срок службы {0}'),
-                        defaultSluzhba: defaultMessage.format('срок службы')
+                        yesGarant: yesMessage.format('гарантийный срок/срок годности {0}'),                        
+                        defaultGarant: defaultMessage.format('гарантийный срок/срок годности') + ' однако в силу ст. 19 п.1 Закона РФ «О защите прав потребителей» я могу обратиться за защитой прав в течении 2 лет со дня получения товара',
+                        yesSluzhba: yesMessage.format('срок службы {0}')
                     }
 
                     angular.extend(srokCases, {
                         yesGarantWithFlag: srokCases.yesGarant + flagMessage.format('2 лет'),
-                        //--Not Used                        
-                        defaultGarantWithFlag: srokCases.defaultGarant + flagMessage.format('2 лет'),
-                        //--                        
                         yesSluzhbaWithFlag: srokCases.yesSluzhba + flagMessage.format('10 лет'),
-                        defaultSluzhbaWithFlag: srokCases.defaultSluzhba + flagMessage.format('10 лет')
+                        defaultSluzhbaWithFlag: defaultMessage.format('срок службы') + flagMessage.format('10 лет')
                     });
                 }
 

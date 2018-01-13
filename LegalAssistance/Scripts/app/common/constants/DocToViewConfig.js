@@ -13,7 +13,8 @@
         var result = {
             docFolder: docFolder,
             'zamena-tovara-nenadlezhashego-kachestva': docFolder + '/zamena-tovara-nenadlezhashego-kachestva/ZamenaTovaraNenadlezhashegoKachestva.html',
-            'vozvrat-tovara-deneg': docFolder + '/vozvrat-tovara/VozvratTovara.html'
+            'vozvrat-tovara-deneg': docFolder + '/vozvrat-tovara/VozvratTovara.html',
+            'vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara': docFolder + '/vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara/VozmeshenieRashodovNaUstranenieNedostatkovTovara.html'
         }
 
         return result;

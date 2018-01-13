@@ -2,21 +2,21 @@
     <h3>Сведения о замене</h3>
     <div class="form-group form-group-lg">
         <label>Меняем на товар: </label>
-        <la-radio-yes-no ng-model="drugoyTovarFlag"
+        <la-radio-yes-no ng-model="components.obmenTovaraModel.isSelected"
                          yes-text="Другой (другая модель, артикул)"
                          no-text="Такой же"
                          required>
         </la-radio-yes-no>
         <tps-hint hint="relatedData.drugoyTovarTooltip"></tps-hint>
     </div>
-    <div ng-if="drugoyTovarFlag">
+    <div ng-if="components.obmenTovaraModel.isSelected">
         <div class="row">
             <div class="col-lg-5 col-md-6 col-xs-12">
                 <div class="form-group form-group-lg">
                     <label>Модель (другой товар): </label>
                     <input type="text"
                            class="form-control"
-                           ng-model="drugoyModel"
+                           ng-model="components.obmenTovaraModel.value"
                            required
                            placeholder="Микроволновая печь Samsung A35">
                 </div>

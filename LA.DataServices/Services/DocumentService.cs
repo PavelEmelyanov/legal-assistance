@@ -36,6 +36,15 @@ namespace LA.DataServices.Services
                 UrlKey = "vozvrat-tovara-deneg",
                 CategoryID = 1,
                 SortOrder = 1
+            },
+            new Document
+            {
+                ID = 3,
+                Name = "Возмещение расходов на устранение недостатков товара",
+                FileName = "vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara",
+                UrlKey = "vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara",
+                CategoryID = 1,
+                SortOrder = 3
             }
         };
     }

@@ -30,8 +30,8 @@
     </div>
 </la-wizard-step>
 
-<div ng-if="techSlozhniyTovar.pyatnadcatDney">
-    <la-wizard-step>
+<div ng-if="techTovarBlockVisible()">
+    <la-wizard-step disabled="techTovarBlockDisabled()">
         <h3>Давайте узнаем, можете ли Вы {{actionText}}</h3>
         <label>
             Товар входит в Перечень
@@ -45,9 +45,16 @@
                          ng-model="techSlozhniyTovar.flag"
                          ng-change="techSlozhniyTovar.sluchay = false;">
         </la-radio-yes-no>
+        <la-alert-danger ng-if="techTovarBlockDisabled()">
+            К сожалению, Вы не можете {{actionText}}. 
+            Для технически сложных товаров данный вид заявления
+            законом не предусмотрен. Попробуйте потребовать
+            замены товара или возврата уплаченной за товар 
+            денежной суммы.
+        </la-alert-danger>
     </la-wizard-step>
 
-    <la-wizard-step ng-if="techSlozhniyTovar.flag" disabled="techSlozhniyTovar.sluchay == 4">
+    <la-wizard-step ng-if="techTovarReasonBlockVisible()" disabled="techSlozhniyTovar.sluchay == 4">
         <h3>Давайте узнаем, можете ли Вы {{actionText}}</h3>
         <div class="form-group">
             <label>Выберите Ваш случай: </label>

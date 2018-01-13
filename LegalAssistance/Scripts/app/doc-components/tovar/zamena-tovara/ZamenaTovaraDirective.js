@@ -22,19 +22,9 @@
 
                     $scope.components = {
                         obmenTovaraModel: {
-                            componentType: componentTypes.custom,
+                            componentType: componentTypes.checkboxWithInput,
                             componentInFileKey: "obmen-tovara-model",
-                            getValue: function () {
-                                if ($scope.drugoyTovarFlag) {
-                                    if (angular.utils.isNotNullOrEmpty($scope.drugoyArticul)) {
-                                        return 'товар другой марки - {0}, артикул {1}'.format($scope.drugoyModel, $scope.drugoyArticul);
-                                    } else {
-                                        return 'товар другой марки - {0}'.format($scope.drugoyModel);
-                                    }
-                                } else {
-                                    return 'такой же товар'
-                                }
-                            }
+                            isSelected: false
                         },
                     }
 

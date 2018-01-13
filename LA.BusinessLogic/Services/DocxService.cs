@@ -1,8 +1,8 @@
 ﻿using LA.BusinessLogic.Interfaces;
 using LA.BusinessLogic.Models;
+using LA.Common.Enums;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text.RegularExpressions;
 using Xceed.Words.NET;
 
 namespace LA.BusinessLogic.Services
@@ -13,8 +13,13 @@ namespace LA.BusinessLogic.Services
         {
             using (DocX document = DocX.Load(path))
             {
+                //Execute expression in curly brackets {{}}
+                //After that document will have only
+                //parameters [[]] which we need to replace 
+                ExecuteSpecialExpressions(document, doc.Components);
+
                 //Replace document parameters
-                UpdateDocument(document, doc);
+                ReplaceParameters(document, doc.Components);
 
                 //Added text to footers
                 AddSiteSignature(document);
@@ -24,39 +29,21 @@ namespace LA.BusinessLogic.Services
             }
         }
 
-        private void UpdateDocument(DocX document, DocumentFormValue doc)
+        private void ReplaceParameters(DocX document, List<ComponentFormValue> components)
         {
-            var allKeys = GetAllKeys(document);
+            var allParameters = DocParseHelper.GetParameters(document.Text);
 
-            foreach (var keyWithoutBrackets in allKeys)
+            foreach (var parameter in allParameters)
             {
-                var key = string.Format("[[{0}]]", keyWithoutBrackets);
+                var component = components.FirstOrDefault(x => x.Key == parameter);
 
-                bool removeLineIfResultIsEmpty;
-                var value = GetValue(keyWithoutBrackets, doc.Components, out removeLineIfResultIsEmpty);
-
-                if (string.IsNullOrEmpty(value) && removeLineIfResultIsEmpty)
+                if (component != null)
                 {
-                    var paragraph = document.Paragraphs.FirstOrDefault(x => x.Text.Contains(key));
-
-                    if (paragraph != null)
-                    {
-                        var lines = paragraph.Text.Split('\n');
-
-                        if (lines.Length <= 1)
-                        {
-                            paragraph.Remove(false);
-                        }
-                        else
-                        {
-                            paragraph.ReplaceText("\n" + key, string.Empty);
-                            paragraph.ReplaceText(key + "\n", string.Empty);
-                        }
-                    }
+                    document.ReplaceParameter(parameter, component.Value);
                 }
                 else
                 {
-                    document.ReplaceText(key, value ?? string.Empty, false, RegexOptions.IgnoreCase);
+                    throw new System.Exception($"Component value for [[{parameter}]] key is not found");
                 }
             }
         }
@@ -81,59 +68,43 @@ namespace LA.BusinessLogic.Services
         }
 
         #region Update Doc Help Methods
-        private List<string> GetAllKeys(DocX document)
+        private void ExecuteSpecialExpressions(DocX document, List<ComponentFormValue> components)
         {
-            var text = document.Text;
-            var matches = Regex.Matches(text, @"\[\[(.*?)\]\]");
+            var expressionInfos = DocParseHelper.GetExpressions(document.Text);
 
-            var result = new List<string>();
-
-            foreach (Match match in matches)
+            foreach (var expressionInfo in expressionInfos)
             {
-                result.Add(match.Groups[1].Value);
-            }
-
-            return result;
-        }
-
-        private string GetValue(string keyWithoutBrackets, List<ComponentFormValue> components, out bool removeLineIfResultIsEmpty)
-        {
-            var keyString = keyWithoutBrackets.Split(':').Select(x => x.Trim()).ToList();
-            var key = keyString.First();
-
-            var component = components.FirstOrDefault(x => x.Key == key);
-
-            if (component != null)
-            {
-                removeLineIfResultIsEmpty = component.RemoveLineIfResultIsEmpty;
-
-                if (key == "pol")
+                switch (expressionInfo.ExpressionKey)
                 {
-                    //Если мужчина
-                    if (component.Value == "1")
-                    {
-                        return keyString[1];
-                    }
-                    else
-                    {
-                        //Если женщина
-                        return keyString[2];
-                    }
+                    case DocExpressionKey.If:
+                        var ifResult = DocExpressionHelper.ExecuteIf(expressionInfo.Parameters, components);
+                        document.ReplaceExpression(expressionInfo.Expression, ifResult);
+                        break;
+                    case DocExpressionKey.Pol:
+                        var polResult = DocExpressionHelper.ExecutePol(expressionInfo.Parameters, components);
+                        document.ReplaceExpression(expressionInfo.Expression, polResult);
+                        break;
+                    case DocExpressionKey.RemoveParagraphIfEmpty:
+                        var removeParResult = DocExpressionHelper.ExecuteRemoveParagraphIfEmpty(expressionInfo.Parameters, components);
+                        if (!string.IsNullOrEmpty(removeParResult))
+                        {
+                            document.ReplaceExpression(expressionInfo.Expression, removeParResult);
+                        }
+                        else
+                        {
+                            document.RemoveFirstParagraphByExpression(expressionInfo.Expression);
+                        }
+                        break;
+                    case DocExpressionKey.Template:
+                        var templateResult = DocExpressionHelper.ExecuteTemplate(expressionInfo.Parameters, components);
+                        document.ReplaceExpression(expressionInfo.Expression, templateResult);
+                        break;
+                    default:
+                        break;
                 }
-                else if (keyString.Count == 1)
-                {
-                    return component.Value;
-                }
-                else
-                {
-                    return string.Empty;
-                }
-            }
-            else
-            {
-                throw new System.Exception(string.Format("Component value for {0} key is not found", key));
             }
         }
-        #endregion        
+        #endregion
+
     }
 }

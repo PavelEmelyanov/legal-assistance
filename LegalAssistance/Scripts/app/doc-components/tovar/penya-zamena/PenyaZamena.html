@@ -34,7 +34,7 @@
                        la-date
                        class="form-control"
                        ng-model="penyaModel.date"
-                       ng-change="calculateNeustoyka()"
+                       ng-change="calculateNeustoyka(); penyaModel.analogichniyTovarDate = penyaModel.date;"
                        la-date-no-future                       
                        required>
             </div>
@@ -112,8 +112,8 @@
                     <input type="text"
                            la-date
                            class="form-control"
-                           ng-model="penyaModel.date"
-                           ng-change="calculateNeustoyka()"
+                           ng-model="penyaModel.analogichniyTovarDate"
+                           ng-change="calculateNeustoykaAnalogichniyTovar()"
                            required>
                 </div>
             </div>

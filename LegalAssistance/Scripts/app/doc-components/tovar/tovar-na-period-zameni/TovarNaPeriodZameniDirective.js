@@ -18,27 +18,14 @@
                         analogichniyTovarNaimenovanie: {
                             componentType: componentTypes.custom,
                             componentInFileKey: 'analog-tovar-naimenovanie',
-                            removeLineIfResultIsEmpty: true,
                             getValue: function () {
                                 if ($scope.tovarNaZamenuModel.mozhnoZamenitFlag) {
-                                    return $scope.tovarNaZamenuModel.naimenovanie;
+                                    return $scope.tovarNaZamenuModel.naimenovanieTovara;
                                 } else {
                                     return null;
                                 }
                             }
-                        },
-                        analogichniyTovarArticul: {
-                            componentType: componentTypes.custom,
-                            componentInFileKey: 'analog-tovar-articul',
-                            removeLineIfResultIsEmpty: true,
-                            getValue: function () {
-                                if ($scope.tovarNaZamenuModel.mozhnoZamenitFlag && $scope.tovarNaZamenuModel.articulFlag) {
-                                    return ", Артикул {0}".format($scope.tovarNaZamenuModel.articul);                                    
-                                } else {
-                                    return null;
-                                }
-                            }
-                        },
+                        }
                     }
 
                     $scope.tovarNaZamenuModel = {

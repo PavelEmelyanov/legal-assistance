@@ -1,11 +1,8 @@
 ﻿using LA.BusinessLogic.Interfaces;
 using LA.BusinessLogic.Models;
 using LA.Common.Services;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace LA.BusinessLogic.Services
 {

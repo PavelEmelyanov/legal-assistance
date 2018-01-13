@@ -49,9 +49,7 @@
                         },
                         ogrn: {
                             componentType: componentTypes.input,
-                            componentInFileKey: "ogrn",
-                            resultTextTemplate: "ОГРН: {0},",
-                            removeLineIfResultIsEmpty: true,
+                            componentInFileKey: "ogrn"
                         },
                         nazvaniaOrganizaciya: {
                             componentType: componentTypes.input,

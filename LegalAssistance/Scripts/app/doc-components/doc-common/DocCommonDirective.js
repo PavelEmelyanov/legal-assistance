@@ -25,9 +25,7 @@
                         },
                         pol: {
                             componentType: componentTypes.checkbox,
-                            componentInFileKey: "pol",
-                            yesText: 1,
-                            noText: 0
+                            componentInFileKey: "pol"
                         }                        
                     };
 

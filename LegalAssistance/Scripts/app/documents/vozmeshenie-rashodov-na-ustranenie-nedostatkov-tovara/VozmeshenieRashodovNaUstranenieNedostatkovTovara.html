@@ -1,17 +1,19 @@
-﻿<div ng-controller="VozvratTovaraController">    
-    <la-wizard form-submit="getDoc()">
+﻿<div ng-controller="VozmeshenieRashodovNaUstranenieNedostatkovTovaraController">    
+    <la-wizard form-submit="getDoc()">        
         <!--Перед началом заполнения формы-->
         <la-doc-on-start get-target-text="settings.getOnStartTargetText()"
                          get-action-text="settings.getActionText()">
         </la-doc-on-start>
-        <!--Валиден ли возврат денег-->
+        <!--Валидно ли возмещение расходов-->
         <la-tovar-validation get-action-text="settings.getActionText()"
-                             mode="complex">
+                             mode="simple">
         </la-tovar-validation>
         <!--Обращался ранее и требования не были выполнены-->
         <la-penya></la-penya>
         <!--Сведения о товаре-->
-        <la-tovar-info></la-tovar-info>              
+        <la-tovar-info></la-tovar-info> 
+        <!--Информация о недостатках-->
+        <la-tovar-nedostatki-info></la-tovar-nedostatki-info>             
         <!--Сведения о товаре-->
         <la-poluchit-dengi></la-poluchit-dengi>
         <!--Требование возместить убытки-->

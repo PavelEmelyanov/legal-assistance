@@ -22,7 +22,6 @@
                         vozmeshenieUbitkovProsba: {
                             componentType: componentTypes.custom,
                             componentInFileKey: 'vozmeshenie-ubitkov-prosba',
-                            removeLineIfResultIsEmpty: true,
                             getValue: function () {
                                 if ($scope.ubitkiModel.flag) {
                                     return $scope.ubitkiModel.prosba + '.';
@@ -34,7 +33,6 @@
                         vozmeshenieUbitkovSumma: {
                             componentType: componentTypes.custom,
                             componentInFileKey: 'vozmeshenie-ubitkov-summa',
-                            removeLineIfResultIsEmpty: true,
                             getValue: function() {
                                 if ($scope.ubitkiModel.flag) {
                                     return angular.utils.toRub($scope.ubitkiModel.summa);
