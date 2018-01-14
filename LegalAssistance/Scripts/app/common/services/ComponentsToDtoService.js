@@ -66,15 +66,26 @@
                 return result;
             },
 
+            //Get specific parameters
             getDocDate: function () {
-                var docDateComp = componentStorage.find(function (comp) {
-                    return comp.componentInFileKey == 'doc-date';
-                });
+                return internal.getParamValue('doc-date');
+            },
 
-                var result = docDateComp ? docDateComp.value : null;
-                return result;
+            getCenaTovara: function () {
+                return internal.getParamValue('cena-tovara');
             }
         };
+
+        var internal = {
+            getParamValue: function (key) {
+                var component = componentStorage.find(function (comp) {
+                    return comp.componentInFileKey == key;
+                });
+
+                var result = component ? component.value : null;
+                return result;
+            }
+        }
 
         return factory;
     }

@@ -10,9 +10,7 @@
         return {
             restrict: 'E',
             templateUrl: 'Scripts/app/doc-components/tovar/penya/Penya.html',
-            scope: {
-                docDate: '='
-            },
+            scope: true,
             link: function ($scope, element, attrs) {
                 var init = function () {
                     $scope.components = {
@@ -67,8 +65,7 @@
                 }
 
                 //Подсчитать пеню, если обращение было ранее
-                $scope.calculateNeustoyka = function () {
-                    $scope.penyaModel.docDate = getDocDate();
+                $scope.calculateNeustoyka = function () {                    
                     $scope.cenaTovara = $scope.components.cenaTovara.value;
 
                     if (!$scope.penyaModel.flag
@@ -98,17 +95,12 @@
                     }
                 }
 
-                function getDocDate() {
-                    var result = componentsToDtoService.getDocDate();
-
-                    if (result) {
-                        return result;
-                    }
-                    else {
-                        throw new Error("Doc date is undefined");
-                    }
-                }
-
+                $scope.$watch(function () {
+                    return componentsToDtoService.getDocDate();
+                }, function (newValue) {
+                    $scope.penyaModel.docDate = newValue;
+                });
+                
                 init();
             }
         };

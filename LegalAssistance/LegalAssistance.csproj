@@ -344,6 +344,8 @@
     <Content Include="Scripts\app\doc-components\doc-on-start\DocOnStart.html" />
     <Content Include="Scripts\app\doc-components\doc-on-start\DocOnStartDirective.js" />
     <Content Include="Scripts\app\doc-components\module.js" />
+    <Content Include="Scripts\app\doc-components\tovar\tovar-umenshenie-ceni\TovarUmenshenieCeni.html" />
+    <Content Include="Scripts\app\doc-components\tovar\tovar-umenshenie-ceni\TovarUmenshenieCeniDirective.js" />
     <Content Include="Scripts\app\doc-components\tovar\penya-zamena\PenyaZamena.html" />
     <Content Include="Scripts\app\doc-components\tovar\penya-zamena\PenyaZamenaDirective.js" />
     <Content Include="Scripts\app\doc-components\tovar\penya\PenyaDirective.js" />
@@ -357,9 +359,12 @@
     <Content Include="Scripts\app\doc-components\tovar\tovar-validation\TovarValidation.html" />
     <Content Include="Scripts\app\doc-components\tovar\tovar-validation\TovarValidationDirective.js" />
     <Content Include="Scripts\app\documents\module.documents.js" />
-    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara\module.js" />
-    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara\VozmeshenieRashodovNaUstranenieNedostatkovTovara.html" />
-    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara\VozmeshenieRashodovNaUstranenieNedostatkovTovaraController.js" />
+    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara - Copy\module.js" />
+    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara - Copy\VozmeshenieRashodovNaUstranenieNedostatkovTovara.html" />
+    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara - Copy\VozmeshenieRashodovNaUstranenieNedostatkovTovaraController.js" />
+    <Content Include="Scripts\app\documents\sorazmernoe-umenshenie-pokupnoy-ceni-tovara\module.js" />
+    <Content Include="Scripts\app\documents\sorazmernoe-umenshenie-pokupnoy-ceni-tovara\SorazmernoeUmensheniePokupnoyCeniTovara.html" />
+    <Content Include="Scripts\app\documents\sorazmernoe-umenshenie-pokupnoy-ceni-tovara\SorazmernoeUmensheniePokupnoyCeniTovaraController.js" />
     <Content Include="Scripts\app\documents\vozvrat-tovara\module.js" />
     <Content Include="Scripts\app\documents\vozvrat-tovara\VozvratTovara.html" />
     <Content Include="Scripts\app\documents\vozvrat-tovara\VozvratTovaraController.js" />
@@ -414,6 +419,7 @@
     <Content Include="Images\markup\manifest.json" />
     <Content Include="Content\Documents\vozvrat-tovara-deneg.docx" />
     <Content Include="Content\Documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara.docx" />
+    <Content Include="Content\Documents\sorazmernoe-umenshenie-pokupnoy-ceni-tovara.docx" />
     <None Include="Project_Readme.html" />
     <Content Include="Views\Document\DocumentTree.cshtml" />
     <Content Include="Views\Document\Index.cshtml" />

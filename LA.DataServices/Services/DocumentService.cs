@@ -31,9 +31,9 @@ namespace LA.DataServices.Services
             new Document
             {
                 ID = 2,
-                Name = "Возврат Товара - Денег",
+                Name = "Возврат Товара Ненадлежащего Качества",
                 FileName = "vozvrat-tovara-deneg",
-                UrlKey = "vozvrat-tovara-deneg",
+                UrlKey = "vozvrat-tovara-nenadlezhashego-kachestva",
                 CategoryID = 1,
                 SortOrder = 1
             },
@@ -45,6 +45,15 @@ namespace LA.DataServices.Services
                 UrlKey = "vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara",
                 CategoryID = 1,
                 SortOrder = 3
+            },
+            new Document
+            {
+                ID = 4,
+                Name = "Соразмерное уменьшение покупной цены товара",
+                FileName = "sorazmernoe-umenshenie-pokupnoy-ceni-tovara",
+                UrlKey = "sorazmernoe-umenshenie-pokupnoy-ceni-tovara",
+                CategoryID = 1,
+                SortOrder = 4
             }
         };
     }

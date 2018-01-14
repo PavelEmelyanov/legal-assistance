@@ -140,7 +140,6 @@
 
                 //Подсчитать пеню, если обращение было ранее
                 $scope.calculateNeustoyka = function () {
-                    $scope.penyaModel.docDate = getDocDate();
                     $scope.cenaTovara = $scope.components.cenaTovara.value;                    
 
                     if (!$scope.penyaModel.flag        
@@ -181,7 +180,6 @@
 
                 //Подсчитать пеню, если было требование на предоставление аналогичного товара                
                 $scope.calculateNeustoykaAnalogichniyTovar = function () {
-                    $scope.penyaModel.docDate = getDocDate();
                     $scope.cenaTovara = $scope.components.cenaTovara.value;
 
                     if (!$scope.penyaModel.zamenaAnalogichnogoTovaraFlag
@@ -211,16 +209,11 @@
                     }
                 }
 
-                function getDocDate() {
-                    var result = componentsToDtoService.getDocDate();
-
-                    if (result) {
-                        return result;
-                    }
-                    else {
-                        throw new Error("Doc date is undefined");
-                    }
-                }
+                $scope.$watch(function () {
+                    return componentsToDtoService.getDocDate();
+                }, function (newValue) {
+                    $scope.penyaModel.docDate = newValue;
+                });
 
                 init();
             }

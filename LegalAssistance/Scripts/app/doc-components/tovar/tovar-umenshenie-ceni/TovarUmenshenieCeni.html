@@ -1,0 +1,28 @@
+﻿<la-wizard-step>
+    <h3>Укажите, пожалуйста, <u>новую</u> цену товара:</h3>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 col-xs-12">
+            <div class="form-group form-group-lg">
+                <label>Новая цена товара (руб): </label>
+                <input type="text"
+                       class="form-control"
+                       la-positive-int
+                       ng-model="components.novayaCenaTovara.value"
+                       required
+                       placeholder="3999"
+                       ng-change="onPriceChange()">
+            </div>
+        </div>        
+    </div>
+    <div ng-show="components.novayaCenaTovara.value > 0">
+        <h4 class="nobottommargin">Исходная цена товара: {{cenaTovara | rub}}</h4>
+        <h4 class="nobottommargin" ng-if="components.raznicaCenaTovara.value > 0">
+            Разница цен: {{components.raznicaCenaTovara.value | rub}}
+        </h4>
+    </div>
+    <div>
+        <la-validate-expression is-valid="components.raznicaCenaTovara.value > 0">
+            Новая цена товара должна быть меньше исходной цены товара
+        </la-validate-expression>
+    </div>    
+</la-wizard-step>

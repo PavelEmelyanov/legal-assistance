@@ -1,0 +1,28 @@
+﻿<div ng-controller="SorazmernoeUmensheniePokupnoyCeniTovaraController">    
+    <la-wizard form-submit="getDoc()">        
+        <!--Перед началом заполнения формы-->
+        <la-doc-on-start get-target-text="settings.getOnStartTargetText()"
+                         get-action-text="settings.getActionText()">
+        </la-doc-on-start>
+        <!--Валидно ли уменьшение цены-->
+        <la-tovar-validation get-action-text="settings.getActionText()"
+                             mode="simple">
+        </la-tovar-validation>
+        <!--Обращался ранее и требования не были выполнены-->
+        <la-penya></la-penya>
+        <!--Сведения о товаре-->
+        <la-tovar-info></la-tovar-info> 
+        <!--Уменьшить цену товара-->
+        <la-tovar-umenshenie-ceni></la-tovar-umenshenie-ceni>             
+        <!--Способ получения денег-->
+        <la-poluchit-dengi></la-poluchit-dengi>
+        <!--Требование возместить убытки-->
+        <la-ubitki></la-ubitki>
+        <!--Сведения об организации-->
+        <la-organizaciya></la-organizaciya> 
+        <!--Общая инфа для всех документов-->
+        <la-doc-common></la-doc-common>
+        <!--Финальный степ-->
+        <la-doc-on-end get-target-text="settings.getOnEndTargetText()"></la-doc-on-end>
+    </la-wizard>    
+</div>
