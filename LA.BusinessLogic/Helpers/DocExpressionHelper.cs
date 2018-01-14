@@ -9,12 +9,12 @@ namespace LA.BusinessLogic.Services
     {
         internal static string ExecuteIf(List<string> parameters, List<ComponentFormValue> components)
         {
-            var paramValue = components.First(x => $"[[{x.Key}]]" == parameters.First()).Value;
+            var paramValue = components.First(x => $"[[{x.Key}]]" == parameters[0]).Value;
 
             var thenBlock = parameters[1];
             var elseBlock = parameters.Count > 2 ? parameters[2] : string.Empty;
 
-            var result = !string.IsNullOrEmpty(paramValue) && !string.Equals(paramValue, "false", StringComparison.OrdinalIgnoreCase)
+            var result = !IsNullOrEmptyOrFalse(paramValue)
                 ? thenBlock
                 : elseBlock;
 
@@ -41,7 +41,7 @@ namespace LA.BusinessLogic.Services
             var key = DocParseHelper.GetFirstParameter(text);
             var paramValue = components.First(x => x.Key == key).Value;
 
-            if (!string.IsNullOrEmpty(paramValue))
+            if (!IsNullOrEmptyOrFalse(paramValue))
             {
                 if (parameters.Count > 1)
                 {
@@ -76,6 +76,11 @@ namespace LA.BusinessLogic.Services
             {
                 return string.Empty;
             }
+        }
+
+        internal static bool IsNullOrEmptyOrFalse(string str)
+        {
+            return string.IsNullOrEmpty(str) || string.Equals(str, "false", StringComparison.OrdinalIgnoreCase);
         }
     }
 }

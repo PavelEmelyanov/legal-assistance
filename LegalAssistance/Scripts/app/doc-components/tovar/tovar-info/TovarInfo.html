@@ -71,14 +71,14 @@
     </div>-->
     <div class="form-group">
         <label>Некачественный товар предоставляется одновременно с подачей настоящего требования</label>
-        <la-radio-yes-no ng-model="components.tovarNeOdnovremenno.value">
+        <la-radio-yes-no ng-model="tovarOdnovremenno.isSelected">
         </la-radio-yes-no>
     </div>
-    <la-alert-info ng-if="components.tovarNeOdnovremenno.value === false">
+    <la-alert-info ng-if="tovarOdnovremenno.isSelected === false">
         Продавец/изготовитель имеет право получить товар для проведения
         экспертизы после Вашего обращения.
     </la-alert-info>
-    <la-alert-info ng-if="components.tovarNeOdnovremenno.value === true">
+    <la-alert-info ng-if="tovarOdnovremenno.isSelected === true">
         Вам необходимо предоставить
         товар самому вместе с подачей настоящего Требования
     </la-alert-info>

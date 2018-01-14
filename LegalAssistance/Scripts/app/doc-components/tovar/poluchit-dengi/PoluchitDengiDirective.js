@@ -14,13 +14,10 @@
             link: function ($scope, element, attrs) {
 
                 var init = function () {
-                    $scope.optionFlag = null;
-                    $scope.cardNumber = null;
-                    
                     $scope.components = {
-                        sposobPolucheniyaDeneg: {
-                            componentType: componentTypes.custom,
-                            componentInFileKey: "sposob-polucheniya-deneg",
+                        creditCardNumber: {
+                            componentType: componentTypes.checkboxWithInput,
+                            componentInFileKey: "credit-card-number",
                             getValue: function () {
                                 if ($scope.optionFlag) {
                                     return 'наличными'

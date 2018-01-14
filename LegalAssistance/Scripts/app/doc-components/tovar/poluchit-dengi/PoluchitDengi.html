@@ -2,20 +2,20 @@
     <h3>Возврат Денег</h3>
     <div class="form-group form-group-lg">
         <label>Я хочу получить деньги: </label>
-        <la-radio-yes-no ng-model="optionFlag"
+        <la-radio-yes-no ng-model="components.creditCardNumber.isSelected"
                          yes-text="На Банковскую Карту"
                          no-text="Наличными"
                          required>
         </la-radio-yes-no>        
     </div>
-    <div ng-if="optionFlag">
+    <div ng-if="components.creditCardNumber.isSelected">
         <div class="row">
             <div class="col-lg-5 col-md-6 col-xs-12">
                 <div class="form-group form-group-lg">
                     <label>Укажите номер банковской карты: </label>
                     <input type="text"
                            class="form-control"
-                           ng-model="cardNumber"
+                           ng-model="components.creditCardNumber.value"
                            required
                            la-digit>
                 </div>

@@ -55,6 +55,10 @@
     font-size: 16px;
 }
 
+.wizard-step .sb-msg span {
+    font-weight: bold;
+}
+
 .wizard-step .checkbox-style-1-label:before, .radio-style-1-label:before, .checkbox-style-2-label:before, .radio-style-2-label:before, .checkbox-style-3-label:before, .radio-style-3-label:before {
     width: 27px;
     height: 27px;

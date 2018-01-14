@@ -14,6 +14,8 @@
             link: function ($scope, element, attrs) {
 
                 var init = function () {
+                    $scope.tovarOdnovremenno = {};
+
                     $scope.components = {                        
                         mestoPokupki: {
                             componentType: componentTypes.input,
@@ -37,8 +39,13 @@
                             isSelected: false
                         },
                         tovarNeOdnovremenno: {
-                            componentType: componentTypes.checkbox,
-                            componentInFileKey: "tovar-ne-odnovremenno"
+                            componentType: componentTypes.custom,
+                            componentInFileKey: "tovar-ne-odnovremenno",
+                            getValue: function () {
+                                return $scope.tovarOdnovremenno.isSelected
+                                    ? null
+                                    : "true";
+                            }
                         }
                     };
 
