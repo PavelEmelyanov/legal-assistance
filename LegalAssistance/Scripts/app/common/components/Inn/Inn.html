@@ -1,28 +1,93 @@
 ﻿<div>
-    <div class="dropdown-search" 
-         ng-class="{'is-active': noResults && orgInfo, 'is-loading': loading}">        
-        <input type="text"
-               ng-model="orgInfo"
-               placeholder="Начните вводить название, ИНН, ОГРН или адрес организации"
-               uib-typeahead="info as info.value for info in searchOrg($viewValue)"
-               typeahead-loading="loading"
-               typeahead-no-results="noResults"
-               typeahead-on-select="onOrgSelect();"
-               typeahead-template-url="customInnTemplate.html"
-               ng-blur="checkIsSelectFromList()"
-               class="form-control"
-               style="max-width: 100%"
-               ng-required="isRequired"
-               ng-disabled="isDisabled">
-        <div>
-            <i class="icon-refresh"></i>
-            <ul class="dropdown-menu">
-                <li class="text-center">
-                    По Вашему запросу ничего не найдено
-                </li>
-            </ul>
+    <div class="row">
+        <div class="col-lg-8 col-md-12 col-xs-12">
+            <div class="form-group form-group-lg">
+                <div class="dropdown-search"
+                     ng-class="{'is-active': noResults && orgInfo, 'is-loading': loading}">
+                    <input type="text"
+                           ng-model="orgInfo"
+                           placeholder="Начните вводить название, ИНН, ОГРН или адрес организации"
+                           uib-typeahead="info as info.value for info in searchOrg($viewValue)"
+                           typeahead-loading="loading"
+                           typeahead-no-results="noResults"
+                           typeahead-on-select="onOrgSelect();"
+                           typeahead-template-url="customInnTemplate.html"
+                           ng-blur="checkIsSelectFromList()"
+                           class="form-control"
+                           style="max-width: 100%"
+                           ng-required="!isNotFoundByAutocomplete"
+                           ng-disabled="isNotFoundByAutocomplete">
+                    <div>
+                        <i class="icon-refresh"></i>
+                        <ul class="dropdown-menu">
+                            <li class="text-center">
+                                По Вашему запросу ничего не найдено
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <button type="button"
+                    class="button button-3d button-rounded"
+                    ng-click="isNotFoundByAutocomplete = !isNotFoundByAutocomplete">
+                Не удалось найти?
+            </button>
         </div>
     </div>
+    <div ng-show="isNotFoundByAutocomplete">
+        <la-alert-info>
+            Пожалуйста заполните поля вручную.
+            ОГРН обязательно только для юридических лиц
+            (для ИП не нужно).
+        </la-alert-info>
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="form-group form-group-lg">
+                    <label>ИНН: </label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="inn"
+                           required
+                           la-digit
+                           placeholder="7709770002">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-xs-12">
+                <div class="form-group form-group-lg">
+                    <label>ОГРН: </label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="ogrn"
+                           la-digit
+                           placeholder="1077763747269">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-12 col-xs-12">
+                <div class="form-group form-group-lg">
+                    <label>Название Организации: </label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="name"
+                           required
+                           placeholder="ООО 'Домашний Интерьер'">
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-12 col-xs-12">
+                <div class="form-group form-group-lg">
+                    <label>Адрес Организации: </label>
+                    <input type="text"
+                           class="form-control"
+                           ng-model="address"
+                           required
+                           placeholder="109240, г. Москва, ул. Николоямская, д.14">
+                </div>
+            </div>
+        </div>
+    </div>    
 
     <script type="text/ng-template" id="customInnTemplate.html">
         <a>

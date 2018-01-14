@@ -320,6 +320,7 @@
     <Content Include="Scripts\app\common\components\RadioYesNo\RadioYesNoDirective.js" />
     <Content Include="Scripts\app\common\constants\ComponentTypes.js" />
     <Content Include="Scripts\app\common\constants\DocToViewConfig.js" />
+    <Content Include="Scripts\app\common\directives\Mask.js" />
     <Content Include="Scripts\app\common\directives\Tooltip.js" />
     <Content Include="Scripts\app\common\module.common.js" />
     <Content Include="Scripts\app\common\services\ComponentsToDtoService.js" />
@@ -359,9 +360,9 @@
     <Content Include="Scripts\app\doc-components\tovar\tovar-validation\TovarValidation.html" />
     <Content Include="Scripts\app\doc-components\tovar\tovar-validation\TovarValidationDirective.js" />
     <Content Include="Scripts\app\documents\module.documents.js" />
-    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara - Copy\module.js" />
-    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara - Copy\VozmeshenieRashodovNaUstranenieNedostatkovTovara.html" />
-    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara - Copy\VozmeshenieRashodovNaUstranenieNedostatkovTovaraController.js" />
+    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara\module.js" />
+    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara\VozmeshenieRashodovNaUstranenieNedostatkovTovara.html" />
+    <Content Include="Scripts\app\documents\vozmeshenie-rashodov-na-ustranenie-nedostatkov-tovara\VozmeshenieRashodovNaUstranenieNedostatkovTovaraController.js" />
     <Content Include="Scripts\app\documents\sorazmernoe-umenshenie-pokupnoy-ceni-tovara\module.js" />
     <Content Include="Scripts\app\documents\sorazmernoe-umenshenie-pokupnoy-ceni-tovara\SorazmernoeUmensheniePokupnoyCeniTovara.html" />
     <Content Include="Scripts\app\documents\sorazmernoe-umenshenie-pokupnoy-ceni-tovara\SorazmernoeUmensheniePokupnoyCeniTovaraController.js" />

@@ -16,9 +16,7 @@
                 inn: '=',
                 ogrn: '=',
                 name: '=',
-                address: '=',
-                isRequired: '=',
-                isDisabled: '='
+                address: '='
             },
             link: function ($scope, element, attrs) {
                 var url = 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/party';

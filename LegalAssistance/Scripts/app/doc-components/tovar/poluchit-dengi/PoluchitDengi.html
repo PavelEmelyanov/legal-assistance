@@ -16,8 +16,12 @@
                     <input type="text"
                            class="form-control"
                            ng-model="components.creditCardNumber.value"
-                           required
-                           la-digit>
+                           required>                    
+                </div>
+                <div>
+                    <la-validate-expression is-valid="isValid()">
+                        Номер карты должен содержать 16 или 18 или 19 цифр.
+                    </la-validate-expression>
                 </div>
             </div>
         </div>

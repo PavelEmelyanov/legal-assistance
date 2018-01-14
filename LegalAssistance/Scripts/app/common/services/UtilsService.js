@@ -35,7 +35,10 @@
             },
 
             toDate: function (date) {
-                return '{0}.{1}.{2}'.format(date.getDate(), date.getMonth() + 1, date.getFullYear());
+                return '{0}.{1}.{2}'.format(
+                    ("0" + date.getDate()).slice(-2),
+                    ("0" + (date.getMonth() + 1)).slice(-2),
+                    date.getFullYear());
             },
 
             toRub: function (value) {

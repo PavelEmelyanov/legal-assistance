@@ -13,25 +13,25 @@ namespace LegalAssistance.Controllers
             _documentService = new DocumentService();
         }
 
-        [Route("documents")]
+        [Route("zayavleniya")]
         public ActionResult Index()
         {
             return View();
         }
 
-        [Route("documents/{urlKey}")]
+        [Route("zayavleniya/{urlKey}")]
         public ActionResult FillForm(string urlKey)
         {
             var document = _documentService.GetByUrlKey(urlKey);
             return View(document);
         }
 
-        [Route("test")]
-        public ActionResult Test()
-        {
-            var document = _documentService.GetByUrlKey("zamena-tovara-nenadlezhashego-kachestva");
-            return View(document);
-        }
+        //[Route("test")]
+        //public ActionResult Test()
+        //{
+        //    var document = _documentService.GetByUrlKey("zamena-tovara-nenadlezhashego-kachestva");
+        //    return View(document);
+        //}
 
         [ChildActionOnly]
         public ActionResult DocumentTree()

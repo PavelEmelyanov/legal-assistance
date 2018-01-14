@@ -13,7 +13,11 @@
             scope: true,
             link: function ($scope, element, attrs) {
 
-                var init = function () {                   
+                var init = function () {
+                    $scope.orgInfo = {
+                        isSelected: false
+                    };
+
                     $scope.components = {                        
                         nedostatkiSumma: {
                             componentType: componentTypes.rub,
@@ -24,9 +28,25 @@
                             componentInFileKey: 'tovar-nedostatki-opisanie'
                         },                    
                         nedostatkiFirma: {
-                            componentType: componentTypes.checkboxWithInput,
+                            componentType: componentTypes.custom,
                             componentInFileKey: 'tovar-nedostatki-firma',
-                            isSelected: false
+                            getValue: function () {
+                                if ($scope.orgInfo.isSelected) {
+                                    var template = "ИНН: {0},{1} {2}, Адрес: {3}";
+                                    var ogrn = $scope.orgInfo.ogrn
+                                        ? " ОГРН: {0},".format($scope.orgInfo.ogrn)
+                                        : "";
+
+                                    return template.format(
+                                        $scope.orgInfo.inn,
+                                        ogrn,
+                                        $scope.orgInfo.nazvaniaOrganizaciya,
+                                        $scope.orgInfo.addressOrganizaciya);
+                                }
+                                else {
+                                    return null;
+                                }
+                            }
                         },
                     };
 

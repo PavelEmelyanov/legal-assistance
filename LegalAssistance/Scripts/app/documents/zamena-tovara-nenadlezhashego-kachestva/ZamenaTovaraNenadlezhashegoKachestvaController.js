@@ -16,10 +16,10 @@
 
         $scope.settings = {
             getOnStartTargetText: function () {
-                return "продавцу/изготовителю для замены товара ненадлежащего качества"
+                return "продавцу/изготовителю для замены некачественного товара"
             },
             getActionText: function () {
-                return 'заменить товар';
+                return 'заменить некачественный товар';
             }
         }
 

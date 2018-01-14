@@ -22,7 +22,7 @@ namespace LA.DataServices.Services
             new Document
             {
                 ID = 1,
-                Name = "Замена Товара Ненадлежащего Качества",
+                Name = "Замена Некачественного Товара",
                 FileName = "zamena-tovara-nenadlezhashego-kachestva",
                 UrlKey = "zamena-tovara-nenadlezhashego-kachestva",
                 CategoryID = 1,
@@ -31,9 +31,9 @@ namespace LA.DataServices.Services
             new Document
             {
                 ID = 2,
-                Name = "Возврат Товара Ненадлежащего Качества",
+                Name = "Возврат Денег за Некачественный Товар",
                 FileName = "vozvrat-tovara-deneg",
-                UrlKey = "vozvrat-tovara-nenadlezhashego-kachestva",
+                UrlKey = "vozvrat-nekachestvenogo-tovara",
                 CategoryID = 1,
                 SortOrder = 1
             },

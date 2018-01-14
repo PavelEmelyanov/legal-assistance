@@ -21,7 +21,7 @@
                             getValue: function () {
                                 if ($scope.optionFlag) {
                                     return 'наличными'
-                                } else {                                    
+                                } else {
                                     return 'путём перечисления на карту {0}'.format($scope.cardNumber);
                                 }
                             }
@@ -29,6 +29,18 @@
                     }
 
                     componentsToDtoService.registerComponents($scope.components);
+                }
+
+                $scope.isValid = function () {
+                    var number = $scope.components.creditCardNumber.value;
+
+                    if (!angular.utils.isNotNullOrEmpty(number)) {
+                        return true;
+                    }
+
+                    return number.length == 16
+                        || number.length == 18
+                        || number.length == 19;
                 }
 
                 init();
