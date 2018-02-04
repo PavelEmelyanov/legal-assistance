@@ -1,29 +1,57 @@
 ﻿<la-wizard-step>
-    <h3>Возврат Денег</h3>
+    <h3>Получение Денег</h3>
     <div class="form-group form-group-lg">
         <label>Я хочу получить деньги: </label>
-        <la-radio-yes-no ng-model="components.creditCardNumber.isSelected"
-                         yes-text="На Банковскую Карту"
-                         no-text="Наличными"
-                         required>
-        </la-radio-yes-no>        
+        <la-radio-yes-no-hint ng-model="options.flag"
+                              yes-text="На банковский счёт"
+                              yes-hint="'Продавец переведёт Вам деньги - ваше присутствие НЕ обязательно'"
+                              no-text="Наличными или На Банковскую Карту"
+                              no-hint="'Ваше присутствие обязательно в магазине для получения денег'">
+        </la-radio-yes-no-hint>
     </div>
-    <div ng-if="components.creditCardNumber.isSelected">
-        <div class="row">
-            <div class="col-lg-5 col-md-6 col-xs-12">
-                <div class="form-group form-group-lg">
-                    <label>Укажите номер банковской карты: </label>
-                    <input type="text"
-                           class="form-control"
-                           ng-model="components.creditCardNumber.value"
-                           required>                    
-                </div>
-                <div>
-                    <la-validate-expression is-valid="isValid()">
-                        Номер карты должен содержать 16 или 18 или 19 цифр.
-                    </la-validate-expression>
-                </div>
+</la-wizard-step>
+<la-wizard-step ng-if="options.flag" disabled="options.loading">
+    <h3>Укажите реквизиты банковского счёта</h3>
+    <div class="row">
+        <div class="col-lg-5 col-md-6 col-xs-12">
+            <div class="form-group form-group-lg">
+                <label>БИК банка: </label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="options.bik"
+                       placeholder="9 цифр"
+                       la-mask="999999999"
+                       ng-change="getBikInfo()"
+                       required>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-6 col-xs-12">
+            <div class="form-group form-group-lg">
+                <label>Расчётный Счёт: </label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="options.rs"
+                       placeholder="20 цифр"
+                       la-mask="99999999999999999999"
+                       required>
             </div>
         </div>
     </div>
+    <div class="form-group" ng-if="options.bikInfo">
+        <h4 class="nobottommargin">Информация о Банке:</h4>
+        <b>БИК: </b> {{options.bikInfo.bik}} <br/>
+        <b>Корреспондентский Счёт: </b> {{options.bikInfo.ks}} <br />
+        <b>Наименование: </b> {{options.bikInfo.name}}
+    </div>
+    <la-alert-warning class="form-group" ng-if="options.bikNotFound">
+        Не удалось найти банк по БИК
+    </la-alert-warning>
+    <la-alert-info>
+        Данные реквизиты можно узнать следующими способами:
+        <ul class="nobottommargin" style="margin-left: 20px;">
+            <li>Позвонить на горячую линию, назвать персональные данные и кодовое слово</li>
+            <li>Узнать реквизиты онлайн в интернет-банке</li>
+            <li>Узнать реквизиты через банкомат</li>
+        </ul>
+    </la-alert-info>
 </la-wizard-step>

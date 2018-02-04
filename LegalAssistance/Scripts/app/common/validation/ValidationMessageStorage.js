@@ -30,7 +30,7 @@
                     dateGreater: 'End date should be greater than Start Date',
                     dateLess: 'Start date should be less than End Date.',
                     maxNumber: 'The field shouldn\'t contain number greater than 100000.',
-                    notCompletelyFilled: 'The field is not completely filled.',
+                    maskCompleted: 'Пожалуйста, заполните поле до конца.',
                     fileSize: 'File should have size less than 25 Mb.',
                     sum: 'The Reservations at Max and Min Discount sum should be less or equal to 100.',
                     ip: 'Invalid IP.',
