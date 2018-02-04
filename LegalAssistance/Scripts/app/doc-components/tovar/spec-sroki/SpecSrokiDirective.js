@@ -150,7 +150,7 @@
                     }
                     else {
                         //Ни один из сроков не установлен                        
-                        checkDefaultSroki(dataPokupki, docDate);
+                        checkDefaultSroki(dataPokupki, docDate, $scope.obichniiNedostatok);
                     }
                 }
 
@@ -279,7 +279,7 @@
                 }
 
                 //Ни один из сроков не установлен
-                function checkDefaultSroki(dataPokupki, docDate) {
+                function checkDefaultSroki(dataPokupki, docDate, onlyGarant) {
                     var lastDate = angular.copy(dataPokupki),
                         defaultGarantSrok = 24,
                         defaultSrokSluzhbi = 120,
@@ -291,7 +291,7 @@
                     if (docDate < lastDate) {
                         setSuccessResult(srokCases.defaultGarant);
                     }
-                    else {
+                    else if (!onlyGarant) {
                         //Проверяем срок 10 лет
                         lastDate = angular.copy(dataPokupki);
                         lastDate.addMonths(defaultSrokSluzhbi);
@@ -302,8 +302,11 @@
                         }
                         else {
                             //Срок службы не успешен
-                            setErrorResult(errorMessage);
+                            setErrorResult(errorMessage);                            
                         }
+                    }
+                    else {
+                        setErrorResult('установленный законом гарантийный срок 2 года истёк');                        
                     }
 
                     $scope.specSrokiInfo.showNedostatkiFlag = false;
