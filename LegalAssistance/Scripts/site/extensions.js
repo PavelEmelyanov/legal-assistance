@@ -14,4 +14,9 @@
         var date = this;
         date.setMonth(date.getMonth() + parseInt(months));
     }
+
+    Date.prototype.addDays = function (days) {
+        var date = this;
+        date.setDate(date.getDate() + parseInt(days));
+    }
 })();

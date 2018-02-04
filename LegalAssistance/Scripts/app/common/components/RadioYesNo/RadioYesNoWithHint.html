@@ -1,0 +1,23 @@
+﻿<div>
+    <div>
+        <la-radio ng-model="flag"
+                  ng-value="false"
+                  ng-change="onChange()">
+            {{noText || 'Нет'}}
+        </la-radio>
+        <la-hint hint="noHint"></la-hint>
+    </div>
+    <div>
+        <la-radio ng-model="flag"
+                  ng-value="true"
+                  ng-change="onChange()">
+            {{yesText || 'Да'}}
+        </la-radio>
+        <la-hint hint="yesHint"></la-hint>
+    </div>       
+    <div>
+        <la-validate-expression is-valid="isValid()">
+            Пожалуйста, выберите одну из опций
+        </la-validate-expression>
+    </div>    
+</div>

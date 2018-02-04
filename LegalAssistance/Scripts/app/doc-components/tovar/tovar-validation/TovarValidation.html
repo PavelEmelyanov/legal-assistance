@@ -1,4 +1,36 @@
-﻿<la-wizard-step>
+﻿<la-wizard-step disabled="!checkTovarType()">
+    <h3>Давайте узнаем, можете ли Вы {{actionText}}</h3>
+    <label>Выберите тип вашего товара:</label>
+    <la-radio-yes-no-hint ng-model="tovarType.potreblyamiiTovar"                          
+                          no-text="Не потребляемый товар"                          
+                          no-hint="tovarType.nepotreblyamiiTovarHint"                          
+                          yes-text="Потребляемый Товар"
+                          yes-hint="tovarType.potreblyamiiTovarHint"
+                          class="form-group">
+    </la-radio-yes-no-hint>
+    <la-alert-danger ng-show="!checkTovarType()">
+        Данный вид заявления недоступен для потребляемого товара.
+    </la-alert-danger>
+</la-wizard-step>
+
+<la-wizard-step disabled="disableNedostatokTab()">
+    <h3>Давайте узнаем, можете ли Вы {{actionText}}</h3>
+    <div class="form-group">
+        <label>Укажите тип недостатка вашего товара:</label>
+        <la-radio-yes-no-hint ng-model="nedostatokInfo.obichniiNedostatok"
+                              yes-text="Мелкий Недостаток"
+                              no-text="Существенный Недостаток"
+                              yes-hint="nedostatokInfo.obichniiNedostatokHint"
+                              no-hint="nedostatokInfo.sushestveniiNedostatokHint">
+        </la-radio-yes-no-hint>
+    </div>    
+    <la-alert-danger ng-show="disableNedostatokTab()">
+        К сожалению, Вы не можете {{actionText}}, т.к. 
+        <u>товар потребляемый</u> и обнаружен <u>мелкий недостаток</u>.
+    </la-alert-danger>
+</la-wizard-step>
+
+<la-wizard-step>
     <h3>Давайте узнаем, можете ли Вы {{actionText}}</h3>
     <div class="row">
         <div class="col-lg-5 col-md-5 col-xs-12">
@@ -110,7 +142,9 @@
 
 <la-spec-sroki date-pokupki="components.dataPokupki.value"
                doc-date="components.docDate.value"
-               get-action-text="getActionText()">
+               get-action-text="getActionText()"
+               potreblyamii-tovar="tovarType.potreblyamiiTovar"
+               obichnii-nedostatok="tovarType.obichniiNedostatok">
 </la-spec-sroki>
 
 <la-wizard-step>

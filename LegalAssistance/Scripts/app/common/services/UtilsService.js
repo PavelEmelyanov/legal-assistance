@@ -72,6 +72,20 @@
                 }
             },
 
+            toSutki: function (value) {
+                var str = value.toString();
+                var lastNumber = parseInt(str.substring(str.length - 1));
+                var template = value + ' {0}';
+
+                if ((lastNumber == 1 && value != 11)
+                    || (lastNumber == 2 && value != 12 && value != 2)
+                    || (lastNumber == 3 && value != 13 && value != 3)) {
+                    return template.format('сутки');
+                } else {
+                    return template.format('суток');
+                }
+            },
+
             getDatePeriod: function (startDate, endDate) {
                 // get total seconds between the times
                 var delta = Math.abs(endDate.getTime() - startDate.getTime()) / 1000;

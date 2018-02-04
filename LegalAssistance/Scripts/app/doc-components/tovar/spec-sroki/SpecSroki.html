@@ -1,51 +1,102 @@
-﻿<la-wizard-step>
-    <h3>Давайте узнаем, можете ли Вы {{actionText}}</h3>
-    <div class="row">
-        <div class="col-lg-6 col-md-12 col-xs-12">
-            <label>
-                Установлены ли специальные сроки:                                
-            </label>   
-            <br />
-            (если никакие сроки не установлены, просто нажмите "Далее")         
-        </div>
-        <div class="col-lg-5 col-md-12 col-xs-12">
-            <div class="form-group form-group-lg">
-                <la-checkbox-with-input ng-model="specSrokiInfo.garantSrok"
-                                        ng-change="checkSroki()"
-                                        flag="specSrokiInfo.garantSrokIsSelected"
-                                        validation="la-positive-int"
-                                        placeholder="24">
-                    Гарантийный срок / срок годности (месяцев)
-                </la-checkbox-with-input>
+﻿<!--Только для потребляемого товара-->
+<div ng-if="potreblyamiiTovar">
+    <la-wizard-step>
+        <h3>Укажите срок годности (один из вариантов)</h3>
+        <div class="row">
+            <div class="col-lg-5 col-md-6 col-xs-12">
+                <div class="form-group" ng-repeat="option in potreblyamiiTovarInfo.options">
+                    <la-radio ng-model="potreblyamiiTovarInfo.selectedOption"
+                              ng-value="option.value">
+                        {{option.key}}
+                    </la-radio>
+                </div>
+                <la-validate-expression is-valid="potreblyamiiTovarInfo.selectedOption">
+                    Пожалуйста, заполните один из вариантов
+                </la-validate-expression>
             </div>
-            <div class="form-group form-group-lg">
-                <la-checkbox-with-input ng-model="specSrokiInfo.srokSluzhbi"
-                                        ng-change="checkSroki()"
-                                        flag="specSrokiInfo.srokSluzhbiIsSelected"
-                                        validation="la-positive-int"
-                                        placeholder="24">
-                    Срок службы (месяцев)
-                </la-checkbox-with-input>
+            <div class="col-lg-5 col-md-6 col-xs-12">
+                <div class="form-group form-group-lg">
+                    <div ng-if="potreblyamiiTovarInfo.selectedOption == 'date'">
+                        <label>Годен до (Дата): </label>
+                        <input type="text"
+                               la-date
+                               la-date-no-past
+                               class="form-control"
+                               ng-model="potreblyamiiTovarInfo.data"
+                               ng-change="checkSrokGodnosti()"
+                               required>
+                    </div>
+                    <div ng-if="potreblyamiiTovarInfo.selectedOption == 'day'">
+                        <label>Срок годности в сутках: </label>
+                        <input type="number"
+                               placeholder="30"
+                               la-positive-int
+                               class="form-control"
+                               ng-model="potreblyamiiTovarInfo.sutki"
+                               ng-change="checkSrokGodnosti()"
+                               required>
+                    </div>
+                    <div ng-if="potreblyamiiTovarInfo.selectedOption == 'month'">
+                        <label>Срок годности в месяцах: </label>
+                        <input type="number"
+                               placeholder="2"
+                               la-positive-int
+                               class="form-control"
+                               ng-model="potreblyamiiTovarInfo.months"
+                               ng-change="checkSrokGodnosti()"
+                               required>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</la-wizard-step>
+    </la-wizard-step>
+</div>
 
-<la-wizard-step ng-if="specSrokiInfo.showNedostatkiFlag">
-    <h3>Давайте узнаем, можете ли Вы {{actionText}}</h3>
-    <label>
-        Недостатки товара возникли по причинам, возникшим до передачи Вам товара?
-    </label>
-    <la-hint hint="'Данные обстоятельства поможет выявить экспертиза'"></la-hint>
-    <la-radio-yes-no class="form-group"
-                     ng-model="specSrokiInfo.nedostatkiFlag"
-                     ng-change="checkSroki()">
-    </la-radio-yes-no>
-</la-wizard-step>
+<!--Только для НЕ потребляемого товара-->
+<div ng-if="!potreblyamiiTovar">
+    <la-wizard-step>
+        <h3>Укажите установленные специальные сроки</h3>
+        <div class="row">
+            <div class="col-lg-5 col-md-6 col-xs-12">
+                <div class="form-group form-group-lg">
+                    <label>Гарантийный срок (месяцев)</label>
+                    <input ng-model="specSrokiInfo.garantSrok"
+                           ng-change="checkSroki()"
+                           la-positive-int
+                           placeholder="24"
+                           class="form-control" />
+                </div>
 
+            </div>
+            <div class="col-lg-5 col-md-6 col-xs-12">
+                <div class="form-group form-group-lg" ng-if="!obichniiNedostatok">
+                    <label>Срок службы (месяцев)</label>
+                    <input ng-model="specSrokiInfo.srokSluzhbi"
+                           ng-change="checkSroki()"
+                           la-positive-int
+                           placeholder="36"
+                           class="form-control" />
+                </div>
+            </div>
+        </div>
+        (если никакие сроки не установлены, просто нажмите "Далее")
+    </la-wizard-step>
+
+    <la-wizard-step ng-if="specSrokiInfo.showNedostatkiFlag">
+        <h3>Давайте узнаем, можете ли Вы {{actionText}}</h3>
+        <label>
+            Недостатки товара возникли по причинам, возникшим до передачи Вам товара?
+        </label>
+        <la-hint hint="'Данные обстоятельства поможет выявить экспертиза'"></la-hint>
+        <la-radio-yes-no class="form-group"
+                         ng-model="specSrokiInfo.nedostatkiFlag"
+                         ng-change="checkSroki()">
+        </la-radio-yes-no>
+    </la-wizard-step>
+</div>
 
 <la-wizard-step disabled="true" ng-if="!specSrokiInfo.success">
-    <h3>Вы не можете {{actionText}}</h3>    
+    <h3>Вы не можете {{actionText}}</h3>
     <la-alert-danger>
         {{specSrokiInfo.errorMessage}}
     </la-alert-danger>

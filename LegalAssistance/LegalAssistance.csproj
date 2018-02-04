@@ -311,6 +311,7 @@
     <Content Include="Scripts\app\common\components\Alerts\AlertInfo.js" />
     <Content Include="Scripts\app\common\components\Checkbox\Checkbox.html" />
     <Content Include="Scripts\app\common\components\Checkbox\CheckboxDirective.js" />
+    <Content Include="Scripts\app\common\components\RadioYesNo\RadioYesNoWithHint.html" />
     <Content Include="Scripts\app\common\components\Radio\Radio.html" />
     <Content Include="Scripts\app\common\components\Radio\RadioDirective.js" />
     <Content Include="Scripts\app\common\components\Wizard\Wizard.html" />
@@ -441,6 +442,9 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
