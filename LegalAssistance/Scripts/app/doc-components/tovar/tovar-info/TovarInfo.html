@@ -65,6 +65,15 @@
 
 <la-wizard-step>
     <h3>Данные о купленном товаре</h3>
+    <div class="form-group form-group-lg">
+        <label>Хотите ли Вы присутствовать при экспертизе, которую проведёт продавец в случае, если он решит её провести? </label>
+        <la-radio-yes-no ng-model="components.prisutstvieExpertiza.value">
+        </la-radio-yes-no>
+    </div>
+</la-wizard-step>
+
+<la-wizard-step>
+    <h3>Данные о купленном товаре</h3>
     <div class="form-group">
         <label>Некачественный товар предоставляется одновременно с подачей настоящего требования</label>
         <la-radio-yes-no ng-model="tovarOdnovremenno.isSelected">

@@ -38,6 +38,11 @@
                             componentInFileKey: "proverka-kachestva-info",
                             isSelected: false
                         },
+                        prisutstvieExpertiza: {
+                            componentType: componentTypes.checkbox,
+                            componentInFileKey: "prisutstvie-expertiza",
+                            value: false
+                        },
                         tovarNeOdnovremenno: {
                             componentType: componentTypes.custom,
                             componentInFileKey: "tovar-ne-odnovremenno",
