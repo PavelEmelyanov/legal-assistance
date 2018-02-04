@@ -11,6 +11,7 @@
         <h3>Требование аналогичного товара на <u>период</u> замены</h3>
         <div class="form-group">
             <label>Время замены <u>некачественного товара</u> составит более 7 дней?</label>
+            <la-hint hint="relatedData.hint7dney"></la-hint>
             <la-radio-yes-no ng-model="tovarNaZamenuModel.bolee7dney"
                              ng-change="tovarNaZamenuModel.zamenyamiyTovarFlag = undefined; tovarNaZamenuModel.obladaetSvoystvami = undefined;">
             </la-radio-yes-no>

@@ -3,20 +3,20 @@
     <div class="row">
         <div class="col-lg-5 col-md-6 col-xs-12">
             <div class="form-group form-group-lg">
-                <label>ФИО Покупателя: </label>
+                <label>Ваше ФИО: </label>
                 <input type="text"
                        class="form-control"
-                       ng-model="components.pokupatel.value"
+                       ng-model="components.nameZayavitel.value"
                        required
                        placeholder="Иванов Иван Иванович">
             </div>
         </div>
         <div class="col-lg-5 col-md-6 col-xs-12">
             <div class="form-group form-group-lg">
-                <label>Адрес Покупателя: </label>
+                <label>Ваш Адрес: </label>
                 <input type="text"
                        class="form-control"
-                       ng-model="components.addressPokupatel.value"
+                       ng-model="components.addressZayavitel.value"
                        required
                        placeholder="394088, г. Воронеж, ул. Уличная 1а, 33">
             </div>
@@ -25,11 +25,21 @@
     <div class="row">
         <div class="col-lg-5 col-md-6 col-xs-12">
             <div class="form-group">
-                <label>Ваш пол: </label> <la-hint hint="'Нам необходимо знать Ваш пол, чтобы правильно расставить падежи в документе.'"></la-hint>
+                <label>Ваш Пол: </label> <la-hint hint="'Нам необходимо знать Ваш пол, чтобы правильно расставить падежи в документе.'"></la-hint>
                 <la-radio-yes-no yes-text="Мужской"
                                  no-text="Женский"
                                  ng-model="components.pol.value">
                 </la-radio-yes-no>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-6 col-xs-12">
+            <div class="form-group form-group-lg">
+                <label>Ваш Контактный Номер: </label>
+                <input type="text"
+                       class="form-control"
+                       ng-model="components.phoneZayavitel.value"
+                       required
+                       placeholder="Номер в любом формате">
             </div>
         </div>
     </div>

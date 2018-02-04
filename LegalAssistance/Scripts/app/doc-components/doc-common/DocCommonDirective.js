@@ -15,18 +15,22 @@
 
                 var init = function () {
                     $scope.components = {
-                        pokupatel: {
+                        nameZayavitel: {
                             componentType: componentTypes.input,
-                            componentInFileKey: 'pokupatel'
+                            componentInFileKey: 'name-zayavitel'
                         },
-                        addressPokupatel: {
+                        addressZayavitel: {
                             componentType: componentTypes.input,
-                            componentInFileKey: 'address-pokupatel'
+                            componentInFileKey: 'address-zayavitel'
                         },
                         pol: {
                             componentType: componentTypes.checkbox,
                             componentInFileKey: "pol"
-                        }                        
+                        },
+                        phoneZayavitel: {
+                            componentType: componentTypes.input,
+                            componentInFileKey: 'phone-zayavitel'
+                        }
                     };
 
                     componentsToDtoService.registerComponents($scope.components);
