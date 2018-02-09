@@ -3,10 +3,11 @@
     <la-wizard-step>
         <h3>Укажите срок годности (один из вариантов)</h3>
         <div class="row">
-            <div class="col-lg-5 col-md-6 col-xs-12">
+            <div class="col-lg-6 col-md-6 col-xs-12">
                 <div class="form-group" ng-repeat="option in potreblyamiiTovarInfo.options">
                     <la-radio ng-model="potreblyamiiTovarInfo.selectedOption"
-                              ng-value="option.value">
+                              ng-value="option.value"
+                              ng-change="checkSrokGodnosti()">
                         {{option.key}}
                     </la-radio>
                 </div>
@@ -15,12 +16,22 @@
                 </la-validate-expression>
             </div>
             <div class="col-lg-5 col-md-6 col-xs-12">
+                <div ng-if="potreblyamiiTovarInfo.selectedOption && potreblyamiiTovarInfo.selectedOption != 'date'"
+                     class="form-group form-group-lg">
+                    <label>Дата Изготовления Товара: </label>
+                    <input type="text"
+                           la-date
+                           la-date-no-future
+                           class="form-control"
+                           ng-model="potreblyamiiTovarInfo.dataTovara"
+                           ng-change="checkSrokGodnosti()"
+                           required>
+                </div>
                 <div class="form-group form-group-lg">
                     <div ng-if="potreblyamiiTovarInfo.selectedOption == 'date'">
                         <label>Годен до (Дата): </label>
                         <input type="text"
                                la-date
-                               la-date-no-past
                                class="form-control"
                                ng-model="potreblyamiiTovarInfo.data"
                                ng-change="checkSrokGodnosti()"
@@ -85,9 +96,8 @@
     <la-wizard-step ng-if="specSrokiInfo.showNedostatkiFlag">
         <h3>Давайте узнаем, можете ли Вы {{actionText}}</h3>
         <label>
-            Недостатки товара возникли по причинам, возникшим до передачи Вам товара?
-        </label>
-        <la-hint hint="'Данные обстоятельства поможет выявить экспертиза'"></la-hint>
+            Выявила ли экспертиза произодственный брак?
+        </label>        
         <la-radio-yes-no class="form-group"
                          ng-model="specSrokiInfo.nedostatkiFlag"
                          ng-change="checkSroki()">

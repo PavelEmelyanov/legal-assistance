@@ -42,6 +42,10 @@
                             {
                                 key: 'Срок годности в сутках',
                                 value: 'day'
+                            },                            
+                            {
+                                key: 'Срок годности не установлен',
+                                value: 'none'
                             }
                         ]
                     }
@@ -84,15 +88,22 @@
                 //Срок годности логика
                 //----
                 $scope.checkSrokGodnosti = function () {
-                    if ($scope.potreblyamiiTovarInfo.selectedOption) {
-                        var dataPokupki = $scope.dataPokupki,
-                            docDate = $scope.docDate,
-                            date = $scope.potreblyamiiTovarInfo.data,
-                            sutki = $scope.potreblyamiiTovarInfo.sutki,
-                            months = $scope.potreblyamiiTovarInfo.months,
-                            key = $scope.potreblyamiiTovarInfo.selectedOption;
+                    var dataTovara = $scope.potreblyamiiTovarInfo.dataTovara,
+                        docDate = $scope.docDate,
+                        date = $scope.potreblyamiiTovarInfo.data,
+                        sutki = $scope.potreblyamiiTovarInfo.sutki,
+                        months = $scope.potreblyamiiTovarInfo.months,
+                        key = $scope.potreblyamiiTovarInfo.selectedOption;
 
+                    var validToCheck = key &&
+                        ((key == 'date' && docDate && date)
+                        || (key == 'month' && dataTovara && months)
+                        || (key == 'day' && dataTovara && sutki)
+                        || key == 'none' && dataTovara);
+
+                    if (validToCheck) {                        
                         if (key == 'date') {
+                            //Установлена дата годности товара
                             if (date >= docDate) {
                                 setSuccessResult(srokCases.yesGodnostData, angular.utils.toDate(date))
                             }
@@ -101,8 +112,23 @@
                                     .format(angular.utils.toDate(date), angular.utils.toDate(docDate));
                                 setErrorResult(errorMessage);
                             }
+                        } else if (key == 'none') {
+                            //Срок годности не установлен
+                            //Проверяем 2 года
+                            var lastDate = angular.copy(dataTovara);
+                            lastDate.addMonths(24);
+
+                            if (docDate < lastDate) {
+                                setSuccessResult(srokCases.defaultGodnost);
+                            }
+                            else {
+                                var errorMessage = "установленный законом срок годности 2 года (годен до {0}) истечёт на момент подачи заявления {1}"
+                                    .format(angular.utils.toDate(lastDate), angular.utils.toDate(docDate));
+                                setErrorResult(errorMessage);
+                            }
                         } else {
-                            var lastDate = angular.copy(dataPokupki);
+                            //Срок годности установлен в месяцах или днях
+                            var lastDate = angular.copy(dataTovara);
                             var srokString;
 
                             //Добавить месяцы
@@ -113,8 +139,8 @@
                                 //Добавить сутки
                                 lastDate.addDays(sutki);
                                 srokString = angular.utils.toSutki(sutki);
-                            }                            
-                            
+                            }
+
                             if (docDate < lastDate) {
                                 setSuccessResult(srokCases.yesGodnost, srokString);
                             }
@@ -341,17 +367,18 @@
 
                 function initSrokCases() {
                     var yesMessage = 'На данный товар установлен {0}.';
-                    var defaultMessage = 'На данный товар не установлен {0}'                    
+                    var defaultMessage = 'На данный товар не установлен {0}';                    
 
                     srokCases = {
-                        yesGarant: yesMessage.format('гарантийный срок {0}'),
+                        yesGarant: yesMessage.format('гарантийный срок {0} и на момент подачи заявления он действует'),
                         defaultGarant: defaultMessage.format('гарантийный срок') + ', однако в силу ст. 19 п.1 Закона РФ «О защите прав потребителей» я могу обратиться за защитой прав в течении 2 лет со дня получения товара.',
                         yesGarantWithFlag: yesMessage.format('гарантийный срок {0}') + ' Однако недостатки товара возникли по причинам, возникшим до передачи товара покупателю и в соответствии со ст.19 п.5 Закона РФ «О защите прав потребителей» я могу обратиться за защитой прав в течении 2 лет со дня получения товара.',
 
-                        yesGodnost: 'На данный товар установлен срок годности {0}.',
+                        yesGodnost: yesMessage.format('срок годности {0} и на момент подачи заявления он не истёк'),
                         yesGodnostData: 'Данный товар годен до {0}.',
+                        defaultGodnost: defaultMessage.format('срок годности') + ', однако в силу ст. 19 п.1 Закона РФ «О защите прав потребителей» я могу обратиться за защитой прав в течении 2 лет со дня получения товара.',
 
-                        yesSluzhba: yesMessage.format('срок службы {0}'),
+                        yesSluzhba: yesMessage.format('срок службы {0} и на момент подачи заявления он действует'),
                         defaultSluzhba: defaultMessage.format('срок службы') + ', однако в силу ст.19 п.6 Закона РФ «О защите прав потребителей» я могу обратиться за защитой прав в течении 10 лет со дня получения товара.'
                     }
                 }
